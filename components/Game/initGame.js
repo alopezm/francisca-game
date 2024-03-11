@@ -6,20 +6,53 @@ class GameConfig {
   static buildingWidth = 40;
   static buildingHeight = 40;
   static buildings = [
-    { quantity: 4, setXY: { x: 300, y: 140, stepY: GameConfig.buildingHeight } },
-    { quantity: 3, setXY: { x: 500, y: 520, stepY: GameConfig.buildingHeight } },
+    {
+      quantity: 4,
+      setXY: { x: 300, y: 140, stepY: GameConfig.buildingHeight },
+    },
+    {
+      quantity: 3,
+      setXY: { x: 500, y: 520, stepY: GameConfig.buildingHeight },
+    },
     { quantity: 6, setXY: { x: 600, y: 0, stepY: GameConfig.buildingHeight } },
-    { quantity: 10, setXY: { x: 0, y: 20, stepX: GameConfig.buildingWidth } },
+    { quantity: 21, setXY: { x: 0, y: 20, stepX: GameConfig.buildingWidth } },
     { quantity: 3, setXY: { x: 20, y: 150, stepX: GameConfig.buildingWidth } },
     { quantity: 15, setXY: { x: 90, y: 300, stepX: GameConfig.buildingWidth } },
-    { quantity: 12, setXY: { x: 130, y: 480, stepX: GameConfig.buildingWidth } },
-    { quantity: 13, setXY: { x: 500, y: 600, stepX: GameConfig.buildingWidth } },
-    { quantity: 12, setXY: { x: 0, y: 780, stepX: GameConfig.buildingWidth } },
+    {
+      quantity: 12,
+      setXY: { x: 130, y: 480, stepX: GameConfig.buildingWidth },
+    },
+    {
+      quantity: 13,
+      setXY: { x: 500, y: 600, stepX: GameConfig.buildingWidth },
+    },
+    { quantity: 21, setXY: { x: 0, y: 780, stepX: GameConfig.buildingWidth } },
   ];
   static stars = [
-    { setXY: { x: 60, y: 80 } },
-    { setXY: { x: 760, y: 40 } },
-    { setXY: { x: 560, y: 540 } },
+    {
+      setXY: { x: 60, y: 80 },
+      data: {
+        img: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/Panor%C3%A1mica_Oto%C3%B1o_Alc%C3%A1zar_de_Segovia.jpg/1280px-Panor%C3%A1mica_Oto%C3%B1o_Alc%C3%A1zar_de_Segovia.jpg",
+        description: "Lorem Ipsum 1",
+        title: "Lorem Ipsum 1",
+      },
+    },
+    {
+      setXY: { x: 760, y: 80 },
+      data: {
+        img: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Windsor_Castle_at_Sunset_-_Nov_2006.jpg/1280px-Windsor_Castle_at_Sunset_-_Nov_2006.jpg",
+        description: "Lorem Ipsum 2",
+        title: "Lorem Ipsum 2",
+      },
+    },
+    {
+      setXY: { x: 560, y: 540 },
+      data: {
+        img: "https://upload.wikimedia.org/wikipedia/commons/9/9f/Chateau_de_Montsoreau_Museum_of_contemporary_art.jpg",
+        description: "Lorem Ipsum 3",
+        title: "Lorem Ipsum 3",
+      },
+    },
   ];
 }
 
@@ -28,6 +61,8 @@ class Scene1 extends Scene {
   cursors;
   player;
   buildings;
+
+  static setModalData = () => {};
 
   preload() {
     this.load.image("building", "/assets/building-40x40.png");
@@ -40,7 +75,10 @@ class Scene1 extends Scene {
   }
 
   create() {
-    this.add.image(GameConfig.width / 2, GameConfig.height / 2, "floor");
+    this.add
+      .image(0, 0, "floor")
+      .setOrigin(0, 0)
+      .setDisplaySize(GameConfig.width, GameConfig.height);
 
     this.buildings = this.physics.add.staticGroup();
 
@@ -48,19 +86,20 @@ class Scene1 extends Scene {
       GameConfig.buildings.map((building) => ({ key: "building", ...building }))
     );
 
-    this.player = this.physics.add.sprite(100, 450, "dude");
+    this.player = this.physics.add.sprite(120, 80, "dude");
     this.player.setBounce(0.2);
     this.player.setCollideWorldBounds(true);
-    this.createPlayerAnimation()
+    this.createPlayerAnimation();
 
     this.physics.add.collider(this.player, this.buildings);
 
     this.cursors = this.input.keyboard.createCursorKeys();
 
     this.stars = this.physics.add.group({
-      collideWorldBounds: true,
+      createCallback: function (star) {
+        star.setName(this.getLength() - 1);
+      },
     });
-
     this.stars.createMultiple(
       GameConfig.stars.map((star) => ({ ...star, key: "star" }))
     );
@@ -96,6 +135,9 @@ class Scene1 extends Scene {
 
   collectStar(player, star) {
     star.disableBody(true, true);
+    const startData = GameConfig.stars[star.name]?.data;
+    console.log("description", startData);
+    Scene1.setModalData(startData);
   }
 
   createPlayerAnimation() {
@@ -121,9 +163,11 @@ class Scene1 extends Scene {
   }
 }
 
-export function initGame({ parent, width, height }) {
+export function initGame({ parent, width, height, setModalData }) {
   GameConfig.width = width;
   GameConfig.height = height;
+
+  Scene1.setModalData = setModalData;
 
   const game = new Game({
     type: Phaser.AUTO,

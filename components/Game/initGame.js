@@ -1,6 +1,6 @@
 import { Scene, Game } from "phaser";
 
-class GameConfig {
+export class GameConfig {
   static width = 0;
   static height = 0;
   static buildingWidth = 40;
@@ -12,21 +12,21 @@ class GameConfig {
     },
     {
       quantity: 3,
-      setXY: { x: 500, y: 520, stepY: GameConfig.buildingHeight },
+      setXY: { x: 480, y: 480, stepY: GameConfig.buildingHeight },
     },
     { quantity: 6, setXY: { x: 600, y: 0, stepY: GameConfig.buildingHeight } },
-    { quantity: 21, setXY: { x: 0, y: 20, stepX: GameConfig.buildingWidth } },
-    { quantity: 3, setXY: { x: 20, y: 150, stepX: GameConfig.buildingWidth } },
+    { quantity: 20, setXY: { x: 0, y: 0, stepX: GameConfig.buildingWidth } },
+    { quantity: 3, setXY: { x: 0, y: 150, stepX: GameConfig.buildingWidth } },
     { quantity: 15, setXY: { x: 90, y: 300, stepX: GameConfig.buildingWidth } },
     {
       quantity: 12,
       setXY: { x: 130, y: 480, stepX: GameConfig.buildingWidth },
     },
     {
-      quantity: 13,
-      setXY: { x: 500, y: 600, stepX: GameConfig.buildingWidth },
+      quantity: 8,
+      setXY: { x: 480, y: 600, stepX: GameConfig.buildingWidth },
     },
-    { quantity: 21, setXY: { x: 0, y: 780, stepX: GameConfig.buildingWidth } },
+    { quantity: 20, setXY: { x: 0, y: 760, stepX: GameConfig.buildingWidth } },
   ];
   static stars = [
     {
@@ -54,6 +54,15 @@ class GameConfig {
       },
     },
   ];
+
+  static isMovementPaused = false;
+  static pauseMovement() {
+    GameConfig.isMovementPaused = true;
+  }
+  static startMovement() {
+    GameConfig.isMovementPaused = false;
+  }
+  static openModal = () => {};
 }
 
 class Scene1 extends Scene {
@@ -62,11 +71,12 @@ class Scene1 extends Scene {
   player;
   buildings;
 
-  static setModalData = () => {};
-
   preload() {
     this.load.image("building", "/assets/building-40x40.png");
-    this.load.image("floor", "/assets/cobblestone-floor.png");
+    this.load.image("floor-1", "/assets/floor-1.png");
+    this.load.image("floor-2", "/assets/floor-2.png");
+    this.load.image("floor-3", "/assets/floor-3.png");
+    this.load.image("floor-4", "/assets/floor-4.png");
     this.load.image("star", "/assets/star-40x40.png");
     this.load.spritesheet("dude", "/assets/dude.png", {
       frameWidth: 32,
@@ -76,14 +86,29 @@ class Scene1 extends Scene {
 
   create() {
     this.add
-      .image(0, 0, "floor")
+      .image(0, 0, "floor-1")
+      .setOrigin(0, 0)
+      .setDisplaySize(GameConfig.width, GameConfig.height);
+    this.add
+      .image(GameConfig.width, 0, "floor-2")
+      .setOrigin(0, 0)
+      .setDisplaySize(GameConfig.width, GameConfig.height);
+    this.add
+      .image(0, GameConfig.height, "floor-3")
+      .setOrigin(0, 0)
+      .setDisplaySize(GameConfig.width, GameConfig.height);
+    this.add
+      .image(GameConfig.width, GameConfig.height, "floor-4")
       .setOrigin(0, 0)
       .setDisplaySize(GameConfig.width, GameConfig.height);
 
     this.buildings = this.physics.add.staticGroup();
-
     this.buildings.createMultiple(
-      GameConfig.buildings.map((building) => ({ key: "building", ...building }))
+      GameConfig.buildings.map((building) => ({
+        key: "building",
+        setOrigin: { x: 0, y: 0 },
+        ...building,
+      }))
     );
 
     this.player = this.physics.add.sprite(120, 80, "dude");
@@ -101,7 +126,11 @@ class Scene1 extends Scene {
       },
     });
     this.stars.createMultiple(
-      GameConfig.stars.map((star) => ({ ...star, key: "star" }))
+      GameConfig.stars.map((star) => ({
+        key: "star",
+        setOrigin: { x: 0, y: 0 },
+        ...star,
+      }))
     );
     this.physics.add.overlap(
       this.player,
@@ -110,9 +139,19 @@ class Scene1 extends Scene {
       null,
       this
     );
+
+    this.cameras.main.setSize(GameConfig.width, GameConfig.height).setZoom(1);
+    this.cameras.main.startFollow(this.player);
   }
 
   update() {
+    if (GameConfig.isMovementPaused) {
+      this.player.setVelocityX(0);
+      this.player.setVelocityY(0);
+      this.player.anims.play("turn", true);
+      return;
+    }
+
     if (this.cursors.left.isDown) {
       this.player.setVelocityX(-160);
       this.player.anims.play("left", true);
@@ -135,9 +174,7 @@ class Scene1 extends Scene {
 
   collectStar(player, star) {
     star.disableBody(true, true);
-    const startData = GameConfig.stars[star.name]?.data;
-    console.log("description", startData);
-    Scene1.setModalData(startData);
+    GameConfig.openModal(star.name);
   }
 
   createPlayerAnimation() {
@@ -163,19 +200,15 @@ class Scene1 extends Scene {
   }
 }
 
-export function initGame({ parent, width, height, setModalData }) {
-  GameConfig.width = width;
-  GameConfig.height = height;
-
-  Scene1.setModalData = setModalData;
-
+export function initGame({ parent }) {
   const game = new Game({
-    type: Phaser.AUTO,
     parent,
-    width,
-    height,
+    type: Phaser.AUTO,
+    width: GameConfig.width * 2,
+    height: GameConfig.height * 2,
     scene: Scene1,
     physics: { default: "arcade" },
   });
+
   return game;
 }

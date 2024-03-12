@@ -1,25 +1,33 @@
 import { useRef, useState, useEffect, useCallback } from "react";
-import { initGame } from "@/components/Game/initGame";
-import "./modal.css"
+import { GameConfig, initGame } from "@/components/Game/initGame";
+import "./game.css"
 
 export default function Game() {
   const parentEl = useRef(null);
   const [game, setGame] = useState(null);
   const [modalData, setModalData] = useState()
 
-  const onClose = useCallback(() => {
+  const openModal = useCallback((startId) => {
+    const startData = GameConfig.stars[startId]?.data;
+    if (!startData) return
+
+    GameConfig.pauseMovement();
+    setModalData(startData);
+  }, []);
+
+  const onCloseModal = useCallback(() => {
+    GameConfig.startMovement()
     setModalData()
   }, [])
 
   useEffect(() => {
     if (!parentEl.current) return;
 
-    const newGame = initGame({
-      parent: parentEl.current,
-      width: parentEl.current.offsetWidth,
-      height: parentEl.current.offsetHeight,
-      setModalData,
-    });
+    GameConfig.openModal = openModal;
+    GameConfig.width = parentEl.current.offsetWidth;
+    GameConfig.height = parentEl.current.offsetHeight;
+
+    const newGame = initGame({parent: parentEl.current});
 
     setGame(newGame);
 
@@ -31,6 +39,7 @@ export default function Game() {
   return (
     <>
       <div ref={parentEl} className="w-[800px] h-[800px]" />
+
       {!!modalData && (
         <div className="modal">
           <div className="modal-content">
@@ -40,11 +49,12 @@ export default function Game() {
                 className="modal-img"
                 src={modalData.img}
                 alt={modalData.title}
+                height="300"
               />
 
               <p className="modal-text">{modalData.description}</p>
             </div>
-            <button className="block" onClick={onClose}>
+            <button className="block" onClick={onCloseModal}>
               Cerrar
             </button>
           </div>

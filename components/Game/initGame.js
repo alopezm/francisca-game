@@ -3,30 +3,38 @@ import { Scene, Game } from "phaser";
 export class GameConfig {
   static width = 0;
   static height = 0;
-  static buildingWidth = 40;
-  static buildingHeight = 40;
+  static buildingWidth = 60;
+  static buildingHeight = 60;
   static buildings = [
     {
-      quantity: 4,
-      setXY: { x: 300, y: 140, stepY: GameConfig.buildingHeight },
-    },
-    {
-      quantity: 3,
-      setXY: { x: 480, y: 480, stepY: GameConfig.buildingHeight },
-    },
-    { quantity: 6, setXY: { x: 600, y: 0, stepY: GameConfig.buildingHeight } },
-    { quantity: 20, setXY: { x: 0, y: 0, stepX: GameConfig.buildingWidth } },
-    { quantity: 3, setXY: { x: 0, y: 150, stepX: GameConfig.buildingWidth } },
-    { quantity: 15, setXY: { x: 90, y: 300, stepX: GameConfig.buildingWidth } },
-    {
-      quantity: 12,
-      setXY: { x: 130, y: 480, stepX: GameConfig.buildingWidth },
-    },
-    {
       quantity: 8,
-      setXY: { x: 480, y: 600, stepX: GameConfig.buildingWidth },
+      setXY: { x: 0, y: 140, stepY: GameConfig.buildingHeight },
     },
-    { quantity: 20, setXY: { x: 0, y: 760, stepX: GameConfig.buildingWidth } },
+    {
+      quantity: 5,
+      setXY: { x: 0, y: 480, stepY: GameConfig.buildingHeight },
+    },
+    { quantity: 12, setXY: { x: 0, y: 760, stepY: GameConfig.buildingHeight } },
+    { quantity: 7, setXY: { x: 760, y: 140, stepY: GameConfig.buildingHeigth } },
+    { quantity: 4, setXY: { x: 0, y: 150, stepY: GameConfig.buildingHeigth } },
+    { quantity: 10, setXY: { x: 760, y: 760, stepY: GameConfig.buildingHeigth } },
+    {
+      quantity: 15,
+      setXY: { x: 120, y: 0, stepX: GameConfig.buildingWidth },
+    },
+    {
+      quantity: 18,
+      setXY: { x: 320, y: 0, stepX: GameConfig.buildingWidth },
+    },
+    { quantity: 20, setXY: { x: 520, y: 0, stepX: GameConfig.buildingWidth } },
+    { quantity: 10, setXY: { x: 120, y: 760, stepX: GameConfig.buildingWidth } },
+    { quantity: 15, setXY: { x: 320, y: 760, stepX: GameConfig.buildingWidth } },
+    { quantity: 12, setXY: { x: 520, y: 760, stepX: GameConfig.buildingWidth } },
+    { quantity: 3, setXY: { x: 200, y: 200, stepY: GameConfig.buildingHeight } },
+    { quantity: 2, setXY: { x: 440, y: 440, stepY: GameConfig.buildingHeight } },
+    { quantity: 4, setXY: { x: 640, y: 520, stepY: GameConfig.buildingHeight } },
+    { quantity: 1, setXY: { x: 160, y: 320, stepX: GameConfig.buildingWidth } },
+    { quantity: 1, setXY: { x: 600, y: 320, stepX: GameConfig.buildingWidth } },
   ];
   static stars = [
     {
@@ -78,7 +86,7 @@ class Scene1 extends Scene {
     this.load.image("floor-3", "/assets/floor-3.png");
     this.load.image("floor-4", "/assets/floor-4.png");
     this.load.image("star", "/assets/star-40x40.png");
-    this.load.spritesheet("dude", "/assets/dude.png", {
+    this.load.spritesheet("character", "/assets/minibenji.png", {
       frameWidth: 32,
       frameHeight: 48,
     });
@@ -111,7 +119,7 @@ class Scene1 extends Scene {
       }))
     );
 
-    this.player = this.physics.add.sprite(120, 80, "dude");
+    this.player = this.physics.add.sprite(120, 80, "character");
     this.player.setBounce(0.2);
     this.player.setCollideWorldBounds(true);
     this.createPlayerAnimation();
@@ -140,8 +148,9 @@ class Scene1 extends Scene {
       this
     );
 
-    this.cameras.main.setSize(GameConfig.width, GameConfig.height).setZoom(1);
-    this.cameras.main.startFollow(this.player);
+    // TODO: Revert to enable camera and increase zoom
+    //this.cameras.main.setSize(GameConfig.width, GameConfig.height).setZoom(1);
+    //this.cameras.main.startFollow(this.player);
   }
 
   update() {
@@ -180,20 +189,20 @@ class Scene1 extends Scene {
   createPlayerAnimation() {
     this.anims.create({
       key: "left",
-      frames: this.anims.generateFrameNumbers("dude", { start: 0, end: 3 }),
+      frames: this.anims.generateFrameNumbers("character", { start: 0, end: 3 }),
       frameRate: 10,
       repeat: -1,
     });
 
     this.anims.create({
       key: "turn",
-      frames: [{ key: "dude", frame: 4 }],
+      frames: [{ key: "character", frame: 4 }],
       frameRate: 20,
     });
 
     this.anims.create({
       key: "right",
-      frames: this.anims.generateFrameNumbers("dude", { start: 5, end: 8 }),
+      frames: this.anims.generateFrameNumbers("character", { start: 5, end: 8 }),
       frameRate: 10,
       repeat: -1,
     });

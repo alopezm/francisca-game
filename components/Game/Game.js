@@ -1,24 +1,24 @@
 import { useRef, useState, useEffect, useCallback } from "react";
+import "./game.css";
 import { GameConfig, initGame } from "@/components/Game/initGame";
-import "./game.css"
+import { COLLECTABLES } from "./configs/collectables";
 
 export default function Game() {
   const parentEl = useRef(null);
-  const [game, setGame] = useState(null);
-  const [modalData, setModalData] = useState()
+  const [modalData, setModalData] = useState();
 
-  const openModal = useCallback((startId) => {
-    const startData = GameConfig.stars[startId]?.data;
-    if (!startData) return
+  const openModal = useCallback((index) => {
+    const data = COLLECTABLES[index]?.data;
+    if (!data) return;
 
     GameConfig.pauseMovement();
-    setModalData(startData);
+    setModalData(data);
   }, []);
 
   const onCloseModal = useCallback(() => {
-    GameConfig.startMovement()
-    setModalData()
-  }, [])
+    GameConfig.startMovement();
+    setModalData();
+  }, []);
 
   useEffect(() => {
     if (!parentEl.current) return;
@@ -27,12 +27,10 @@ export default function Game() {
     GameConfig.width = parentEl.current.offsetWidth;
     GameConfig.height = parentEl.current.offsetHeight;
 
-    const newGame = initGame({parent: parentEl.current});
-
-    setGame(newGame);
+    const game = initGame({ parent: parentEl.current });
 
     return () => {
-      newGame?.destroy(true, true);
+      game?.destroy(true, true);
     };
   }, []);
 

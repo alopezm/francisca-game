@@ -1,67 +1,11 @@
 import { Scene, Game } from "phaser";
+import { BUILDINGS } from "./configs/buildings";
+import { COLLECTABLES } from "./configs/collectables";
+import { uniq } from "@/utils/uniq";
 
 export class GameConfig {
   static width = 0;
   static height = 0;
-  static buildingWidth = 60;
-  static buildingHeight = 60;
-  static buildings = [
-    {
-      quantity: 8,
-      setXY: { x: 0, y: 140, stepY: GameConfig.buildingHeight },
-    },
-    {
-      quantity: 5,
-      setXY: { x: 0, y: 480, stepY: GameConfig.buildingHeight },
-    },
-    { quantity: 12, setXY: { x: 0, y: 760, stepY: GameConfig.buildingHeight } },
-    { quantity: 7, setXY: { x: 760, y: 140, stepY: GameConfig.buildingHeigth } },
-    { quantity: 4, setXY: { x: 0, y: 150, stepY: GameConfig.buildingHeigth } },
-    { quantity: 10, setXY: { x: 760, y: 760, stepY: GameConfig.buildingHeigth } },
-    {
-      quantity: 15,
-      setXY: { x: 120, y: 0, stepX: GameConfig.buildingWidth },
-    },
-    {
-      quantity: 18,
-      setXY: { x: 320, y: 0, stepX: GameConfig.buildingWidth },
-    },
-    { quantity: 20, setXY: { x: 520, y: 0, stepX: GameConfig.buildingWidth } },
-    { quantity: 10, setXY: { x: 120, y: 760, stepX: GameConfig.buildingWidth } },
-    { quantity: 15, setXY: { x: 320, y: 760, stepX: GameConfig.buildingWidth } },
-    { quantity: 12, setXY: { x: 520, y: 760, stepX: GameConfig.buildingWidth } },
-    { quantity: 3, setXY: { x: 200, y: 200, stepY: GameConfig.buildingHeight } },
-    { quantity: 2, setXY: { x: 440, y: 440, stepY: GameConfig.buildingHeight } },
-    { quantity: 4, setXY: { x: 640, y: 520, stepY: GameConfig.buildingHeight } },
-    { quantity: 1, setXY: { x: 160, y: 320, stepX: GameConfig.buildingWidth } },
-    { quantity: 1, setXY: { x: 600, y: 320, stepX: GameConfig.buildingWidth } },
-  ];
-  static stars = [
-    {
-      setXY: { x: 60, y: 80 },
-      data: {
-        img: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/Panor%C3%A1mica_Oto%C3%B1o_Alc%C3%A1zar_de_Segovia.jpg/1280px-Panor%C3%A1mica_Oto%C3%B1o_Alc%C3%A1zar_de_Segovia.jpg",
-        description: "Lorem Ipsum 1",
-        title: "Lorem Ipsum 1",
-      },
-    },
-    {
-      setXY: { x: 760, y: 80 },
-      data: {
-        img: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Windsor_Castle_at_Sunset_-_Nov_2006.jpg/1280px-Windsor_Castle_at_Sunset_-_Nov_2006.jpg",
-        description: "Lorem Ipsum 2",
-        title: "Lorem Ipsum 2",
-      },
-    },
-    {
-      setXY: { x: 560, y: 540 },
-      data: {
-        img: "https://upload.wikimedia.org/wikipedia/commons/9/9f/Chateau_de_Montsoreau_Museum_of_contemporary_art.jpg",
-        description: "Lorem Ipsum 3",
-        title: "Lorem Ipsum 3",
-      },
-    },
-  ];
 
   static isMovementPaused = false;
   static pauseMovement() {
@@ -80,16 +24,21 @@ class Scene1 extends Scene {
   buildings;
 
   preload() {
-    this.load.image("building", "/assets/building-40x40.png");
     this.load.image("floor-1", "/assets/floor-1.png");
     this.load.image("floor-2", "/assets/floor-2.png");
     this.load.image("floor-3", "/assets/floor-3.png");
     this.load.image("floor-4", "/assets/floor-4.png");
-    this.load.image("star", "/assets/star-40x40.png");
+
     this.load.spritesheet("character", "/assets/minibenji.png", {
       frameWidth: 32,
       frameHeight: 48,
     });
+
+    const uniqKeys = [
+      ...uniq(BUILDINGS.map(({ key }) => key)),
+      ...uniq(COLLECTABLES.map(({ key }) => key)),
+    ];
+    uniqKeys.forEach((key) => this.load.image(key, key));
   }
 
   create() {
@@ -112,11 +61,9 @@ class Scene1 extends Scene {
 
     this.buildings = this.physics.add.staticGroup();
     this.buildings.createMultiple(
-      GameConfig.buildings.map((building) => ({
-        key: "building",
-        setOrigin: { x: 0, y: 0 },
-        ...building,
-      }))
+      BUILDINGS.flatMap(({ key, items }) =>
+        items.map((item) => ({ key, setOrigin: { x: 0, y: 0 }, ...item }))
+      )
     );
 
     this.player = this.physics.add.sprite(120, 80, "character");
@@ -128,22 +75,33 @@ class Scene1 extends Scene {
 
     this.cursors = this.input.keyboard.createCursorKeys();
 
-    this.stars = this.physics.add.group({
-      createCallback: function (star) {
-        star.setName(this.getLength() - 1);
+    this.collectables = this.physics.add.group({
+      createCallback: function (item) {
+        item.setName(this.getLength() - 1);
       },
     });
-    this.stars.createMultiple(
-      GameConfig.stars.map((star) => ({
-        key: "star",
-        setOrigin: { x: 0, y: 0 },
-        ...star,
-      }))
+    this.collectables.createMultiple(
+      COLLECTABLES.map((item) => ({ setOrigin: { x: 0, y: 0 }, ...item }))
     );
+
+    // Add glow animation to the collectables
+    this.collectables.getChildren().forEach((item) => {
+      item.preFX.setPadding(0.5);
+      const fx = item.preFX.addGlow();
+      this.tweens.add({
+        targets: fx,
+        outerStrength: 0.1,
+        yoyo: true,
+        loop: -1,
+        duration: 3000,
+        ease: "Sine.easeInOut",
+      });
+    });
+
     this.physics.add.overlap(
       this.player,
-      this.stars,
-      this.collectStar,
+      this.collectables,
+      this.removeCollectable,
       null,
       this
     );
@@ -181,15 +139,18 @@ class Scene1 extends Scene {
     }
   }
 
-  collectStar(player, star) {
-    star.disableBody(true, true);
-    GameConfig.openModal(star.name);
+  removeCollectable(player, item) {
+    item.disableBody(true, true);
+    GameConfig.openModal(item.name);
   }
 
   createPlayerAnimation() {
     this.anims.create({
       key: "left",
-      frames: this.anims.generateFrameNumbers("character", { start: 0, end: 3 }),
+      frames: this.anims.generateFrameNumbers("character", {
+        start: 0,
+        end: 3,
+      }),
       frameRate: 10,
       repeat: -1,
     });
@@ -202,7 +163,10 @@ class Scene1 extends Scene {
 
     this.anims.create({
       key: "right",
-      frames: this.anims.generateFrameNumbers("character", { start: 5, end: 8 }),
+      frames: this.anims.generateFrameNumbers("character", {
+        start: 5,
+        end: 8,
+      }),
       frameRate: 10,
       repeat: -1,
     });

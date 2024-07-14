@@ -21,8 +21,8 @@ export class BerlinScene extends Scene {
     this.load.image("floor-4", "/assets/floor-4.png");
 
     this.load.spritesheet("character", "/assets/minibenji.png", {
-      frameWidth: 32,
-      frameHeight: 48,
+      frameWidth: 64,
+      frameHeight: 77,
     });
 
     const uniqKeys = [

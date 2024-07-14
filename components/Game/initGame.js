@@ -1,7 +1,7 @@
 import { Game } from "phaser";
 import { GameConfig } from "@/components/Game/GameConfig";
 import { IntroScene } from "@/components/Game/scenes/IntroScene";
-import { BerlinScene } from "@/components/Game/scenes/BerlinScene/BerlinScene";
+import { BerlinScene } from "@/components/Game/scenes/BerlinScene";
 
 export function initGame({ parent }) {
   const game = new Game({

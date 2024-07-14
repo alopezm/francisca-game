@@ -1,7 +1,7 @@
 import { useRef, useState, useEffect, useCallback } from "react";
 import "./game.css";
 import { initGame } from "./initGame";
-import { GameConfig } from "./scenes/BerlinScene/configs/GameConfig";
+import { GameConfig } from "./GameConfig";
 import { COLLECTABLES } from "./scenes/BerlinScene/BerlinScene.collectables";
 
 export default function Game() {

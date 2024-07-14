@@ -1,8 +1,8 @@
 import { Scene } from "phaser";
 import { uniq } from "@/utils/uniq";
-import { GameConfig } from "@/components/Game/GameConfig";
-import { BUILDINGS } from "@/components/Game/configs/buildings";
-import { COLLECTABLES } from "@/components/Game/configs/collectables";
+import { GameConfig } from "../../GameConfig";
+import { BUILDINGS } from "../../configs/buildings";
+import { COLLECTABLES } from "../../configs/collectables";
 
 export class BerlinScene extends Scene {
   buildings;

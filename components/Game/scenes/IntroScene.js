@@ -1,5 +1,5 @@
 import { Scene } from "phaser";
-import { GameConfig } from "@/components/Game/GameConfig";
+import { GameConfig } from "../GameConfig";
 
 const MESSAGES = [
   "Bienvenido, presiona cualquier tecla para comenzar",

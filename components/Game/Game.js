@@ -1,8 +1,8 @@
 import { useRef, useState, useEffect, useCallback } from "react";
 import "./game.css";
-import { initGame } from "@/components/Game/initGame";
-import { GameConfig } from "@/components/Game/GameConfig";
-import { COLLECTABLES } from "@/components/Game/configs/collectables";
+import { initGame } from "./initGame";
+import { GameConfig } from "./configs/GameConfig";
+import { COLLECTABLES } from "./configs/collectables";
 
 export default function Game() {
   const parentEl = useRef(null);

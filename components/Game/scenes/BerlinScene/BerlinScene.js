@@ -3,10 +3,12 @@ import { uniq } from "@/utils/uniq";
 import { GameConfig } from "../../GameConfig";
 import { BUILDINGS } from "./BerlinScene.buildings";
 import { COLLECTABLES } from "./BerlinScene.collectables";
+import { ENEMIES } from "./BerlinScene.enemies";
 
 export class BerlinScene extends Scene {
-  cursors;
+  enemy;
   player;
+  cursors;
   buildings;
 
   constructor() {
@@ -22,6 +24,13 @@ export class BerlinScene extends Scene {
     this.load.spritesheet("character", "/assets/minibenji.png", {
       frameWidth: 64,
       frameHeight: 77,
+    });
+
+    ENEMIES.forEach((enemy) => {
+      this.load.spritesheet(enemy.key, enemy.key, {
+        frameWidth: enemy.frameWidth,
+        frameHeight: enemy.frameHeight,
+      });
     });
 
     const uniqKeys = [
@@ -56,12 +65,27 @@ export class BerlinScene extends Scene {
       )
     );
 
-    this.player = this.physics.add.sprite(GameConfig.width, GameConfig.height, "character");
+    this.player = this.physics.add.sprite(
+      GameConfig.width,
+      GameConfig.height,
+      "character"
+    );
     this.player.setBounce(0.2);
     this.player.setCollideWorldBounds(true);
     this.createPlayerAnimation();
 
-    this.physics.add.collider(this.player, this.buildings);
+    // TODO: add more enemies
+    this.enemy = this.physics.add.sprite(
+      GameConfig.width + 120,
+      GameConfig.height,
+      ENEMIES[0].key
+    );
+    // grey filter for the enemy
+    this.enemy.setTint(0x787878);
+    this.createEnemyAnimation();
+    this.physics.add.collider(this.player, this.enemy, () => {
+      this.scene.start("game-over-scene");
+    });
 
     this.cursors = this.input.keyboard.createCursorKeys();
 
@@ -108,6 +132,8 @@ export class BerlinScene extends Scene {
       this.player.anims.play("turn", true);
       return;
     }
+
+    this.enemy.anims.play("enemy", true);
 
     if (this.cursors.left.isDown) {
       this.player.setVelocityX(-160);
@@ -158,6 +184,18 @@ export class BerlinScene extends Scene {
         end: 8,
       }),
       frameRate: 10,
+      repeat: -1,
+    });
+  }
+
+  createEnemyAnimation() {
+    this.anims.create({
+      key: "enemy",
+      frames: this.anims.generateFrameNumbers(ENEMIES[0].key, {
+        start: 0,
+        end: 3,
+      }),
+      frameRate: 1,
       repeat: -1,
     });
   }

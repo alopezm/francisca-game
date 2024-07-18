@@ -23,10 +23,6 @@ export const BUILDINGS = [
         setXY: { x: 0, y: 150, stepY: 59 },
       },
       {
-        quantity: 10,
-        setXY: { x: 760, y: 760, stepY: 59 },
-      },
-      {
         quantity: 15,
         setXY: { x: 120, y: 0, stepX: 60 },
       },
@@ -41,14 +37,6 @@ export const BUILDINGS = [
       {
         quantity: 10,
         setXY: { x: 120, y: 760, stepX: 60 },
-      },
-      {
-        quantity: 15,
-        setXY: { x: 320, y: 760, stepX: 60 },
-      },
-      {
-        quantity: 12,
-        setXY: { x: 520, y: 760, stepX: 60 },
       },
       {
         quantity: 3,

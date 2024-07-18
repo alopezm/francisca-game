@@ -5,7 +5,6 @@ import { BUILDINGS } from "./BerlinScene.buildings";
 import { COLLECTABLES } from "./BerlinScene.collectables";
 
 export class BerlinScene extends Scene {
-  buildings;
   cursors;
   player;
   buildings;
@@ -57,7 +56,7 @@ export class BerlinScene extends Scene {
       )
     );
 
-    this.player = this.physics.add.sprite(420, 380, "character");
+    this.player = this.physics.add.sprite(GameConfig.width, GameConfig.height, "character");
     this.player.setBounce(0.2);
     this.player.setCollideWorldBounds(true);
     this.createPlayerAnimation();
@@ -97,7 +96,8 @@ export class BerlinScene extends Scene {
       this
     );
 
-    this.cameras.main.setSize(GameConfig.width, GameConfig.height).setZoom(1);
+    // TODO: check why it is hiding the collectables
+    // this.cameras.main.setSize(GameConfig.width, GameConfig.height).setZoom(1);
     this.cameras.main.startFollow(this.player);
   }
 

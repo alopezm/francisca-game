@@ -5,9 +5,17 @@ import { BUILDINGS } from "./BerlinScene.buildings";
 import { COLLECTABLES } from "./BerlinScene.collectables";
 import { ENEMIES } from "./BerlinScene.enemies";
 
-const PLAYER_VELOCITY = 160;
+const PLAYER_VELOCITY = 190;
 const SCENE_WIDTH = GameConfig.WIDTH * 2;
 const SCENE_HEIGHT = GameConfig.HEIGHT * 2;
+
+const ENEMY_MOVEMENT = {
+  LEFT: "enemy-left",
+  UP: "enemy-up",
+  DOWN: "enemy-down",
+  RIGHT: "enemy-right",
+  STAND: "enemy-stand",
+};
 
 export class BerlinScene extends Scene {
   enemy;
@@ -30,11 +38,9 @@ export class BerlinScene extends Scene {
       frameHeight: 77,
     });
 
-    ENEMIES.forEach((enemy) => {
-      this.load.spritesheet(enemy.key, enemy.key, {
-        frameWidth: enemy.frameWidth,
-        frameHeight: enemy.frameHeight,
-      });
+    this.load.spritesheet("enemy", "/assets/enemy.png", {
+      frameWidth: 981 / 16,
+      frameHeight: 77,
     });
 
     const uniqKeys = [
@@ -70,12 +76,16 @@ export class BerlinScene extends Scene {
     this.player.setBounce(0.2);
     this.createPlayerAnimation();
 
-    // TODO: add more enemies
-    this.enemy = this.physics.add.sprite(600, 600, ENEMIES[0].key);
-    // grey filter for the enemy
-    this.enemy.setTint(0x787878);
+    this.enemies = this.physics.add.group();
+    ENEMIES.forEach((item) => {
+      const enemy = this.enemies.create(item.x, item.y, "enemy");
+      enemy.setBounce(1);
+      enemy.setCollideWorldBounds(true);
+      enemy.setVelocity(item.velocityX, item.velocityY);
+    });
+
     this.createEnemyAnimation();
-    this.physics.add.collider(this.player, this.enemy, () => {
+    this.physics.add.collider(this.player, this.enemies, () => {
       this.scene.start("game-over-scene");
     });
 
@@ -120,27 +130,56 @@ export class BerlinScene extends Scene {
   }
 
   update() {
-    let animationMovement = "stand";
+    this.animatePlayer();
+    this.animateEnemy();
+  }
+
+  animateEnemy() {
+    if (GameConfig.isMovementPaused) return;
+
+    this.enemies.getChildren().forEach((enemy) => {
+      const velocityX = enemy.body.velocity.x;
+      const velocityY = enemy.body.velocity.y;
+
+      if (velocityX === 0 && velocityY === 0) {
+        enemy.anims.play(ENEMY_MOVEMENT.STAND, true);
+        return;
+      }
+
+      if (velocityX > 0) {
+        enemy.anims.play(ENEMY_MOVEMENT.RIGHT, true);
+      } else if (velocityX < 0) {
+        enemy.anims.play(ENEMY_MOVEMENT.LEFT, true);
+      }
+
+      if (velocityY > 0) {
+        enemy.anims.play(ENEMY_MOVEMENT.UP, true);
+      } else if (velocityY < 0) {
+        enemy.anims.play(ENEMY_MOVEMENT.DOWN, true);
+      }
+    });
+  }
+
+  animatePlayer() {
+    let animationMovement = "player-stand";
     let velocityX = 0;
     let velocityY = 0;
 
     if (!GameConfig.isMovementPaused) {
-      this.enemy.anims.play("enemy", true);
-
       if (this.cursors.up.isDown) {
         velocityY = -PLAYER_VELOCITY;
-        animationMovement = "back";
+        animationMovement = "player-up";
       } else if (this.cursors.down.isDown) {
         velocityY = PLAYER_VELOCITY;
-        animationMovement = "front";
+        animationMovement = "player-down";
       }
 
       if (this.cursors.left.isDown) {
         velocityX = -PLAYER_VELOCITY;
-        animationMovement = "left";
+        animationMovement = "player-left";
       } else if (this.cursors.right.isDown) {
         velocityX = PLAYER_VELOCITY;
-        animationMovement = "right";
+        animationMovement = "player-right";
       }
     }
 
@@ -156,7 +195,7 @@ export class BerlinScene extends Scene {
 
   createPlayerAnimation() {
     this.anims.create({
-      key: "left",
+      key: "player-left",
       frames: this.anims.generateFrameNumbers("character", {
         start: 0,
         end: 3,
@@ -166,7 +205,7 @@ export class BerlinScene extends Scene {
     });
 
     this.anims.create({
-      key: "back",
+      key: "player-up",
       frames: this.anims.generateFrameNumbers("character", {
         start: 4,
         end: 7,
@@ -176,7 +215,7 @@ export class BerlinScene extends Scene {
     });
 
     this.anims.create({
-      key: "front",
+      key: "player-down",
       frames: this.anims.generateFrameNumbers("character", {
         start: 8,
         end: 11,
@@ -186,7 +225,7 @@ export class BerlinScene extends Scene {
     });
 
     this.anims.create({
-      key: "right",
+      key: "player-right",
       frames: this.anims.generateFrameNumbers("character", {
         start: 12,
         end: 15,
@@ -196,7 +235,7 @@ export class BerlinScene extends Scene {
     });
 
     this.anims.create({
-      key: "stand",
+      key: "player-stand",
       frames: [{ key: "character", frame: 8 }],
       frameRate: 20,
     });
@@ -204,13 +243,49 @@ export class BerlinScene extends Scene {
 
   createEnemyAnimation() {
     this.anims.create({
-      key: "enemy",
-      frames: this.anims.generateFrameNumbers(ENEMIES[0].key, {
+      key: ENEMY_MOVEMENT.LEFT,
+      frames: this.anims.generateFrameNumbers("enemy", {
         start: 0,
         end: 3,
       }),
-      frameRate: 3,
+      frameRate: 10,
       repeat: -1,
+    });
+
+    this.anims.create({
+      key: ENEMY_MOVEMENT.UP,
+      frames: this.anims.generateFrameNumbers("enemy", {
+        start: 4,
+        end: 7,
+      }),
+      frameRate: 10,
+      repeat: -1,
+    });
+
+    this.anims.create({
+      key: ENEMY_MOVEMENT.DOWN,
+      frames: this.anims.generateFrameNumbers("enemy", {
+        start: 8,
+        end: 11,
+      }),
+      frameRate: 10,
+      repeat: -1,
+    });
+
+    this.anims.create({
+      key: ENEMY_MOVEMENT.RIGHT,
+      frames: this.anims.generateFrameNumbers("enemy", {
+        start: 12,
+        end: 15,
+      }),
+      frameRate: 10,
+      repeat: -1,
+    });
+
+    this.anims.create({
+      key: ENEMY_MOVEMENT.STAND,
+      frames: [{ key: "enemy", frame: 4 }],
+      frameRate: 20,
     });
   }
 }

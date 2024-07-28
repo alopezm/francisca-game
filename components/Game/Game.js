@@ -37,7 +37,7 @@ export default function Game() {
 
   return (
     <>
-      <div ref={parentEl} className="w-[800px] h-[800px]" />
+      <div ref={parentEl} className="w-[600px] h-[600px]" />
 
       {!!modalData && (
         <div className="modal">

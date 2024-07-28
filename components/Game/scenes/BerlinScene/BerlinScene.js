@@ -41,22 +41,19 @@ export class BerlinScene extends Scene {
   }
 
   create() {
+    this.add.image(0, 0, "floor-1").setOrigin(0, 0).setDisplaySize(1024, 1024);
     this.add
-      .image(0, 0, "floor-1")
+      .image(1024, 0, "floor-2")
       .setOrigin(0, 0)
-      .setDisplaySize(GameConfig.width, GameConfig.height);
+      .setDisplaySize(1024, 1024);
     this.add
-      .image(GameConfig.width, 0, "floor-2")
+      .image(0, 1024, "floor-3")
       .setOrigin(0, 0)
-      .setDisplaySize(GameConfig.width, GameConfig.height);
+      .setDisplaySize(1024, 1024);
     this.add
-      .image(0, GameConfig.height, "floor-3")
+      .image(1024, 1024, "floor-4")
       .setOrigin(0, 0)
-      .setDisplaySize(GameConfig.width, GameConfig.height);
-    this.add
-      .image(GameConfig.width, GameConfig.height, "floor-4")
-      .setOrigin(0, 0)
-      .setDisplaySize(GameConfig.width, GameConfig.height);
+      .setDisplaySize(1024, 1024);
 
     this.buildings = this.physics.add.staticGroup();
     this.buildings.createMultiple(
@@ -65,21 +62,13 @@ export class BerlinScene extends Scene {
       )
     );
 
-    this.player = this.physics.add.sprite(
-      GameConfig.width,
-      GameConfig.height,
-      "character"
-    );
+    this.player = this.physics.add.sprite(600, 400, "character");
     this.player.setBounce(0.2);
     this.player.setCollideWorldBounds(true);
     this.createPlayerAnimation();
 
     // TODO: add more enemies
-    this.enemy = this.physics.add.sprite(
-      GameConfig.width + 120,
-      GameConfig.height,
-      ENEMIES[0].key
-    );
+    this.enemy = this.physics.add.sprite(600, 600, ENEMIES[0].key);
     // grey filter for the enemy
     this.enemy.setTint(0x787878);
     this.createEnemyAnimation();
@@ -120,8 +109,6 @@ export class BerlinScene extends Scene {
       this
     );
 
-    // TODO: check why it is hiding the collectables
-    // this.cameras.main.setSize(GameConfig.width, GameConfig.height).setZoom(1);
     this.cameras.main.startFollow(this.player);
   }
 

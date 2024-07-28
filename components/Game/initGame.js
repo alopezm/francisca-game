@@ -8,13 +8,18 @@ export function initGame({ parent }) {
   const game = new Game({
     parent,
     type: Phaser.AUTO,
-    width: GameConfig.width * 2,
-    height: GameConfig.height * 2,
     scene: [
       IntroScene,
       BerlinScene,
       GameOverScene,
     ],
+    scale: {
+      mode: Phaser.Scale.FIT,
+      parent: "phaser-example",
+      autoCenter: Phaser.Scale.CENTER_BOTH,
+      width: GameConfig.WIDTH,
+      height: GameConfig.HEIGHT,
+    },
     physics: { default: "arcade" },
   });
 

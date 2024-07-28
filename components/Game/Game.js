@@ -25,8 +25,6 @@ export default function Game() {
     if (!parentEl.current) return;
 
     GameConfig.openModal = openModal;
-    GameConfig.width = parentEl.current.offsetWidth;
-    GameConfig.height = parentEl.current.offsetHeight;
 
     const game = initGame({ parent: parentEl.current });
 
@@ -37,7 +35,7 @@ export default function Game() {
 
   return (
     <>
-      <div ref={parentEl} className="w-[600px] h-[600px]" />
+      <div ref={parentEl} />
 
       {!!modalData && (
         <div className="modal">

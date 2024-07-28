@@ -1,5 +1,4 @@
 import { Scene } from "phaser";
-import { GameConfig } from "../GameConfig";
 
 const MESSAGES = [
   "Bienvenido, presiona cualquier tecla para comenzar",
@@ -19,20 +18,23 @@ export class IntroScene extends Scene {
   }
 
   preload() {
-    this.load.image("benjamin", "/assets/benjamin.jpg");
+    this.load.image("benjamin", "/assets/benjamin.png")
   }
 
   create() {
-    this.add.image(0, 0, "benjamin").setOrigin(0, 0);
+    this.add
+      .image(0, 0, "benjamin")
+      .setOrigin(0, 0)
+      .setDisplaySize(790, 1200);
 
     let line = 0;
 
-    const text = this.add.text(GameConfig.width / 3, 50, MESSAGES[line], {
+    const text = this.add.text(850, 450, MESSAGES[line], {
       fontFamily: "Times New Roman",
-      fontSize: 30,
+      fontSize: 55,
     });
     text.setOrigin(0, 0);
-    text.setWordWrapWidth(500, false);
+    text.setWordWrapWidth(700, false);
 
     this.input.keyboard.on("keydown", () => {
       ++line;

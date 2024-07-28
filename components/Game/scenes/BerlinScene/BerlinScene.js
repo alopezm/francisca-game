@@ -5,6 +5,10 @@ import { BUILDINGS } from "./BerlinScene.buildings";
 import { COLLECTABLES } from "./BerlinScene.collectables";
 import { ENEMIES } from "./BerlinScene.enemies";
 
+const PLAYER_VELOCITY = 160;
+const SCENE_WIDTH = GameConfig.WIDTH * 2;
+const SCENE_HEIGHT = GameConfig.HEIGHT * 2;
+
 export class BerlinScene extends Scene {
   enemy;
   player;
@@ -62,9 +66,8 @@ export class BerlinScene extends Scene {
       )
     );
 
-    this.player = this.physics.add.sprite(600, 440, "character");
+    this.player = this.physics.add.sprite(600, 1800, "character");
     this.player.setBounce(0.2);
-    // this.player.setCollideWorldBounds(true);
     this.createPlayerAnimation();
 
     // TODO: add more enemies
@@ -110,8 +113,10 @@ export class BerlinScene extends Scene {
     );
 
     this.physics.add.collider(this.player, this.buildings);
-
     this.cameras.main.startFollow(this.player);
+    this.cameras.main.setBounds(0, 0, SCENE_WIDTH, SCENE_HEIGHT);
+    this.physics.world.setBounds(0, 0, SCENE_WIDTH, SCENE_HEIGHT);
+    this.player.setCollideWorldBounds(true);
   }
 
   update() {
@@ -123,18 +128,18 @@ export class BerlinScene extends Scene {
       this.enemy.anims.play("enemy", true);
 
       if (this.cursors.up.isDown) {
-        velocityY = -160;
+        velocityY = -PLAYER_VELOCITY;
         animationMovement = "back";
       } else if (this.cursors.down.isDown) {
-        velocityY = 160;
+        velocityY = PLAYER_VELOCITY;
         animationMovement = "front";
       }
 
       if (this.cursors.left.isDown) {
-        velocityX = -160;
+        velocityX = -PLAYER_VELOCITY;
         animationMovement = "left";
       } else if (this.cursors.right.isDown) {
-        velocityX = 160;
+        velocityX = PLAYER_VELOCITY;
         animationMovement = "right";
       }
     }

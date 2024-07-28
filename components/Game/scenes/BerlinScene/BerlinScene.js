@@ -22,7 +22,7 @@ export class BerlinScene extends Scene {
     this.load.image("floor-4", "/assets/floor-4.png");
 
     this.load.spritesheet("character", "/assets/minibenji.png", {
-      frameWidth: 64,
+      frameWidth: 63,
       frameHeight: 77,
     });
 
@@ -113,33 +113,33 @@ export class BerlinScene extends Scene {
   }
 
   update() {
-    if (GameConfig.isMovementPaused) {
-      this.player.setVelocityX(0);
-      this.player.setVelocityY(0);
-      this.player.anims.play("turn", true);
-      return;
+    let animationMovement = "stand";
+    let velocityX = 0;
+    let velocityY = 0;
+
+    if (!GameConfig.isMovementPaused) {
+      this.enemy.anims.play("enemy", true);
+
+      if (this.cursors.up.isDown) {
+        velocityY = -160;
+        animationMovement = "back";
+      } else if (this.cursors.down.isDown) {
+        velocityY = 160;
+        animationMovement = "front";
+      }
+
+      if (this.cursors.left.isDown) {
+        velocityX = -160;
+        animationMovement = "left";
+      } else if (this.cursors.right.isDown) {
+        velocityX = 160;
+        animationMovement = "right";
+      }
     }
 
-    this.enemy.anims.play("enemy", true);
-
-    if (this.cursors.left.isDown) {
-      this.player.setVelocityX(-160);
-      this.player.anims.play("left", true);
-    } else if (this.cursors.right.isDown) {
-      this.player.setVelocityX(160);
-      this.player.anims.play("right", true);
-    } else {
-      this.player.setVelocityX(0);
-      this.player.anims.play("turn", true);
-    }
-
-    if (this.cursors.up.isDown) {
-      this.player.setVelocityY(-160);
-    } else if (this.cursors.down.isDown) {
-      this.player.setVelocityY(160);
-    } else {
-      this.player.setVelocityY(0);
-    }
+    this.player.anims.play(animationMovement, true);
+    this.player.setVelocityY(velocityY);
+    this.player.setVelocityX(velocityX);
   }
 
   removeCollectable(player, item) {
@@ -159,19 +159,39 @@ export class BerlinScene extends Scene {
     });
 
     this.anims.create({
-      key: "turn",
-      frames: [{ key: "character", frame: 4 }],
-      frameRate: 20,
+      key: "back",
+      frames: this.anims.generateFrameNumbers("character", {
+        start: 4,
+        end: 7,
+      }),
+      frameRate: 10,
+      repeat: -1,
+    });
+
+    this.anims.create({
+      key: "front",
+      frames: this.anims.generateFrameNumbers("character", {
+        start: 8,
+        end: 11,
+      }),
+      frameRate: 10,
+      repeat: -1,
     });
 
     this.anims.create({
       key: "right",
       frames: this.anims.generateFrameNumbers("character", {
-        start: 5,
-        end: 8,
+        start: 12,
+        end: 15,
       }),
       frameRate: 10,
       repeat: -1,
+    });
+
+    this.anims.create({
+      key: "stand",
+      frames: [{ key: "character", frame: 8 }],
+      frameRate: 20,
     });
   }
 
@@ -182,7 +202,7 @@ export class BerlinScene extends Scene {
         start: 0,
         end: 3,
       }),
-      frameRate: 1,
+      frameRate: 3,
       repeat: -1,
     });
   }

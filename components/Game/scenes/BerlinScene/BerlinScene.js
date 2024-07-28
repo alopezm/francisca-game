@@ -62,9 +62,9 @@ export class BerlinScene extends Scene {
       )
     );
 
-    this.player = this.physics.add.sprite(600, 400, "character");
+    this.player = this.physics.add.sprite(600, 440, "character");
     this.player.setBounce(0.2);
-    this.player.setCollideWorldBounds(true);
+    // this.player.setCollideWorldBounds(true);
     this.createPlayerAnimation();
 
     // TODO: add more enemies
@@ -108,6 +108,8 @@ export class BerlinScene extends Scene {
       null,
       this
     );
+
+    this.physics.add.collider(this.player, this.buildings);
 
     this.cameras.main.startFollow(this.player);
   }

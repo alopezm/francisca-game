@@ -4,6 +4,7 @@ import { GameConfig } from "../../GameConfig";
 import { BUILDINGS } from "./BerlinScene.buildings";
 import { COLLECTABLES } from "./BerlinScene.collectables";
 import { ENEMIES } from "./BerlinScene.enemies";
+import { SCENE_TRIGGERS } from "./BerlinScene.sceneTriggers";
 import {
   PLAYER_X,
   PLAYER_Y,
@@ -24,6 +25,7 @@ export class BerlinScene extends Scene {
   player;
   cursors;
   buildings;
+  usedScenesMap = new Map();
 
   constructor() {
     super("berlin-scene");
@@ -45,6 +47,7 @@ export class BerlinScene extends Scene {
     const uniqKeys = [
       ...uniq(BUILDINGS.map(({ key }) => key)),
       ...uniq(COLLECTABLES.map(({ key }) => key)),
+      ...uniq(SCENE_TRIGGERS.map(({ key }) => key)),
     ];
     uniqKeys.forEach((key) => this.load.image(key, key));
   }
@@ -110,6 +113,8 @@ export class BerlinScene extends Scene {
       this
     );
 
+    this.createSceneTriggers();
+
     this.physics.add.collider(this.player, this.buildings);
     this.cameras.main.startFollow(this.player);
     this.cameras.main.setBounds(0, 0, floor.width, floor.height);
@@ -120,13 +125,16 @@ export class BerlinScene extends Scene {
   }
 
   update() {
-    this.animatePlayer();
-    this.animateEnemy();
+    if (GameConfig.isMovementPaused) {
+      this.physics.pause();
+    } else {
+      this.physics.resume();
+      this.animatePlayer();
+      this.animateEnemy();
+    }
   }
 
   animateEnemy() {
-    if (GameConfig.isMovementPaused) return;
-
     this.enemies.getChildren().forEach((enemy) => {
       const velocityX = enemy.body.velocity.x;
       const velocityY = enemy.body.velocity.y;
@@ -155,22 +163,20 @@ export class BerlinScene extends Scene {
     let velocityX = 0;
     let velocityY = 0;
 
-    if (!GameConfig.isMovementPaused) {
-      if (this.cursors.up.isDown) {
-        velocityY = -PLAYER_VELOCITY;
-        animationMovement = "player-up";
-      } else if (this.cursors.down.isDown) {
-        velocityY = PLAYER_VELOCITY;
-        animationMovement = "player-down";
-      }
+    if (this.cursors.up.isDown) {
+      velocityY = -PLAYER_VELOCITY;
+      animationMovement = "player-up";
+    } else if (this.cursors.down.isDown) {
+      velocityY = PLAYER_VELOCITY;
+      animationMovement = "player-down";
+    }
 
-      if (this.cursors.left.isDown) {
-        velocityX = -PLAYER_VELOCITY;
-        animationMovement = "player-left";
-      } else if (this.cursors.right.isDown) {
-        velocityX = PLAYER_VELOCITY;
-        animationMovement = "player-right";
-      }
+    if (this.cursors.left.isDown) {
+      velocityX = -PLAYER_VELOCITY;
+      animationMovement = "player-left";
+    } else if (this.cursors.right.isDown) {
+      velocityX = PLAYER_VELOCITY;
+      animationMovement = "player-right";
     }
 
     this.player.anims.play(animationMovement, true);
@@ -277,5 +283,37 @@ export class BerlinScene extends Scene {
       frames: [{ key: "enemy", frame: 4 }],
       frameRate: 20,
     });
+  }
+
+  createSceneTriggers() {
+    this.sceneTriggers = this.physics.add.group({
+      createCallback: function (item) {
+        item.setName(this.getLength() - 1);
+      },
+    });
+    this.sceneTriggers.createMultiple(
+      SCENE_TRIGGERS.map((item) => ({
+        key: item.key,
+        setOrigin: { x: 0, y: 0 },
+        setXY: { x: item.x, y: item.y },
+      }))
+    );
+
+    this.physics.add.overlap(
+      this.player,
+      this.sceneTriggers,
+      this.triggerScene,
+      null,
+      this
+    );
+  }
+
+  triggerScene(player, item) {
+    if (this.usedScenesMap.has(item.name)) return;
+
+    this.usedScenesMap.set(item.name, item.name);
+    this.physics.world.removeCollider(item);
+    const scene = SCENE_TRIGGERS[item.name]?.scene;
+    if (scene) this.scene.switch(scene);
   }
 }

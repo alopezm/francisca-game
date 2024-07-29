@@ -12,21 +12,23 @@ const MESSAGES = [
   "También hay que haber recorrido las calles en tranvía para poder ver que esta lucha se extiende a lo largo de los diversos pisos para al fin alcanzar su estadio decisivo en los tejados.",
   "Hasta allí únicamente llegan las palabras más duras, más antiguas de los carteles de las tiendas y solo desde el aire se tiene ante los ojos la élite industrial de la ciudad.",
 ];
+const NEXT_SCENE = "berlin-scene";
+const IMAGE = "/assets/benjamin.png";
+const SCENE_NAME = "intro-scene";
 
 export class IntroScene extends Scene {
+  imageKey = IMAGE + SCENE_NAME;
+
   constructor() {
-    super("intro-scene");
+    super(SCENE_NAME);
   }
 
   preload() {
-    this.load.image("benjamin", "/assets/benjamin.png")
+    this.load.image(this.imageKey, IMAGE);
   }
 
   create() {
-    this.add
-      .image(0, 0, "benjamin")
-      .setOrigin(0, 0)
-      .setDisplaySize(790, 1200);
+    this.add.image(0, 0, this.imageKey).setOrigin(0, 0);
 
     let line = 0;
 
@@ -40,8 +42,8 @@ export class IntroScene extends Scene {
     this.input.keyboard.on("keydown", () => {
       ++line;
 
-      if (line === MESSAGES.length - 1) {
-        this.scene.start("berlin-scene");
+      if (line === MESSAGES.length) {
+        this.scene.start(NEXT_SCENE);
       } else {
         text.setText(MESSAGES[line]);
       }

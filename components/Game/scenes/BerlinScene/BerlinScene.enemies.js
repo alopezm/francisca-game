@@ -17,7 +17,6 @@ export const ENEMIES = [
     velocityX: 0,
     velocityY: -50,
   },
-
   {
     x: 1000,
     y: 1900,

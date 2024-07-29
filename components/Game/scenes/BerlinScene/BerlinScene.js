@@ -4,8 +4,12 @@ import { GameConfig } from "../../GameConfig";
 import { BUILDINGS } from "./BerlinScene.buildings";
 import { COLLECTABLES } from "./BerlinScene.collectables";
 import { ENEMIES } from "./BerlinScene.enemies";
-
-const PLAYER_VELOCITY = 190;
+import {
+  PLAYER_X,
+  PLAYER_Y,
+  SCENE_ZOOM,
+  PLAYER_VELOCITY,
+} from "./BerlinScene.config";
 
 const ENEMY_MOVEMENT = {
   LEFT: "enemy-left",
@@ -55,7 +59,7 @@ export class BerlinScene extends Scene {
       )
     );
 
-    this.player = this.physics.add.sprite(600, 1800, "character");
+    this.player = this.physics.add.sprite(PLAYER_X, PLAYER_Y, "character");
     this.player.setBounce(0.2);
     this.createPlayerAnimation();
 
@@ -66,6 +70,7 @@ export class BerlinScene extends Scene {
       enemy.setCollideWorldBounds(true);
       enemy.setVelocity(item.velocityX, item.velocityY);
     });
+    this.physics.add.collider(this.enemies, this.buildings);
 
     this.createEnemyAnimation();
     this.physics.add.collider(this.player, this.enemies, () => {
@@ -111,7 +116,7 @@ export class BerlinScene extends Scene {
     this.physics.world.setBounds(0, 0, floor.width, floor.height);
     this.player.setCollideWorldBounds(true);
 
-    // this.cameras.main.zoom = 0.5;
+    this.cameras.main.zoom = SCENE_ZOOM;
   }
 
   update() {

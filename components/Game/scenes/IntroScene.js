@@ -1,5 +1,6 @@
 import { Scene } from "phaser";
 
+// Each line is a screen that will be displayed on the scene
 const MESSAGES = [
   "Bienvenido, presiona cualquier tecla para comenzar",
   "Solo se llega a conocer un lugar cuando uno lo experimenta en el mayor número de dimensiones posibles.",

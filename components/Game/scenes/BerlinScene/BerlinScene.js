@@ -6,8 +6,6 @@ import { COLLECTABLES } from "./BerlinScene.collectables";
 import { ENEMIES } from "./BerlinScene.enemies";
 
 const PLAYER_VELOCITY = 190;
-const SCENE_WIDTH = GameConfig.WIDTH * 2;
-const SCENE_HEIGHT = GameConfig.HEIGHT * 2;
 
 const ENEMY_MOVEMENT = {
   LEFT: "enemy-left",
@@ -28,10 +26,7 @@ export class BerlinScene extends Scene {
   }
 
   preload() {
-    this.load.image("floor-1", "/assets/floor-1.png");
-    this.load.image("floor-2", "/assets/floor-2.png");
-    this.load.image("floor-3", "/assets/floor-3.png");
-    this.load.image("floor-4", "/assets/floor-4.png");
+    this.load.image("berlin_floor", "/assets/berlin_floor.png");
 
     this.load.spritesheet("character", "/assets/minibenji.png", {
       frameWidth: 63,
@@ -51,19 +46,7 @@ export class BerlinScene extends Scene {
   }
 
   create() {
-    this.add.image(0, 0, "floor-1").setOrigin(0, 0).setDisplaySize(1024, 1024);
-    this.add
-      .image(1024, 0, "floor-2")
-      .setOrigin(0, 0)
-      .setDisplaySize(1024, 1024);
-    this.add
-      .image(0, 1024, "floor-3")
-      .setOrigin(0, 0)
-      .setDisplaySize(1024, 1024);
-    this.add
-      .image(1024, 1024, "floor-4")
-      .setOrigin(0, 0)
-      .setDisplaySize(1024, 1024);
+    const floor = this.add.image(0, 0, "berlin_floor").setOrigin(0, 0);
 
     this.buildings = this.physics.add.staticGroup();
     this.buildings.createMultiple(
@@ -124,9 +107,11 @@ export class BerlinScene extends Scene {
 
     this.physics.add.collider(this.player, this.buildings);
     this.cameras.main.startFollow(this.player);
-    this.cameras.main.setBounds(0, 0, SCENE_WIDTH, SCENE_HEIGHT);
-    this.physics.world.setBounds(0, 0, SCENE_WIDTH, SCENE_HEIGHT);
+    this.cameras.main.setBounds(0, 0, floor.width, floor.height);
+    this.physics.world.setBounds(0, 0, floor.width, floor.height);
     this.player.setCollideWorldBounds(true);
+
+    // this.cameras.main.zoom = 0.5;
   }
 
   update() {

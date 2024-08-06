@@ -46,7 +46,7 @@ export default function Game() {
                 className="modal-img"
                 src={modalData.img}
                 alt={modalData.title}
-                height="300"
+                height="200"
               />
 
               <p className="modal-text">{modalData.description}</p>

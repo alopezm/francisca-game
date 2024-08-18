@@ -129,6 +129,21 @@ export class BerlinScene extends Scene {
       });
     });
 
+    // create collectable miniatures
+    this.collectablesMiniatures = this.physics.add.group({
+      createCallback: function (item) {
+        item.setName(this.getLength() - 1);
+      },
+    });
+    this.collectablesMiniatures.createMultiple(
+      COLLECTABLES.map((item, i) => ({
+        key: item.key,
+        setOrigin: { x: 0, y: 0 },
+        setXY: { x: floor.width - 80, y: 20 + 100 * i },
+        setAlpha: { value: 0.4 },
+      }))
+    );
+
     this.physics.add.overlap(
       this.player,
       this.collectables,
@@ -215,6 +230,9 @@ export class BerlinScene extends Scene {
   removeCollectable(player, item) {
     item.disableBody(true, true);
     GameConfig.openModal(item.name);
+
+    // show collectable miniature
+    this.collectablesMiniatures.getChildren()[item.name].setAlpha(1);
 
     // remove required collectables to open the door
     this.collectablesToOpenDoorMap.delete(item.name);

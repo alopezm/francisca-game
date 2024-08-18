@@ -8,9 +8,10 @@ const MESSAGES = [
   "Si no, uno se lo cruzará en el camino de manera inesperada tres, cuatro veces antes de estar preparado para dar con él.",
   "En una fase posterior, uno lo busca, lo usa para orientarse.",
   "Sucede lo mismo con las casas. Sólo se alcanza a saber lo que contiene después de haber recorrido muchas otras en busca de una concreta.",
-  "Desde el arco de una casa, en letras de distintos tamaños, negras, azules, amarillas y rojas, en forma de flecha, en la imagen de unas botas o la ropa lavada recién planchada, en un escalón gastado o un relleno firme, la vida te asalta, obstinada, combativa, muda.",
-  "También hay que haber recorrido las calles en tranvía para poder ver que esta lucha se extiende a lo largo de los diversos pisos para al fin alcanzar su estadio decisivo en los tejados.",
-  "Hasta allí únicamente llegan las palabras más duras, más antiguas de los carteles de las tiendas y solo desde el aire se tiene ante los ojos la élite industrial de la ciudad.",
+  "Abres los ojos...",
+  "El último lugar en donde estabas era Portbou, pero esta destrucción no es propia de aquel villorrio hispano",
+  " - ¿Eso en el fondo, es la cuadriga de Brandenburgo?, ¿es esto Berlín, cuán catástrofe ha sucedido aquí? La destrucción de mi ciudad natal es un golpe certero al corazón de mi civilización",
+  "Evita a los soldados a toda costa, recoge los coleccionables a lo largo del mapa en búsqueda del salvoconducto que estabas esperando.",
 ];
 const NEXT_SCENE = "berlin-scene";
 const IMAGE = "/assets/benjamin.png";

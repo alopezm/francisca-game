@@ -24,14 +24,20 @@ export class BerlinScene extends Scene {
   enemy;
   player;
   cursors;
-  buildings;
-  usedScenesMap = new Map();
+  statics;
+  usedScenesMap;
+
+  doorSideA;
+  doorSideB;
+  isDoorOpen;
+  collectablesToOpenDoorMap;
 
   constructor() {
     super("berlin-scene");
   }
 
   preload() {
+    this.load.image("berlin_door", "/assets/berlin-door.jpg");
     this.load.image("berlin_floor", "/assets/berlin_floor.png");
 
     this.load.spritesheet("character", "/assets/minibenji.png", {
@@ -53,14 +59,26 @@ export class BerlinScene extends Scene {
   }
 
   create() {
+    this.usedScenesMap = new Map();
+
     const floor = this.add.image(0, 0, "berlin_floor").setOrigin(0, 0);
 
-    this.buildings = this.physics.add.staticGroup();
-    this.buildings.createMultiple(
+    this.statics = this.physics.add.staticGroup();
+
+    // create buildings
+    this.statics.createMultiple(
       BUILDINGS.flatMap(({ key, items }) =>
         items.map((item) => ({ key, setOrigin: { x: 0, y: 0 }, ...item }))
       )
     );
+
+    // create door
+    this.doorSideA = this.statics.create(2480, 1510, "berlin_door");
+    this.doorSideB = this.statics.create(2546, 1510, "berlin_door");
+    this.doorSideB.angle = 180;
+    this.isDoorOpen = false;
+    const collectablesToOpenDoorMap = new Map();
+    this.collectablesToOpenDoorMap = collectablesToOpenDoorMap;
 
     this.player = this.physics.add.sprite(PLAYER_X, PLAYER_Y, "character");
     this.player.setBounce(0.2);
@@ -73,7 +91,7 @@ export class BerlinScene extends Scene {
       enemy.setCollideWorldBounds(true);
       enemy.setVelocity(item.velocityX, item.velocityY);
     });
-    this.physics.add.collider(this.enemies, this.buildings);
+    this.physics.add.collider(this.enemies, this.statics);
 
     this.createEnemyAnimation();
     this.physics.add.collider(this.player, this.enemies, () => {
@@ -85,6 +103,12 @@ export class BerlinScene extends Scene {
     this.collectables = this.physics.add.group({
       createCallback: function (item) {
         item.setName(this.getLength() - 1);
+
+        // register collectables required to open the door
+        const collectable = COLLECTABLES[item.name];
+        if (collectable.requiredToOpenDoor) {
+          collectablesToOpenDoorMap.set(item.name, item.name);
+        }
       },
     });
     this.collectables.createMultiple(
@@ -115,7 +139,7 @@ export class BerlinScene extends Scene {
 
     this.createSceneTriggers();
 
-    this.physics.add.collider(this.player, this.buildings);
+    this.physics.add.collider(this.player, this.statics);
     this.cameras.main.startFollow(this.player);
     this.cameras.main.setBounds(0, 0, floor.width, floor.height);
     this.physics.world.setBounds(0, 0, floor.width, floor.height);
@@ -128,6 +152,10 @@ export class BerlinScene extends Scene {
     if (GameConfig.isMovementPaused) {
       this.physics.pause();
     } else {
+      if (!this.isDoorOpen && this.collectablesToOpenDoorMap.size === 0) {
+        this.openDoor();
+      }
+
       this.physics.resume();
       this.animatePlayer();
       this.animateEnemy();
@@ -187,6 +215,9 @@ export class BerlinScene extends Scene {
   removeCollectable(player, item) {
     item.disableBody(true, true);
     GameConfig.openModal(item.name);
+
+    // remove required collectables to open the door
+    this.collectablesToOpenDoorMap.delete(item.name);
   }
 
   createPlayerAnimation() {
@@ -315,5 +346,19 @@ export class BerlinScene extends Scene {
     this.physics.world.removeCollider(item);
     const scene = SCENE_TRIGGERS[item.name]?.scene;
     if (scene) this.scene.switch(scene);
+  }
+
+  openDoor() {
+    if (this.isDoorOpen) return;
+
+    this.isDoorOpen = true;
+    this.doorSideA.angle = 180;
+    this.doorSideB.angle = -180;
+    this.doorSideA.y -= this.doorSideA.height;
+    this.doorSideB.y -= this.doorSideB.height;
+    this.doorSideA.x -= this.doorSideA.width;
+    this.doorSideB.x += this.doorSideB.width;
+
+    this.scene.switch("door-open-scene");
   }
 }

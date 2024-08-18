@@ -4,6 +4,7 @@ import { IntroScene } from "./scenes/IntroScene";
 import { BerlinScene } from "./scenes/BerlinScene/BerlinScene";
 import { GameOverScene } from "./scenes/GameOverScene";
 import { SpectreScene } from "./scenes/SpectreScene";
+import { DoorOpenScene } from "./scenes/DoorOpenScene";
 
 export function initGame({ parent }) {
   const game = new Game({
@@ -14,6 +15,7 @@ export function initGame({ parent }) {
       BerlinScene,
       GameOverScene,
       SpectreScene,
+      DoorOpenScene,
     ],
     scale: {
       mode: Phaser.Scale.FIT,

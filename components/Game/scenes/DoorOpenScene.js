@@ -1,13 +1,13 @@
 import { Scene } from "phaser";
 
 const MESSAGES = [
-  "Linea 1",
-  "Linea 2",
+  "Las puertas de la casa se han abierto. Ahora puedes entrar.",
 ];
-const IMAGE = "/assets/spectre-scene.png";
-const SCENE_NAME = "spectre-scene";
+const NEXT_SCENE = "berlin-scene";
+const IMAGE = "/assets/open-door-home.png";
+const SCENE_NAME = "door-open-scene";
 
-export class SpectreScene extends Scene {
+export class DoorOpenScene extends Scene {
   imageKey = IMAGE + SCENE_NAME;
 
   constructor() {
@@ -34,7 +34,7 @@ export class SpectreScene extends Scene {
       ++line;
 
       if (line === MESSAGES.length) {
-        this.scene.switch("berlin-scene");
+        this.scene.switch(NEXT_SCENE);
       } else {
         text.setText(MESSAGES[line]);
       }

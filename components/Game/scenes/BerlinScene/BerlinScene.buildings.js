@@ -25,13 +25,12 @@ export const BUILDINGS = [
       },
     ],
   },
-
   {
-    key: "/assets/building-1.png",
+    key: "/assets/water.png",
     items: [
       {
-        setXY: { x: 2000, y: 1500 },
+        setXY: { x: 1721, y: 20 }
       }
-    ],
-  },
+    ]
+  }
 ];

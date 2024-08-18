@@ -1,6 +1,7 @@
 export const COLLECTABLES = [
   {
     key: "/assets/star-40x40.png",
+    requiredToOpenDoor: true,
     setXY: { x: 60, y: 80 },
     data: {
       img: "/assets/star.png",
@@ -21,6 +22,7 @@ export const COLLECTABLES = [
   },
   {
     key: "/assets/star-40x40.png",
+    requiredToOpenDoor: true,
     setXY: { x: 560, y: 540 },
     data: {
       img: "https://upload.wikimedia.org/wikipedia/commons/9/9f/Chateau_de_Montsoreau_Museum_of_contemporary_art.jpg",

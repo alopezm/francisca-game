@@ -7,7 +7,7 @@ export class GameOverScene extends Scene {
   }
 
   preload() {
-    this.load.image("game-over", "/assets/game-over.jpg");
+    this.load.image("game-over", "/assets/game-over.png");
   }
 
   create() {

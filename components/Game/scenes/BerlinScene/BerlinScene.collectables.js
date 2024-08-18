@@ -30,4 +30,15 @@ export const COLLECTABLES = [
       title: "Lorem Ipsum 3",
     },
   },
+  {
+    key: "/assets/jewish_bracelet.png",
+    setXY: { x: 521, y: 1540 },
+    data: {
+      img: "/assets/jewish_bracelet-original.png",
+      title: "Brazalete judío",
+      description:
+        "Solo los desdichados recorrieron estos caminos.",
+    },
+
+  }
 ];

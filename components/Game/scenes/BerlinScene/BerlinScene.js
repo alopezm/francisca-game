@@ -152,6 +152,10 @@ export class BerlinScene extends Scene {
     if (GameConfig.isMovementPaused) {
       this.physics.pause();
     } else {
+      if (!this.isDoorOpen && this.collectablesToOpenDoorMap.size === 0) {
+        this.openDoor();
+      }
+
       this.physics.resume();
       this.animatePlayer();
       this.animateEnemy();
@@ -212,11 +216,8 @@ export class BerlinScene extends Scene {
     item.disableBody(true, true);
     GameConfig.openModal(item.name);
 
-    // check if has all the required collectables to open the door
-    if (!this.isDoorOpen && this.collectablesToOpenDoorMap.has(item.name)) {
-      this.collectablesToOpenDoorMap.delete(item.name);
-      if (!this.collectablesToOpenDoorMap.size) this.openDoor();
-    }
+    // remove required collectables to open the door
+    this.collectablesToOpenDoorMap.delete(item.name);
   }
 
   createPlayerAnimation() {
@@ -357,5 +358,7 @@ export class BerlinScene extends Scene {
     this.doorSideB.y -= this.doorSideB.height;
     this.doorSideA.x -= this.doorSideA.width;
     this.doorSideB.x += this.doorSideB.width;
+
+    this.scene.switch("door-open-scene");
   }
 }

@@ -138,8 +138,8 @@ export class BerlinScene extends Scene {
     this.collectablesMiniatures.createMultiple(
       COLLECTABLES.map((item, i) => ({
         key: item.key,
-        setOrigin: { x: 0, y: 0 },
-        setXY: { x: floor.width - 80, y: 20 + 100 * i },
+        setOrigin: { x: 0.5, y: 0 },
+        setXY: { x: floor.width - 100, y: 20 + 100 * i },
         setAlpha: { value: 0.4 },
       }))
     );

@@ -41,7 +41,7 @@ export default function Game() {
         <div className="modal">
           <div className="modal-content">
             <div className="space-y-2">
-              <p className="text-2xl modal-title">{modalData.title}</p>
+              <p className="text-2xl text-bold modal-title">{modalData.title}</p>
               <img
                 className="modal-img"
                 src={modalData.img}
@@ -49,7 +49,7 @@ export default function Game() {
                 height="200"
               />
 
-              <p className="modal-text">{modalData.description}</p>
+              <p className="modal-text py-4">{modalData.description}</p>
             </div>
             <button className="block" onClick={onCloseModal}>
               Cerrar

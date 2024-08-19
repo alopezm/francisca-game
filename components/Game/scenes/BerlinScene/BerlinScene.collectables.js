@@ -31,8 +31,8 @@ export const COLLECTABLES = [
     },
   },
   {
-    key: "/assets/jewish_bracelet.png",
-    setXY: { x: 521, y: 1540 },
+    key: "/assets/jewish_bracelet-mini.png",
+    setXY: { x: 100, y: 2950 },
     data: {
       img: "/assets/jewish_bracelet-original.png",
       title: "Brazalete judío",
@@ -40,5 +40,37 @@ export const COLLECTABLES = [
         "Solo los desdichados recorrieron estos caminos.",
     },
 
-  }
+  },
+  {
+    key: "/assets/helmet-mini.png",
+    setXY: { x: 60, y: 2010 },
+    data: {
+      img: "/assets/helmet-org.png",
+      title: "Casco de soldado raso",
+      description:
+        "Parece que fue usado para cocinar.",
+    },
+
+  },
+  {
+    key: "/assets/mauser_k98-mini.png",
+    setXY: { x: 750, y: 2000 },
+    data: {
+      img: "/assets/mauserk98.jpg",
+      title: "Mauser K98",
+      description:
+        "¿acaso la humanidad ha pensado que se puede redimir con armas?.",
+    }
+  },
+
+  {
+    key: "/assets/nazi_eagle-mini.png",
+    setXY: { x: 700, y: 350 },
+    data: {
+      img: "/assets/nazi-eagle.jpg",
+      title: "Aguila NAZI",
+      description:
+        "Simbolism, simbolism everywhere",
+    }
+  },
 ];

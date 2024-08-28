@@ -1,5 +1,6 @@
 import { Scene } from "phaser";
 import { uniq } from "@/utils/uniq";
+import { IS_DEVELOPMENT } from "@/utils/config";
 import { GameConfig } from "../../GameConfig";
 import { BUILDINGS } from "./BerlinScene.buildings";
 import { COLLECTABLES } from "./BerlinScene.collectables";
@@ -27,8 +28,8 @@ export class BerlinScene extends Scene {
   statics;
   usedScenesMap;
 
-  doorSideA;
-  doorSideB;
+  doorSideAClosed;
+  doorSideBClosed;
   isDoorOpen;
   collectablesToOpenDoorMap;
 
@@ -72,13 +73,28 @@ export class BerlinScene extends Scene {
       )
     );
 
-    // create door
-    this.doorSideA = this.statics.create(2480, 1510, "berlin_door");
-    this.doorSideB = this.statics.create(2546, 1510, "berlin_door");
-    this.doorSideB.angle = 180;
+    // create doors
     this.isDoorOpen = false;
     const collectablesToOpenDoorMap = new Map();
     this.collectablesToOpenDoorMap = collectablesToOpenDoorMap;
+
+    this.doorSideAClosed = this.statics.create(2480, 1510, "berlin_door");
+    this.doorSideBClosed = this.statics.create(2549, 1510, "berlin_door");
+    this.doorSideBClosed.angle = 180;
+    this.doorSideAOpened = this.statics
+      .create(
+        this.doorSideAClosed.x - this.doorSideAClosed.width,
+        this.doorSideAClosed.y - this.doorSideAClosed.height,
+        "berlin_door"
+      )
+      .disableBody(true, true);
+    this.doorSideBOpened = this.statics.create(
+      this.doorSideBClosed.x + this.doorSideBClosed.width,
+      this.doorSideBClosed.y - this.doorSideBClosed.height,
+      "berlin_door"
+    );
+    this.doorSideBOpened.angle = 180;
+    this.doorSideBOpened.disableBody(true, true);
 
     this.player = this.physics.add.sprite(PLAYER_X, PLAYER_Y, "character");
     this.player.setBounce(0.2);
@@ -129,21 +145,6 @@ export class BerlinScene extends Scene {
       });
     });
 
-    // create collectable miniatures
-    this.collectablesMiniatures = this.physics.add.group({
-      createCallback: function (item) {
-        item.setName(this.getLength() - 1);
-      },
-    });
-    this.collectablesMiniatures.createMultiple(
-      COLLECTABLES.map((item, i) => ({
-        key: item.key,
-        setOrigin: { x: 0.5, y: 0 },
-        setXY: { x: floor.width - 100, y: 20 + 100 * i },
-        setAlpha: { value: 0.4 },
-      }))
-    );
-
     this.physics.add.overlap(
       this.player,
       this.collectables,
@@ -161,9 +162,34 @@ export class BerlinScene extends Scene {
     this.player.setCollideWorldBounds(true);
 
     this.cameras.main.zoom = SCENE_ZOOM;
+
+    // create collectable miniatures
+    this.collectablesMiniatures = this.physics.add.group({
+      createCallback: function (item) {
+        item.setName(this.getLength() - 1);
+      },
+    });
+    this.collectablesMiniatures.createMultiple(
+      COLLECTABLES.map((item, i) => ({
+        key: item.key,
+        setOrigin: { x: 0.5, y: 0 },
+        setXY: { x: 70, y: 20 + 100 * i },
+        setAlpha: { value: 0.4 },
+        setScrollFactor: { x: 0, y: 0 },
+      }))
+    );
   }
 
   update() {
+    if (IS_DEVELOPMENT) {
+      console.log(
+        "mouse x: ",
+        this.game.input.mousePointer.x,
+        " y: ",
+        this.game.input.mousePointer.y
+      );
+    }
+
     if (GameConfig.isMovementPaused) {
       this.physics.pause();
     } else {
@@ -370,13 +396,10 @@ export class BerlinScene extends Scene {
     if (this.isDoorOpen) return;
 
     this.isDoorOpen = true;
-    this.doorSideA.angle = 180;
-    this.doorSideB.angle = -180;
-    this.doorSideA.y -= this.doorSideA.height;
-    this.doorSideB.y -= this.doorSideB.height;
-    this.doorSideA.x -= this.doorSideA.width;
-    this.doorSideB.x += this.doorSideB.width;
-
+    this.doorSideAClosed.disableBody(true, true);
+    this.doorSideBClosed.disableBody(true, true);
+    this.doorSideAOpened.enableBody(false, 0, 0, true, true);
+    this.doorSideBOpened.enableBody(false, 0, 0, true, true);
     this.scene.switch("door-open-scene");
   }
 }

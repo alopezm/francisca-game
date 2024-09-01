@@ -33,6 +33,17 @@ export default function Game() {
     };
   }, []);
 
+  useEffect(() => {
+    function closeModalOnPressEnter(e) {
+      if (e.key === "Enter") onCloseModal();
+    }
+    document.addEventListener("keydown", closeModalOnPressEnter);
+
+    return () => {
+      document.removeEventListener("keydown", closeModalOnPressEnter);
+    };
+  }, [onCloseModal]);
+
   return (
     <>
       <div ref={parentEl} />
@@ -41,7 +52,9 @@ export default function Game() {
         <div className="modal">
           <div className="modal-content">
             <div className="space-y-2">
-              <p className="text-2xl text-bold modal-title">{modalData.title}</p>
+              <p className="text-2xl text-bold modal-title">
+                {modalData.title}
+              </p>
               <img
                 className="modal-img"
                 src={modalData.img}

@@ -21,9 +21,13 @@ export default function HomePage() {
           Empezar
         </button>
 
-        <button className={BTN_CLASS_NAME}>
+        <a
+          className={BTN_CLASS_NAME}
+          href="/assets/bibliography.pdf"
+          target="_blank noreferrer"
+        >
           Documentación
-        </button>
+        </a>
       </div>
     </div>
   );

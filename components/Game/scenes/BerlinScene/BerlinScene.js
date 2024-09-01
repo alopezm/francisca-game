@@ -385,10 +385,13 @@ export class BerlinScene extends Scene {
 
     this.usedScenesMap.set(item.name, item.name);
     this.physics.world.removeCollider(item);
-    const scene = SCENE_TRIGGERS[item.name]?.scene;
+    const sceneTrigger = SCENE_TRIGGERS[item.name];
+    const { scene, fadeAfterCollision } = sceneTrigger ?? {};
 
-    item.setAlpha(0.6);
-    item.setTint(0x000000);
+    if (fadeAfterCollision) {
+      item.setAlpha(0.6);
+      item.setTint(0x000000);
+    }
 
     if (scene) this.scene.switch(scene);
   }

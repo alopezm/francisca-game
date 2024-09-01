@@ -1,20 +1,24 @@
-//TODO: remove or restore to 1
-export const SCENE_ZOOM = 1;
-//export const SCENE_ZOOM = 0.5;
-//export const SCENE_ZOOM = 1.25;
+import { IS_DEVELOPMENT } from "@/utils/config";
 
-export const PLAYER_VELOCITY = 250;
-
-// TODO: change to player's initial position
-// initial game position
-export const PLAYER_X = 1250;
-export const PLAYER_Y = 2997;
-
+// Development settings only for testing
+const DEV_SCENE_ZOOM = 1;
+// const DEV_SCENE_ZOOM = 1.25;
 
 // player top left corner
-// export const PLAYER_X = 350;
-// export const PLAYER_Y = 1450;
+const DEV_PLAYER_X = 350;
+const DEV_PLAYER_Y = 1450;
 
 // player bottom right corner
-//export const PLAYER_X = 1700;
-//export const PLAYER_Y = 750;
+// const DEV_PLAYER_X = 1700;
+// const DEV_PLAYER_Y = 750;
+
+const DEV_START_WITH_INTRO_SCENE = true;
+
+// DO NOT CHANGE
+export const PLAYER_VELOCITY = 250;
+export const PLAYER_X = IS_DEVELOPMENT ? DEV_PLAYER_X : 1250;
+export const PLAYER_Y = IS_DEVELOPMENT ? DEV_PLAYER_Y : 2997;
+export const SCENE_ZOOM = IS_DEVELOPMENT ? DEV_SCENE_ZOOM : 1;
+export const START_WITH_INTRO_SCENE = IS_DEVELOPMENT
+  ? DEV_START_WITH_INTRO_SCENE
+  : true;

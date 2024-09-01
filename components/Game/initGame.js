@@ -8,13 +8,14 @@ import { DoorOpenScene } from "./scenes/DoorOpenScene";
 import { SoldierScene } from "./scenes/SoldierScene";
 import { TankScene } from "./scenes/TankScene";
 import { BerolinaScene } from "./scenes/BerolinaScene";
+import { START_WITH_INTRO_SCENE } from "./scenes/BerlinScene/BerlinScene.config";
 
 export function initGame({ parent }) {
   const game = new Game({
     parent,
     type: Phaser.AUTO,
     scene: [
-      IntroScene,
+      ...(START_WITH_INTRO_SCENE ? [IntroScene] : []),
       BerlinScene,
       GameOverScene,
       SpectreScene,

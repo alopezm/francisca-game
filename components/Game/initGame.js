@@ -11,7 +11,7 @@ export function initGame({ parent }) {
     parent,
     type: Phaser.AUTO,
     scene: [
-      IntroScene,
+      //IntroScene,
       BerlinScene,
       GameOverScene,
       SpectreScene,

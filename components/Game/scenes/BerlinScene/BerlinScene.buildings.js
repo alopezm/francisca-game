@@ -29,8 +29,33 @@ export const BUILDINGS = [
     key: "/assets/water.png",
     items: [
       {
-        setXY: { x: 1721, y: 20 }
+        setXY: { x: 0, y: 1117 }
       }
     ]
-  }
+  },
+  {
+    key: "/assets/water.png",
+    items: [
+      {
+        setXY: { x: 1044, y: 1111 }
+      }
+    ]
+  },
+  {
+    key: "/assets/house_line1_mini",
+    items: [
+      {
+        setXY: { x: 0, y: 2819 }
+      }
+    ]
+  },
+  {
+    key: "/assets/house_line2_mini",
+    items: [
+      {
+        setXY: { x: 2819, y: 900 }
+      }
+    ]
+  },
+
 ];

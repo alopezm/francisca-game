@@ -8,6 +8,7 @@ import { DoorOpenScene } from "./scenes/DoorOpenScene";
 import { SoldierScene } from "./scenes/SoldierScene";
 import { TankScene } from "./scenes/TankScene";
 import { BerolinaScene } from "./scenes/BerolinaScene";
+import { AngelousScene } from "./scenes/AngelousScene";
 import { START_WITH_INTRO_SCENE } from "./scenes/BerlinScene/BerlinScene.config";
 
 export function initGame({ parent }) {
@@ -23,6 +24,7 @@ export function initGame({ parent }) {
       SoldierScene,
       TankScene,
       BerolinaScene,
+      AngelousScene,
     ],
     scale: {
       mode: Phaser.Scale.FIT,

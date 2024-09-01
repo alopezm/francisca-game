@@ -11,7 +11,7 @@ const MESSAGES = [
 const IMAGE = "/assets/Berolina_mini.png";
 const SCENE_NAME = "berolina-scene";
 
-export class SpectreScene extends Scene {
+export class BerolinaScene extends Scene {
   imageKey = IMAGE + SCENE_NAME;
 
   constructor() {

@@ -10,7 +10,7 @@ const MESSAGES = [
 const IMAGE = "/assets/Soldier_whitout_cap.png";
 const SCENE_NAME = "soldier-scene";
 
-export class SpectreScene extends Scene {
+export class SoldierScene extends Scene {
   imageKey = IMAGE + SCENE_NAME;
 
   constructor() {

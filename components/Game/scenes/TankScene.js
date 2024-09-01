@@ -8,10 +8,10 @@ const MESSAGES = [
   "Misión: Busca el camino hacia el Alexanderplatz.",
   
 ];
-const IMAGE = "public/assets/Tank_org.png";
+const IMAGE = "/assets/Tank_org.png";
 const SCENE_NAME = "tank-scene";
 
-export class SpectreScene extends Scene {
+export class TankScene extends Scene {
   imageKey = IMAGE + SCENE_NAME;
 
   constructor() {

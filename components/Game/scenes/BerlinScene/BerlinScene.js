@@ -192,7 +192,7 @@ export class BerlinScene extends Scene {
 
       if (
         this.pickedCollectables === COLLECTABLES.length &&
-        this.usedScenesMap.size() === SCENE_TRIGGERS.length
+        this.usedScenesMap.size === SCENE_TRIGGERS.length
       ) {
         this.scene.start("angelous-scene");
       }

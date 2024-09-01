@@ -118,5 +118,42 @@ export const COLLECTABLES = [
         "¡¿Que la Berolina fue fundida?!. ¡Ja! parece una noticia falsa.",
     }
   },
+  {
+    key: "/assets/Cane_mini.png",
+    setXY: { x: 1900, y: 1940 },
+    data: {
+      img: "/assets/Cane_org.png",
+      title: "Bastón con pomo en forma de aguila",
+      description:
+        "mi padre era un hombre elegante",
+    }
+  },{
+    key: "/assets/grandparents_mini.png",
+    setXY: { x: 2550, y: 2540 },
+    data: {
+      img: "/assets/Grandpa_org.png",
+      title: "La abuela y el abuelo",
+      description:
+        "los recuerdo mucho",
+    }
+  },{
+    key: "/assets/Schiller_book_mini.png",
+    setXY: { x: 2700, y: 2400 },
+    data: {
+      img: "/assets/Schiller_book_org.jpg",
+      title: "La cancion de la Campana. Schiller",
+      description:
+        "El libro de cabezera de mi madre.",
+    }
+  },{
+    key: "/assets/Score_mini.png",
+    setXY: { x: 2200, y: 1800 },
+    data: {
+      img: "https://www.elcoleccionistaeclectico.com/resources/productos/kinder-album-para-pianoforte-marco-enrico-bossi-gebruder-hug-co-alemania-1922-25258-126819.JPG",
+      title: "Partitura de la infancia",
+      description:
+        "¿tocaba flauta o piano?",
+    }
+  },
 
 ];

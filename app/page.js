@@ -23,7 +23,7 @@ export default function HomePage() {
 
         <a
           className={BTN_CLASS_NAME}
-          href="/assets/bibliography.pdf"
+          href="/pdf/bibliography.pdf"
           target="_blank noreferrer"
         >
           Documentación

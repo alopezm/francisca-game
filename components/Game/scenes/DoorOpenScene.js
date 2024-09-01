@@ -3,7 +3,6 @@ import { Scene } from "phaser";
 const MESSAGES = [
   "Las puertas de la casa se han abierto. Ahora puedes entrar.",
 ];
-const NEXT_SCENE = "berlin-scene";
 const IMAGE = "/assets/open-door-home.png";
 const SCENE_NAME = "door-open-scene";
 
@@ -34,7 +33,7 @@ export class DoorOpenScene extends Scene {
       ++line;
 
       if (line === MESSAGES.length) {
-        this.scene.switch(NEXT_SCENE);
+        this.scene.switch("berlin-scene");
       } else {
         text.setText(MESSAGES[line]);
       }

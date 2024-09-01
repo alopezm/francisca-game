@@ -1,6 +1,5 @@
 import { Scene } from "phaser";
 import { uniq } from "@/utils/uniq";
-import { IS_DEVELOPMENT } from "@/utils/config";
 import { GameConfig } from "../../GameConfig";
 import { BUILDINGS } from "./BerlinScene.buildings";
 import { COLLECTABLES } from "./BerlinScene.collectables";
@@ -33,6 +32,8 @@ export class BerlinScene extends Scene {
   isDoorOpen;
   collectablesToOpenDoorMap;
 
+  pickedCollectables;
+
   constructor() {
     super("berlin-scene");
   }
@@ -61,7 +62,7 @@ export class BerlinScene extends Scene {
 
   create() {
     this.cursors = this.input.keyboard.createCursorKeys();
-
+    this.pickedCollectables = 0;
     const floor = this.add.image(0, 0, "berlin_floor").setOrigin(0, 0);
 
     this.statics = this.physics.add.staticGroup();
@@ -178,15 +179,6 @@ export class BerlinScene extends Scene {
   }
 
   update() {
-    if (IS_DEVELOPMENT) {
-      console.log(
-        "mouse x: ",
-        this.game.input.mousePointer.x,
-        " y: ",
-        this.game.input.mousePointer.y
-      );
-    }
-
     if (GameConfig.isMovementPaused) {
       this.physics.pause();
     } else {
@@ -197,6 +189,13 @@ export class BerlinScene extends Scene {
       this.physics.resume();
       this.animatePlayer();
       this.animateEnemy();
+
+      if (
+        this.pickedCollectables === COLLECTABLES.length &&
+        this.usedScenesMap.size() === SCENE_TRIGGERS.length
+      ) {
+        this.scene.start("angelous-scene");
+      }
     }
   }
 
@@ -259,6 +258,8 @@ export class BerlinScene extends Scene {
 
     // remove required collectables to open the door
     this.collectablesToOpenDoorMap.delete(item.name);
+
+    this.pickedCollectables += 1;
   }
 
   createPlayerAnimation() {
@@ -393,7 +394,10 @@ export class BerlinScene extends Scene {
       item.setTint(0x000000);
     }
 
-    if (scene) this.scene.switch(scene);
+    if (scene) {
+      this.scene.switch(scene);
+      this.scene.pause("berlin-scene");
+    }
   }
 
   openDoor() {

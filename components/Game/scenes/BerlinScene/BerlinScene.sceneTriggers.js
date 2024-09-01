@@ -28,12 +28,4 @@ export const SCENE_TRIGGERS = [
     scene: "berolina-scene",
     fadeAfterCollision: true,
   },
-  {
-    x: 2450,
-    y: 2870,
-    key: "/assets/Angelous_novus_mini.png",
-    scene: "angelous-scene",
-    fadeAfterCollision: true,
-  },
-
 ];

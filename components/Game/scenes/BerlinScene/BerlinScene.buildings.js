@@ -1,35 +1,10 @@
 export const BUILDINGS = [
-  {
-    key: "/assets/building-0-60x59.png",
-    items: [
-      {
-        quantity: 1,
-        setXY: { x: 0, y: 140, stepY: 59 },
-      },
-      {
-        quantity: 5,
-        setXY: { x: 0, y: 480, stepY: 59 },
-      },
-    ],
-  },
-  {
-    key: "/assets/building-1-80x79.png",
-    items: [
-      {
-        quantity: 2,
-        setXY: { x: 400, y: 220, stepX: 80 },
-      },
-      {
-        quantity: 4,
-        setXY: { x: 320, y: 300, stepY: 79 },
-      },
-    ],
-  },
+  
   {
     key: "/assets/water.png",
     items: [
       {
-        setXY: { x: 1500, y: 0 }
+        setXY: { x: 1500, y: -7 }
       }
     ]
   },
@@ -37,7 +12,7 @@ export const BUILDINGS = [
     key: "/assets/water2.png",
     items: [
       {
-        setXY: { x: 1500, y: 1047 }
+        setXY: { x: 1500, y: 1040 }
       }
     ]
   },
@@ -106,18 +81,18 @@ export const BUILDINGS = [
     ]
   },
   {
-    key: "/assets/house_berlin2_mini.png",
+    key: "/assets/berlin_division2_mini.png",
     items: [
       {
-        setXY: { x: 978, y: 2288 }
+        setXY: { x: 453, y: 2332 }
       }
     ]
   },
   {
-    key: "/assets/berlin_division2_mini.png",
+    key: "/assets/house_berlin2_mini.png",
     items: [
       {
-        setXY: { x: 463, y: 2332 }
+        setXY: { x: 978, y: 2288 }
       }
     ]
   },
@@ -133,7 +108,7 @@ export const BUILDINGS = [
     key: "/assets/house_line7_mini.png",
     items: [
       {
-        setXY: { x: 1250, y: 1897 }
+        setXY: { x: 1260, y: 1897 }
       }
     ]
   },
@@ -149,7 +124,7 @@ export const BUILDINGS = [
     key: "/assets/berlin_division4_mini.png",
     items: [
       {
-        setXY: { x: 493, y: 1732 }
+        setXY: { x: 484, y: 1750 }
       }
     ]
   },
@@ -157,7 +132,7 @@ export const BUILDINGS = [
     key: "/assets/house_line5_mini.png",
     items: [
       {
-        setXY: { x: 450, y: 1412 }
+        setXY: { x: 430, y: 1412 }
       }
     ]
   },
@@ -169,5 +144,80 @@ export const BUILDINGS = [
       }
     ]
   },
+  {
+    key: "/assets/antiaircraft_mini.png",
+    items: [
+      {
+        setXY: { x: 12, y: 1752 }
+      }
+    ]
+  },
   
+  {
+    key: "/assets/Brandenburg_forest_mini.png",
+    items: [
+      {
+        setXY: { x: 240, y: 275 }
+      }
+    ]
+  },
+  {
+    key: "/assets/Brandenburg_forest2_mini.png",
+    items: [
+      {
+        setXY: { x: 950, y: 275 }
+      }
+    ]
+  },
+  {
+    key: "/assets/Brandenburg_gate_mini.png",
+    items: [
+      {
+        setXY: { x: 500, y: 0 }
+      }
+    ]
+  },
+  {
+    key: "/assets/home_division_up1_mini.png",
+    items: [
+      {
+        setXY: { x: 1543, y: 1500 }
+      }
+    ]
+  },
+  {
+    key: "/assets/home_division_up2_mini.png",
+    items: [
+      {
+        setXY: { x: 2634, y: 1500 }
+      }
+    ]
+  },
+  {
+    key: "/assets/building_line_side.png",
+    items: [
+      {
+        setXY: { x: 2660, y: 270 }
+      }
+    ]
+  },
+  {
+    key: "/assets/building_line_lying_mini.png",
+    items: [
+      {
+        setXY: { x: 2000, y: 200 },         
+      },
+      
+    ]
+  },
+  {
+    key: "/assets/building_line_lying_mini.png",
+    items: [
+      {
+        setXY: { x: 2000, y: 1100 },         
+      },
+      
+    ]
+  },
+
 ];

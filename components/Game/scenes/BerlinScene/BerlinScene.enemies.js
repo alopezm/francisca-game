@@ -6,9 +6,9 @@ export const ENEMIES = [
     velocityY: 50,
   },
   {
-    x: 1100,
-    y: 1800,
-    velocityX: 50,
+    x: 940,
+    y: 1100,
+    velocityX: -50,
     velocityY: 0,
   },
   {
@@ -19,15 +19,27 @@ export const ENEMIES = [
   },
   {
     x: 750,
-    y: 290,
+    y: 590,
     velocityX: -50,
     velocityY: 0,
   },
   {
-    x: 100,
-    y: 900,
+    x: 540,
+    y: 2010,
+    velocityX: 50,
+    velocityY: 0,
+  },
+  {
+    x: 2030,
+    y: 450,
     velocityX: 0,
     velocityY: 50,
+  },
+  {
+    x: 1950,
+    y: 1150,
+    velocityX: -50,
+    velocityY: 0,
   },
 
 ];

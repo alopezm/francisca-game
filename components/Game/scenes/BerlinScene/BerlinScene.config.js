@@ -4,6 +4,6 @@ export const SCENE_ZOOM = 1;
 
 export const PLAYER_VELOCITY = 190;
 
-export const PLAYER_X = 800;
+export const PLAYER_X = 1250;
 
-export const PLAYER_Y = 3000;
+export const PLAYER_Y = 2997;

@@ -1,4 +1,4 @@
-import { BaseTextScene } from "./BaseTextScene";
+import { BaseScene } from "./BaseScene";
 
 const MESSAGES = [
   "W. Benjamin: La construcción de la identidad sólo es posible desde la consciencia de la pertenencia al sistema. Ese sentido de pertenencia, qué aciago destino para tantos jóvenes.",
@@ -10,7 +10,7 @@ const MESSAGES = [
 const IMAGE = "/assets/Soldier_whitout_cap.png";
 const SCENE_NAME = "soldier-scene";
 
-export class SoldierScene extends BaseTextScene {
+export class SoldierScene extends BaseScene {
   imageKey = IMAGE + SCENE_NAME;
 
   constructor() {
@@ -33,7 +33,7 @@ export class SoldierScene extends BaseTextScene {
     text.setOrigin(0, 0);
     text.setWordWrapWidth(700, false);
 
-    this.setupKeyEvents(() => {
+    this.setupKeyNextTextKeyEvents(() => {
       ++line;
 
       if (line === MESSAGES.length) {

@@ -1,4 +1,4 @@
-import { BaseTextScene } from "./BaseTextScene";
+import { BaseScene } from "./BaseScene";
 
 const MESSAGES = [
   "El Alexanderplatz emula el mismo paisaje que has visto hasta ahora. Pero notas algo diferente…",
@@ -11,7 +11,7 @@ const MESSAGES = [
 const IMAGE = "/assets/Berolina_mini.png";
 const SCENE_NAME = "berolina-scene";
 
-export class BerolinaScene extends BaseTextScene {
+export class BerolinaScene extends BaseScene {
   imageKey = IMAGE + SCENE_NAME;
 
   constructor() {
@@ -34,7 +34,7 @@ export class BerolinaScene extends BaseTextScene {
     text.setOrigin(0, 0);
     text.setWordWrapWidth(700, false);
 
-    this.setupKeyEvents(() => {
+    this.setupKeyNextTextKeyEvents(() => {
       ++line;
 
       if (line === MESSAGES.length) {

@@ -1,5 +1,5 @@
-import { Scene } from "phaser";
 import { uniq } from "@/utils/uniq";
+import { BaseScene } from "@/components/Game/scenes/BaseScene";
 import { GameConfig } from "../../GameConfig";
 import { BUILDINGS } from "./BerlinScene.buildings";
 import { COLLECTABLES } from "./BerlinScene.collectables";
@@ -20,25 +20,27 @@ const ENEMY_MOVEMENT = {
   STAND: "enemy-stand",
 };
 
-export class BerlinScene extends Scene {
+export class BerlinScene extends BaseScene {
+  music;
   enemy;
   player;
   cursors;
   statics;
   usedScenesMap;
+  pickedCollectables;
 
   doorSideAClosed;
   doorSideBClosed;
   isDoorOpen;
   collectablesToOpenDoorMap;
 
-  pickedCollectables;
-
   constructor() {
     super("berlin-scene");
   }
 
   preload() {
+    this.loadMusic();
+
     this.load.image("berlin_door", "/assets/berlin-door.jpg");
     this.load.image("berlin_floor", "/assets/berlin_floor.png");
 
@@ -61,13 +63,14 @@ export class BerlinScene extends Scene {
   }
 
   create() {
+    this.setupMusic();
+
     this.cursors = this.input.keyboard.createCursorKeys();
     this.pickedCollectables = 0;
     const floor = this.add.image(0, 0, "berlin_floor").setOrigin(0, 0);
 
-    this.statics = this.physics.add.staticGroup();
-
     // create buildings
+    this.statics = this.physics.add.staticGroup();
     this.statics.createMultiple(
       BUILDINGS.flatMap(({ key, items }) =>
         items.map((item) => ({ key, setOrigin: { x: 0, y: 0 }, ...item }))

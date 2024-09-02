@@ -1,4 +1,4 @@
-import { BaseTextScene } from "./BaseTextScene";
+import { BaseScene } from "./BaseScene";
 
 const MESSAGES = [
   "Las puertas de la casa se han abierto. Ahora puedes entrar.",
@@ -6,7 +6,7 @@ const MESSAGES = [
 const IMAGE = "/assets/open-door-home.png";
 const SCENE_NAME = "door-open-scene";
 
-export class DoorOpenScene extends BaseTextScene {
+export class DoorOpenScene extends BaseScene {
   imageKey = IMAGE + SCENE_NAME;
 
   constructor() {
@@ -29,7 +29,7 @@ export class DoorOpenScene extends BaseTextScene {
     text.setOrigin(0, 0);
     text.setWordWrapWidth(700, false);
 
-    this.setupKeyEvents(() => {
+    this.setupKeyNextTextKeyEvents(() => {
       ++line;
 
       if (line === MESSAGES.length) {

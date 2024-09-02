@@ -1,7 +1,7 @@
-import { BaseTextScene } from "./BaseTextScene";
+import { BaseScene } from "./BaseScene";
 
 const MESSAGES = [
-  "Presione Enter para continuar",
+  "Presione M para iniciar/pausar la musica.\n\nPresione Enter para continuar",
   "Bienvenido, presiona cualquier tecla para comenzar",
   "“Solo se llega a conocer un lugar cuando uno lo experimenta en el mayor número de dimensiones posibles.",
   "Para apropiarse de un lugar hay que haber llegado a este desde cada uno de los cuatro puntos cardinales, como también hay que haberlo abandonado en todas estas direcciones.",
@@ -17,7 +17,7 @@ const NEXT_SCENE = "berlin-scene";
 const IMAGE = "/assets/benjamin.png";
 const SCENE_NAME = "intro-scene";
 
-export class IntroScene extends BaseTextScene {
+export class IntroScene extends BaseScene {
   imageKey = IMAGE + SCENE_NAME;
 
   constructor() {
@@ -25,10 +25,13 @@ export class IntroScene extends BaseTextScene {
   }
 
   preload() {
+    this.loadMusic();
     this.load.image(this.imageKey, IMAGE);
   }
 
   create() {
+    this.setupMusic();
+
     this.add.image(0, 0, this.imageKey).setOrigin(0, 0);
 
     let line = 0;
@@ -40,7 +43,7 @@ export class IntroScene extends BaseTextScene {
     text.setOrigin(0, 0);
     text.setWordWrapWidth(700, false);
 
-    this.setupKeyEvents(() => {
+    this.setupKeyNextTextKeyEvents(() => {
       ++line;
 
       if (line === MESSAGES.length) {

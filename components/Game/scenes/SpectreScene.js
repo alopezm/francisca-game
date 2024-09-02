@@ -1,4 +1,4 @@
-import { BaseTextScene } from "./BaseTextScene";
+import { BaseScene } from "./BaseScene";
 
 const MESSAGES = [
   "Linea 1",
@@ -7,7 +7,7 @@ const MESSAGES = [
 const IMAGE = "/assets/spectre-scene.png";
 const SCENE_NAME = "spectre-scene";
 
-export class SpectreScene extends BaseTextScene {
+export class SpectreScene extends BaseScene {
   imageKey = IMAGE + SCENE_NAME;
 
   constructor() {
@@ -30,7 +30,7 @@ export class SpectreScene extends BaseTextScene {
     text.setOrigin(0, 0);
     text.setWordWrapWidth(700, false);
 
-    this.setupKeyEvents(() => {
+    this.setupKeyNextTextKeyEvents(() => {
       ++line;
 
       if (line === MESSAGES.length) {

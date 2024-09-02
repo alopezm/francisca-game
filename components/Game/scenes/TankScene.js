@@ -1,4 +1,4 @@
-import { BaseTextScene } from "./BaseTextScene";
+import { BaseScene } from "./BaseScene";
 
 const MESSAGES = [
   "Solo hay ruinas de Sur a Norte.",
@@ -10,7 +10,7 @@ const MESSAGES = [
 const IMAGE = "/assets/Tank_org.png";
 const SCENE_NAME = "tank-scene";
 
-export class TankScene extends BaseTextScene {
+export class TankScene extends BaseScene {
   imageKey = IMAGE + SCENE_NAME;
 
   constructor() {
@@ -33,7 +33,7 @@ export class TankScene extends BaseTextScene {
     text.setOrigin(0, 0);
     text.setWordWrapWidth(700, false);
 
-    this.setupKeyEvents(() => {
+    this.setupKeyNextTextKeyEvents(() => {
       ++line;
 
       if (line === MESSAGES.length) {

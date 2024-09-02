@@ -1,4 +1,4 @@
-import { BaseTextScene } from "./BaseTextScene";
+import { BaseScene } from "./BaseScene";
 
 const MESSAGES = [
   "El Alexanderplatz emula el mismo paisaje que has visto hasta ahora. Pero notas algo diferente…",
@@ -11,7 +11,7 @@ const MESSAGES = [
 const IMAGE = "/assets/scene_Angelus_novus.png";
 const SCENE_NAME = "angelous-scene";
 
-export class AngelousScene extends BaseTextScene {
+export class AngelousScene extends BaseScene {
   imageKey = IMAGE + SCENE_NAME;
 
   constructor() {
@@ -34,7 +34,7 @@ export class AngelousScene extends BaseTextScene {
     text.setOrigin(0, 0);
     text.setWordWrapWidth(700, false);
 
-    this.setupKeyEvents(() => {
+    this.setupKeyNextTextKeyEvents(() => {
       ++line;
 
       if (line === MESSAGES.length) {

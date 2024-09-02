@@ -1,7 +1,7 @@
-import { Scene } from "phaser";
 import { GameConfig } from "../GameConfig";
+import { BaseScene } from "./BaseScene";
 
-export class GameOverScene extends Scene {
+export class GameOverScene extends BaseScene {
   constructor() {
     super("game-over-scene");
   }

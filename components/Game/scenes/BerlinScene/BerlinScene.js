@@ -169,7 +169,7 @@ export class BerlinScene extends Scene {
     });
     this.collectablesMiniatures.createMultiple(
       COLLECTABLES.map((item, i) => ({
-        key: item.key,
+        key: item.keyMiniature,
         setOrigin: { x: 0.5, y: 0 },
         setXY: { x: 70 + 146 * i, y: 20 },
         setAlpha: { value: 0.4 },

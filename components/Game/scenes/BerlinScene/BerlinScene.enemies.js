@@ -41,5 +41,23 @@ export const ENEMIES = [
     velocityX: -50,
     velocityY: 0,
   },
+  {
+    x: 10,
+    y: 690,
+    velocityX: 50,
+    velocityY: 0,
+  },
+  {
+      x: 230,
+      y: 300,
+      velocityX: -50,
+      velocityY: 0,
+  },
+  {
+      x: 110,
+      y: 1100,
+      velocityX: 50,
+      velocityY: 0,
+  },
 
 ];

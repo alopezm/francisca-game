@@ -1,7 +1,7 @@
 export const SCENE_TRIGGERS = [
   {
     x: 2700,
-    y: 1800,
+    y: 1570,
     key: "/assets/spectre.png",
     scene: "spectre-scene",
     fadeAfterCollision: true,
@@ -23,7 +23,7 @@ export const SCENE_TRIGGERS = [
   },
   {
     x: 2250,
-    y: 690,
+    y: 600,
     key: "/assets/Berolina_mini.png",
     scene: "berolina-scene",
     fadeAfterCollision: true,

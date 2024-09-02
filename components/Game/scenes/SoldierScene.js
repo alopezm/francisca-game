@@ -2,12 +2,11 @@ import { BaseScene } from "./BaseScene";
 
 const MESSAGES = [
   "W. Benjamin: La construcción de la identidad sólo es posible desde la consciencia de la pertenencia al sistema. Ese sentido de pertenencia, qué aciago destino para tantos jóvenes.",
-  "Soldado: ",
-  "Soldado: Señor, ha encontrado mi gorra y también mi gorra y mi arma. Temía la ira de mi superior si le hubiera tenido que informar que perdí un panzerfaust en estas alturas de la guerra, además, con el uniforme incompleto.",
+  "Soldado: Señor, ha encontrado mi gorra y también mi arma. Temía la ira de mi superior si le hubiera tenido que informar que perdí un panzerfaust en estas alturas de la guerra, además, le iba a informar con el uniforme incompleto.",
   "Soldado: Tome, yo ya no le tengo uso.",
   "Te entrega su cuchillo de las Juventudes Hitlerianas",
 ];
-const IMAGE = "/assets/Soldier_whitout_cap.png";
+const IMAGE = "/assets/soldier_scene.png";
 const SCENE_NAME = "soldier-scene";
 
 export class SoldierScene extends BaseScene {

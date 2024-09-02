@@ -1,8 +1,9 @@
 import { BaseScene } from "./BaseScene";
 
 const MESSAGES = [
-  "Linea 1",
-  "Linea 2",
+  "Espectro: ¿Me recuerdas?  Soy aquella intrusa que un día tu pequeña mente confundió con un fantasma",
+  "Espectro: Antes de seguir tu paso más allá, aún debes recorrer algunos otros de tus pasos",
+  "Misión: Recoge tus pasos",
 ];
 const IMAGE = "/assets/spectre-scene.png";
 const SCENE_NAME = "spectre-scene";

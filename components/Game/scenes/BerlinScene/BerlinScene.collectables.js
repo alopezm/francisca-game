@@ -4,10 +4,10 @@ export const COLLECTABLES = [
     keyMiniature: "/assets/jewish_bracelet_mini.png",
     setXY: { x: 20, y: 2950 },
     data: {
-      img: "/assets/jewish_bracelet-original.png",
+      img: "https://www.yadvashem.org/sites/default/files/lesson6_08b.jpg",
       title: "Brazalete con la insignia",
       description:
-        "Parece que los más desdichados recorrieron estos caminos. La creación de apologías basadas en prejuicios, terminan por ser fenómenos sociales de gran escala mediante prácticas sistemáticas de diversa índole y con distintos recursos. Así terminamos identificando odio y segregación en un pedazo de tela vieja y podrida.",
+        "Parece que los más desdichados recorrieron estos caminos. La creación de apologías basadas en prejuicios, terminan por ser fenómenos sociales de gran escala mediante prácticas sistemáticas de diversa índole y con distintos recursos. Así terminamos identificando odio y segregación en un pedazo de tela vieja y podrida",
     },
   },
   {
@@ -87,7 +87,7 @@ export const COLLECTABLES = [
     keyMiniature: "/assets/nazi_bracelet-mini.png",
     setXY: { x: 1380, y: 1345 },
     data: {
-      img: "https://s1.elespanol.com/2020/06/06/actualidad/actualidad_495710914_153267262_1024x576.jpg",
+      img: "/assets/nazi_bracelet_org.png",
       title: "Brazalete militar",
       description:
         "“El cielo se oscureció y se contrajo fuertemente. Era como si todo el mundo estuviera siendo tirado con una fuerza espantosa hacia este lugar (...). Detrás nuestro reverberó la aguda risa de Mefisto.”",
@@ -118,9 +118,9 @@ export const COLLECTABLES = [
   {
     key: "/assets/Cane_mini.png",
     keyMiniature: "/assets/Cane_mini.png",
-    setXY: { x: 1900, y: 1940 },
+    setXY: { x: 2750, y: 2050 },
     data: {
-      img: "/assets/Cane_org.png",
+      img: "/assets/cane_org.jpg",
       title: "Bastón con pomo en forma de aguila",
       description: "mi padre era un hombre elegante",
     },
@@ -128,7 +128,7 @@ export const COLLECTABLES = [
   {
     key: "/assets/grandparents_mini.png",
     keyMiniature: "/assets/grandparents_mini.png",
-    setXY: { x: 2550, y: 2540 },
+    setXY: { x: 1640, y: 2780 },
     data: {
       img: "/assets/Grandpa_org.png",
       title: "La abuela y el abuelo",
@@ -138,7 +138,7 @@ export const COLLECTABLES = [
   {
     key: "/assets/Schiller_book_mini.png",
     keyMiniature: "/assets/Schiller_book_mini.png",
-    setXY: { x: 2700, y: 2400 },
+    setXY: { x: 2856, y: 2389 },
     data: {
       img: "/assets/Schiller_book_org.jpg",
       title: "La cancion de la Campana. Schiller",
@@ -148,7 +148,7 @@ export const COLLECTABLES = [
   {
     key: "/assets/Score_mini.png",
     keyMiniature: "/assets/Score_mini.png",
-    setXY: { x: 2200, y: 1800 },
+    setXY: { x: 1600, y: 2656 },
     data: {
       img: "https://www.elcoleccionistaeclectico.com/resources/productos/kinder-album-para-pianoforte-marco-enrico-bossi-gebruder-hug-co-alemania-1922-25258-126819.JPG",
       title: "Partitura de la infancia",

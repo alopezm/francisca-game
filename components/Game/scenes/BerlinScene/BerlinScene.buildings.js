@@ -4,7 +4,7 @@ export const BUILDINGS = [
     key: "/assets/water.png",
     items: [
       {
-        setXY: { x: 1500, y: -7 }
+        setXY: { x: 1500, y: -5 }
       }
     ]
   },
@@ -152,7 +152,14 @@ export const BUILDINGS = [
       }
     ]
   },
-  
+  {
+    key: "/assets/antiaircraft_mini.png",
+    items: [
+      {
+        setXY: { x: 2500, y: 900 }
+      }
+    ]
+  },
   {
     key: "/assets/Brandenburg_forest_mini.png",
     items: [
@@ -219,5 +226,329 @@ export const BUILDINGS = [
       
     ]
   },
+  {
+    key: "/assets/home_divisionlarge.png",
+    items: [
+      {
+        setXY: { x: 2340, y: 1920 },         
+      },
+      
+    ]
+  },
+  {
+    key: "/assets/home_division1.png",
+    items: [
+      {
+        setXY: { x: 2135, y: 1560 },         
+      },
+      
+    ]
+  },
+  {
+    key: "/assets/home_divisionlarge.png",
+    items: [
+      {
+        setXY: { x: 2130, y: 2050 },         
+      },
+      
+    ]
+  },
+  {
+    key: "/assets/home_divisionlarge.png",
+    items: [
+      {
+        setXY: { x: 2340, y: 2100 },         
+      },
+      
+    ]
+  },
+  {
+    key: "/assets/home_divisionlying_large.png",
+    items: [
+      {
+        setXY: { x: 1555, y: 2050 },         
+      },
+      
+    ]
+  },
+  {
+    key: "/assets/home_divisionlying_large.png",
+    items: [
+      {
+        setXY: { x: 1620, y: 2050 },         
+      },
+      
+    ]
+  },
+  {
+    key: "/assets/home_divisionlying_large.png",
+    items: [
+      {
+        setXY: { x: 2352, y: 1765 },         
+      },
+      
+    ]
+  },
+  {
+    key: "/assets/home_divisionlying_large.png",
+    items: [
+      {
+        setXY: { x: 2352, y: 2250 },         
+      },
+      
+    ]
+  },
+  {
+    key: "/assets/home_divisionlying_large.png",
+    items: [
+      {
+        setXY: { x: 2500, y: 1765 },         
+      },
+      
+    ]
+  },
+  {
+    key: "/assets/home_divisionlying_large.png",
+    items: [
+      {
+        setXY: { x: 2500, y: 2250 },         
+      },
+      
+    ]
+  },
+  {
+    key: "/assets/home_divisionlying_large.png",
+    items: [
+      {
+        setXY: { x: 2500, y: 2750 },         
+      },
+      
+    ]
+  },
+  {
+    key: "/assets/home_divisionlying_large.png",
+    items: [
+      {
+        setXY: { x: 1555, y: 2750 },         
+      },
+      
+    ]
+  },
+  {
+    key: "/assets/home_divisionlying_large.png",
+    items: [
+      {
+        setXY: { x: 1600, y: 2750 },         
+      },
+      
+    ]
+  },
+  {
+    key: "/assets/home_divisionlying_large.png",
+    items: [
+      {
+        setXY: { x: 2400, y: 2750 },         
+      },
+      
+    ]
+  },
+  {
+    key: "/assets/kitchen_line1.png",
+    items: [
+      {
+        setXY: { x: 1650, y: 1530 },         
+      },
+      
+    ]
+  },
+  {
+  key: "/assets/kitchen_line2.png",
+  items: [
+    {
+      setXY: { x: 1550, y: 1660 },         
+    },
+    
+  ]
+},
+{
+  key: "/assets/kitchen_table.png",
+  items: [
+    {
+      setXY: { x: 1760, y: 1740 },         
+    },
+    
+  ]
+},
+{
+  key: "/assets/salon_line_library.png",
+  items: [
+    {
+      setXY: { x: 2560, y: 1770 },         
+    },
+    
+  ]
+},
+{
+  key: "/assets/salon_sofa2.png",
+  items: [
+    {
+      setXY: { x: 2920, y: 2000 },         
+    },
+    
+  ]
+},
+{
+  key: "/assets/salon_sofa1.png",
+  items: [
+    {
+      setXY: { x: 2380, y: 2000 },         
+    },
+    
+  ]
+},
+{
+  key: "/assets/salon_table.png",
+  items: [
+    {
+      setXY: { x: 2636, y: 2050 },         
+    },
+    
+  ]
+},
+{
+  key: "/assets/parentsroom_bed.png",
+  items: [
+    {
+      setXY: { x: 2646, y: 2280 },         
+    },
+    
+  ]
+},
+{
+  key: "/assets/parentsroom_table.png",
+  items: [
+    {
+      setXY: { x: 2526, y: 2280 },         
+    },
+    
+  ]
+},
+{
+  key: "/assets/parentsroom_table.png",
+  items: [
+    {
+      setXY: { x: 2856, y: 2280 },         
+    },
+    
+  ]
+},
+{
+  key: "/assets/parentsroom_ shelf.png",
+  items: [
+    {
+      setXY: { x: 2896, y: 2562 },         
+    },
+    
+  ]
+},
+{
+  key: "/assets/childroom_ trunk.png",
+  items: [
+    {
+      setXY: { x: 2646, y: 2660 },         
+    },
+    
+  ]
+},
+{
+  key: "/assets/childroom_library.png",
+  items: [
+    {
+      setXY: { x: 2370, y: 2280 },         
+    },
+    
+  ]
+},
+{
+  key: "/assets/childroom_beds.png",
+  items: [
+    {
+      setXY: { x: 1780, y: 2080 },         
+    },
+    
+  ]
+},
+{
+  key: "/assets/childroom_library.png",
+  items: [
+    {
+      setXY: { x: 1570, y: 2080 },         
+    },
+    
+  ]
+},
+{
+  key: "/assets/parentsroom_ shelf.png",
+  items: [
+    {
+      setXY: { x: 1555, y: 2202 },         
+    },
+    
+  ]
+},
+{
+  key: "/assets/childroom_desk.png",
+  items: [
+    {
+      setXY: { x: 1555, y: 2320 },         
+    },
+    
+  ]
+},
+{
+  key: "/assets/childroom_ trunk.png",
+  items: [
+    {
+      setXY: { x: 1750, y: 2660 },         
+    },
+    
+  ]
+},
+{
+  key: "/assets/hall1.png",
+  items: [
+    {
+      setXY: { x: 1555, y: 2780 },         
+    },
+    
+  ]
+},
+{
+  key: "/assets/hall2.png",
+  items: [
+    {
+      setXY: { x: 2020, y: 2910 },         
+    },
+    
+  ]
+},
+{
+  key: "/assets/hall3.png",
+  items: [
+    {
+      setXY: { x: 2600, y: 2725 },         
+    },
+    
+  ]
+},
+{
+  key: "/assets/hall4.png",
+  items: [
+    {
+      setXY: { x: 2910, y: 2790 },         
+    },
+    
+  ]
+},
 
 ];

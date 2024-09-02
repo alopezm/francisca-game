@@ -1,6 +1,7 @@
-import { Scene } from "phaser";
+import { BaseTextScene } from "./BaseTextScene";
 
 const MESSAGES = [
+  "Presione Enter para continuar",
   "Bienvenido, presiona cualquier tecla para comenzar",
   "“Solo se llega a conocer un lugar cuando uno lo experimenta en el mayor número de dimensiones posibles.",
   "Para apropiarse de un lugar hay que haber llegado a este desde cada uno de los cuatro puntos cardinales, como también hay que haberlo abandonado en todas estas direcciones.",
@@ -16,7 +17,7 @@ const NEXT_SCENE = "berlin-scene";
 const IMAGE = "/assets/benjamin.png";
 const SCENE_NAME = "intro-scene";
 
-export class IntroScene extends Scene {
+export class IntroScene extends BaseTextScene {
   imageKey = IMAGE + SCENE_NAME;
 
   constructor() {
@@ -39,7 +40,7 @@ export class IntroScene extends Scene {
     text.setOrigin(0, 0);
     text.setWordWrapWidth(700, false);
 
-    this.input.keyboard.on("keydown", () => {
+    this.setupKeyEvents(() => {
       ++line;
 
       if (line === MESSAGES.length) {

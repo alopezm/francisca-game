@@ -1,4 +1,4 @@
-import { Scene } from "phaser";
+import { BaseTextScene } from "./BaseTextScene";
 
 const MESSAGES = [
   "Linea 1",
@@ -7,7 +7,7 @@ const MESSAGES = [
 const IMAGE = "/assets/spectre-scene.png";
 const SCENE_NAME = "spectre-scene";
 
-export class SpectreScene extends Scene {
+export class SpectreScene extends BaseTextScene {
   imageKey = IMAGE + SCENE_NAME;
 
   constructor() {
@@ -30,7 +30,7 @@ export class SpectreScene extends Scene {
     text.setOrigin(0, 0);
     text.setWordWrapWidth(700, false);
 
-    this.input.keyboard.on("keydown", () => {
+    this.setupKeyEvents(() => {
       ++line;
 
       if (line === MESSAGES.length) {

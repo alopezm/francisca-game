@@ -1,4 +1,4 @@
-import { Scene } from "phaser";
+import { BaseTextScene } from "./BaseTextScene";
 
 const MESSAGES = [
   "Solo hay ruinas de Sur a Norte.",
@@ -6,12 +6,11 @@ const MESSAGES = [
   "W. Benjamin: - ¿A esto nos ha llevado la locura del nacionalsocialismo? …por un bigotón austriaco…",
   "W. Benjamin: La Berlín que conocía, palpitante de historia y cultura , se ha consumido por las llamas de la guerra y la sombra de la barbarie.",
   "Misión: Busca el camino hacia el Alexanderplatz.",
-  
 ];
 const IMAGE = "/assets/Tank_org.png";
 const SCENE_NAME = "tank-scene";
 
-export class TankScene extends Scene {
+export class TankScene extends BaseTextScene {
   imageKey = IMAGE + SCENE_NAME;
 
   constructor() {
@@ -34,7 +33,7 @@ export class TankScene extends Scene {
     text.setOrigin(0, 0);
     text.setWordWrapWidth(700, false);
 
-    this.input.keyboard.on("keydown", () => {
+    this.setupKeyEvents(() => {
       ++line;
 
       if (line === MESSAGES.length) {

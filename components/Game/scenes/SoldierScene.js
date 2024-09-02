@@ -1,4 +1,4 @@
-import { Scene } from "phaser";
+import { BaseTextScene } from "./BaseTextScene";
 
 const MESSAGES = [
   "W. Benjamin: La construcción de la identidad sólo es posible desde la consciencia de la pertenencia al sistema. Ese sentido de pertenencia, qué aciago destino para tantos jóvenes.",
@@ -10,7 +10,7 @@ const MESSAGES = [
 const IMAGE = "/assets/Soldier_whitout_cap.png";
 const SCENE_NAME = "soldier-scene";
 
-export class SoldierScene extends Scene {
+export class SoldierScene extends BaseTextScene {
   imageKey = IMAGE + SCENE_NAME;
 
   constructor() {
@@ -33,7 +33,7 @@ export class SoldierScene extends Scene {
     text.setOrigin(0, 0);
     text.setWordWrapWidth(700, false);
 
-    this.input.keyboard.on("keydown", () => {
+    this.setupKeyEvents(() => {
       ++line;
 
       if (line === MESSAGES.length) {

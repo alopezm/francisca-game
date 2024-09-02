@@ -1,7 +1,7 @@
 "use client";
 import { useRouter } from "next/navigation";
 
-const BTN_CLASS_NAME = "block text-5xl hover:animate-pulse";
+const BTN_CLASS_NAME = "block text-5xl hover:animate-pulse bg-black border border-white px-8 py-4 text-white";
 
 export default function HomePage() {
   const router = useRouter();

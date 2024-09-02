@@ -2,6 +2,8 @@ import { Scene } from "phaser";
 import { GameConfig } from "../GameConfig";
 
 export class BaseScene extends Scene {
+  static music;
+
   setupKeyEvents(key = "ENTER", cb) {
     if (!key) return;
 
@@ -27,16 +29,18 @@ export class BaseScene extends Scene {
   }
 
   setupMusic() {
-    this.music = this.sound.add("main-music", { loop: true });
-    this.music.play();
-
-    if (!GameConfig.getPlayMusic()) this.music.pause();
+    if (!BaseScene.music) {
+      BaseScene.music = this.sound.add("main-music", { loop: true });
+      // get music ready to be played on user interaction
+      BaseScene.music.play();
+      const playMusic = !GameConfig.getPlayMusic();
+      if (playMusic) BaseScene.music.pause();
+    }
 
     this.setupKeyEvents("M", () => {
       const playMusic = !GameConfig.getPlayMusic();
-
-      if (playMusic) this.music.resume();
-      else this.music.pause();
+      if (playMusic) BaseScene.music.resume();
+      else BaseScene.music.pause();
       GameConfig.setPlayMusic(playMusic);
     });
   }

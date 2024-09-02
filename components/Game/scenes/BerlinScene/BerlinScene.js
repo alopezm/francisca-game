@@ -57,6 +57,7 @@ export class BerlinScene extends BaseScene {
     const uniqKeys = [
       ...uniq(BUILDINGS.map(({ key }) => key)),
       ...uniq(COLLECTABLES.map(({ key }) => key)),
+      ...uniq(COLLECTABLES.map(({ keyMiniature }) => keyMiniature)),
       ...uniq(SCENE_TRIGGERS.map(({ key }) => key)),
     ];
     uniqKeys.forEach((key) => this.load.image(key, key));

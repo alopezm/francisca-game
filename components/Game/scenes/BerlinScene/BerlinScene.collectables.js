@@ -1,7 +1,7 @@
 export const COLLECTABLES = [
   {
     key: "/assets/jewish_bracelet_mini.png",
-    keyMiniature: "/assets/jewish_bracelet_mini.png",
+    keyMiniature: "/assets/Icon_jewish_bracelet.png",
     setXY: { x: 20, y: 2950 },
     data: {
       img: "https://www.yadvashem.org/sites/default/files/lesson6_08b.jpg",
@@ -12,7 +12,7 @@ export const COLLECTABLES = [
   },
   {
     key: "/assets/helmet-mini.png",
-    keyMiniature: "/assets/helmet-mini.png",
+    keyMiniature: "/assets/Icon_helmet.png",
     requiredToOpenDoor: true,
     setXY: { x: 20, y: 2270 },
     data: {
@@ -24,7 +24,7 @@ export const COLLECTABLES = [
   },
   {
     key: "/assets/propaganda_poster-mini.png",
-    keyMiniature: "/assets/propaganda_poster-mini.png",
+    keyMiniature: "/assets/Icon_propaganda_poster.png",
     requiredToOpenDoor: true,
     setXY: { x: 1370, y: 1970 },
     data: {
@@ -36,7 +36,7 @@ export const COLLECTABLES = [
   },
   {
     key: "/assets/mauser_k98-mini.png",
-    keyMiniature: "/assets/mauser_k98-mini.png",
+    keyMiniature: "/assets/Icon_mauser_k98.png",
     setXY: { x: 750, y: 2000 },
     data: {
       img: "/assets/mauserk98.jpg",
@@ -48,7 +48,7 @@ export const COLLECTABLES = [
 
   {
     key: "/assets/nazi_eagle-mini.png",
-    keyMiniature: "/assets/nazi_eagle-mini.png",
+    keyMiniature: "/assets/Icon_nazi_eagle.png",
     requiredToOpenDoor: true,
     setXY: { x: 700, y: 350 },
     data: {
@@ -61,7 +61,7 @@ export const COLLECTABLES = [
 
   {
     key: "/assets/burned_books-mini.png",
-    keyMiniature: "/assets/burned_books-mini.png",
+    keyMiniature: "/assets/Icon_burned_books.png",
     requiredToOpenDoor: true,
     setXY: { x: 1480, y: 550 },
     data: {
@@ -73,7 +73,7 @@ export const COLLECTABLES = [
   },
   {
     key: "/assets/panzerfaust-mini.png",
-    keyMiniature: "/assets/panzerfaust-mini.png",
+    keyMiniature: "/assets/Icon_panzerfaust.png",
     setXY: { x: 250, y: 150 },
     data: {
       img: "https://www.historynet.com/wp-content/uploads/2012/05/Panzerfaust-scaled-2048x1430.jpg",
@@ -84,7 +84,7 @@ export const COLLECTABLES = [
   },
   {
     key: "/assets/nazi_bracelet-mini.png",
-    keyMiniature: "/assets/nazi_bracelet-mini.png",
+    keyMiniature: "/assets/Icon_nazi_bracelet.png",
     setXY: { x: 1380, y: 1345 },
     data: {
       img: "/assets/nazi_bracelet_org.png",
@@ -95,7 +95,7 @@ export const COLLECTABLES = [
   },
   {
     key: "/assets/SS_cap_mini.png",
-    keyMiniature: "/assets/SS_cap_mini.png",
+    keyMiniature: "/assets/Icon_SS_cap.png",
     setXY: { x: 2500, y: 100 },
     data: {
       img: "https://acorazadobismarck.es/wp-content/uploads/2021/11/IMG_5578-scaled.jpg",
@@ -106,7 +106,7 @@ export const COLLECTABLES = [
   },
   {
     key: "/assets/newspaper_mini.png",
-    keyMiniature: "/assets/newspaper_mini.png",
+    keyMiniature: "/assets/Icon_newspaper.png",
     setXY: { x: 2200, y: 400 },
     data: {
       img: "/assets/newspaper_org.png",
@@ -117,7 +117,7 @@ export const COLLECTABLES = [
   },
   {
     key: "/assets/Cane_mini.png",
-    keyMiniature: "/assets/Cane_mini.png",
+    keyMiniature: "/assets/Icon_Cane.png",
     setXY: { x: 2750, y: 2050 },
     data: {
       img: "/assets/cane_org.jpg",
@@ -127,7 +127,7 @@ export const COLLECTABLES = [
   },
   {
     key: "/assets/grandparents_mini.png",
-    keyMiniature: "/assets/grandparents_mini.png",
+    keyMiniature: "/assets/Icon_grandparents.png",
     setXY: { x: 1640, y: 2780 },
     data: {
       img: "/assets/Grandpa_org.png",
@@ -137,7 +137,7 @@ export const COLLECTABLES = [
   },
   {
     key: "/assets/Schiller_book_mini.png",
-    keyMiniature: "/assets/Schiller_book_mini.png",
+    keyMiniature: "/assets/Icon_Schiller_book.png",
     setXY: { x: 2856, y: 2389 },
     data: {
       img: "/assets/Schiller_book_org.jpg",
@@ -147,7 +147,7 @@ export const COLLECTABLES = [
   },
   {
     key: "/assets/Score_mini.png",
-    keyMiniature: "/assets/Score_mini.png",
+    keyMiniature: "/assets/Icon_Score.png",
     setXY: { x: 1600, y: 2656 },
     data: {
       img: "https://www.elcoleccionistaeclectico.com/resources/productos/kinder-album-para-pianoforte-marco-enrico-bossi-gebruder-hug-co-alemania-1922-25258-126819.JPG",

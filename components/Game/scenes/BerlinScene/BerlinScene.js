@@ -45,7 +45,7 @@ export class BerlinScene extends BaseScene {
     this.load.image("berlin_floor", "/assets/berlin_floor.png");
 
     this.load.spritesheet("character", "/assets/minibenji.png", {
-      frameWidth: 63,
+      frameWidth: 903 / 16,
       frameHeight: 77,
     });
 

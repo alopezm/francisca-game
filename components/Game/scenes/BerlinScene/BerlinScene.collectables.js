@@ -7,7 +7,7 @@ export const COLLECTABLES = [
       img: "https://www.yadvashem.org/sites/default/files/lesson6_08b.jpg",
       title: "Brazalete con la insignia",
       description:
-        "W. Benjamin: Parece que los más desdichados recorrieron estos caminos. La creación de apologías basadas en prejuicios, terminan por ser fenómenos sociales de gran escala mediante prácticas sistemáticas de diversa índole y con distintos recursos. Así terminamos identificando odio y segregación en un pedazo de tela vieja y podrida",
+        "W. Benjamin: - Parece que los más desdichados recorrieron estos caminos. La creación de apologías basadas en prejuicios, terminan por ser fenómenos sociales de gran escala mediante prácticas sistemáticas de diversa índole y con distintos recursos. Así terminamos identificando odio y segregación en un pedazo de tela vieja y podrida",
     },
   },
   {
@@ -19,7 +19,7 @@ export const COLLECTABLES = [
       img: "/assets/helmet-org.png",
       title: "Casco de las Wehrmacht",
       description:
-        "W. Benjamin: El mundo de la visualidad no tiene que pasar por el lenguaje para que un objeto represente algo en sí mismo. El caso es que, me sorprende que no esté arruinado este casco. Quizás sirva para hervir agua. Estoy sediento.",
+        "W. Benjamin: - El mundo de la visualidad no tiene que pasar por el lenguaje para que un objeto represente algo en sí mismo. El caso es que, me sorprende que no esté arruinado este casco. Quizás sirva para hervir agua. Estoy sediento.",
     },
   },
   {
@@ -31,7 +31,7 @@ export const COLLECTABLES = [
       img: "/assets/propaganda_org.jpg",
       title: "Entartete Musik (Música degenerada)",
       description:
-        "W. Benjamin: ¡Que escalofriante manifestación del control totalitario! Parece el recordatorio del legado perdurable del asalto del régimen a la cultura y sus insidiosos intentos de manipular y controlar el espíritu humano; casi como buscando socavar los cimientos mismos de una sociedad pluralista. No es simplemente una cuestión estética, se trata de un atentado fundamental contra la dignidad y la libertad humanas.",
+        "W. Benjamin: - ¡Que escalofriante manifestación del control totalitario! Parece el recordatorio del legado perdurable del asalto del régimen a la cultura y sus insidiosos intentos de manipular y controlar el espíritu humano; casi como buscando socavar los cimientos mismos de una sociedad pluralista. No es simplemente una cuestión estética, se trata de un atentado fundamental contra la dignidad y la libertad humanas.",
     },
   },
   {
@@ -42,7 +42,7 @@ export const COLLECTABLES = [
       img: "/assets/mauserk98.jpg",
       title: "Mauser K98",
       description:
-        "W. Benjamin: Es el arma reglamentaria para la infantería de la Wehrmacht. A decir verdad, alguna vez utilicé su antecesor, un Mauser 98, para cazar. Leí por ahí que la caza es la única actividad laboral en la que las experiencias se presentan intrínsecamente. Me pregunto si acaso la humanidad ha pensado en algún momento que se puede redimir a través de las armas?.",
+        "W. Benjamin: - Es el arma reglamentaria para la infantería de la Wehrmacht. A decir verdad, alguna vez utilicé su antecesor, un Mauser 98, para cazar. Leí por ahí que la caza es la única actividad laboral en la que las experiencias se presentan intrínsecamente. Me pregunto si acaso la humanidad ha pensado en algún momento que se puede redimir a través de las armas?.",
     },
   },
   {
@@ -53,7 +53,7 @@ export const COLLECTABLES = [
       img: "https://www.historynet.com/wp-content/uploads/2012/05/Panzerfaust-scaled-2048x1430.jpg",
       title: "Antitanque Panzerfaust 60",
       description:
-        "W. Benjamin: Hay varios de estos aparatos desperdigados en todo el paisaje de destrucción y caos, camuflados entre los escombros, ruinas, gritos y retazos. Parece que fueron las últimas armas de muerte del III Reich junto con sus ideas.",
+        "W. Benjamin: - Hay varios de estos aparatos desperdigados en todo el paisaje de destrucción y caos, camuflados entre los escombros, ruinas, gritos y retazos. Parece que fueron las últimas armas de muerte del III Reich junto con sus ideas.",
     },
   },
   {
@@ -65,7 +65,7 @@ export const COLLECTABLES = [
       img: "/assets/nazi-eagle.jpg",
       title: "Reichsadler del III Reich",
       description:
-        "W. Benjamin: Los discursos, más que instituciones, son constituciones de los sucesos en estrecha relación con los procesos de generación o regeneración de una sociedad. Dado el caso, también degeneración... Simbolismo, simbolismo por toda parte.",
+        "W. Benjamin: - Los discursos, más que instituciones, son constituciones de los sucesos en estrecha relación con los procesos de generación o regeneración de una sociedad. Dado el caso, también degeneración... Simbolismo, simbolismo por toda parte.",
     },
   },
   {
@@ -88,7 +88,7 @@ export const COLLECTABLES = [
       img: "https://encyclopedia.ushmm.org/images/large/313b44c6-eb01-4c86-9bc3-cf70d8bc991b.jpg",
       title: "Quema de libros de 1933 de las ligas estudiantiles",
       description:
-        "W. Benjamin: Desde Opernplastz llegaron los residuos de la quema de libros. Esto fue un presagio de los horrores que estarían por llegar. Fue un claro indicio de la intolerancia, el fanatismo y la barbarie que caracterizarían al régimen. Esta acción violenta reflejó la profunda conexión entre cultura y poder. Los nazis comprendieron que controlar la cultura era una forma efectiva de controlar las mentes de las personas. No fue simplemente la destrucción de objetos físicos, sino un ataque frontal contra la razón, la cultura y la diversidad de pensamiento.",
+        "W. Benjamin: - Desde Opernplastz llegaron los residuos de la quema de libros. Esto fue un presagio de los horrores que estarían por llegar. Fue un claro indicio de la intolerancia, el fanatismo y la barbarie que caracterizarían al régimen. Esta acción violenta reflejó la profunda conexión entre cultura y poder. Los nazis comprendieron que controlar la cultura era una forma efectiva de controlar las mentes de las personas. No fue simplemente la destrucción de objetos físicos, sino un ataque frontal contra la razón, la cultura y la diversidad de pensamiento.",
     },
   },
   {
@@ -99,7 +99,7 @@ export const COLLECTABLES = [
       img: "/assets/newspaper_org.png",
       title: "Berliner Illustrirte Zeitung",
       description:
-        "W. Benjamin: ¿Un rumor sobre la estatua de la Berolina y el robo de los caballos de bronce de Hittler? Es dificil creer a ciegas en una sola fuente de informacion. Pero de ser cierto, Alemania se sigue enfrentando a cambios profundos...",
+        "W. Benjamin: - ¿Un rumor sobre la estatua de la Berolina y el robo de los caballos de bronce de Hittler? Es dificil creer a ciegas en una sola fuente de informacion. Pero de ser cierto, Alemania se sigue enfrentando a cambios profundos...",
     },
   },
   {
@@ -121,7 +121,7 @@ export const COLLECTABLES = [
     modal: {
       img: "/assets/cane_org.png",
       title: "Bastón",
-      description: "W. Benjamin: Aquella vez que su bastón calló, resonó un eco de autoridad y fragilidad. El peso del tiempo se entrelazó con la sombra de un amor protector.",
+      description: "W. Benjamin: - Aquella vez que su bastón calló, resonó un eco de autoridad y fragilidad. El peso del tiempo se entrelazó con la sombra de un amor protector.",
     },
   },
 
@@ -130,9 +130,9 @@ export const COLLECTABLES = [
     keyMiniature: "/assets/Icon_Schiller_book.png",
     setXY: { x: 2856, y: 2389 },
     modal: {
-      img: "/assets/Schiller_book_org.jpg",
+      img: "/assets/schiller_book_org.png",
       title: "La cancion de la Campana",
-      description: "W. Benjamin: El libro de cabezera de mi madre. Guardian de secretos y susurros. Despliegan sus páginas el aroma a lavanda de mi infancia, las palabras parecen un abrazo tejido por la voz de mi madre",
+      description: "W. Benjamin: - El libro de cabezera de mi madre. Guardian de secretos y susurros. Despliegan sus páginas el aroma a lavanda de mi infancia, las palabras parecen un abrazo tejido por la voz de mi madre",
     },
   },
   {
@@ -142,7 +142,7 @@ export const COLLECTABLES = [
     modal: {
       img: "/assets/score_org.png",
       title: "Partitura de la infancia",
-      description: "W. Benjamin: La música, en mi infancia, fue un refugio donde mis emociones encontraban un lenguaje universal. ",
+      description: "W. Benjamin: - La música, en mi infancia, fue un refugio donde mis emociones encontraban un lenguaje universal. ",
     },
   },
   {
@@ -152,7 +152,7 @@ export const COLLECTABLES = [
     modal: {
       img: "/assets/Grandpa_org.png",
       title: "Retrato",
-      description: "W. Benjamin: El retrato de mis abuelos susurra historias de amor, sabiduría y respeto. El tiempo detuvo la mirada de sus ojos en un trozo de papel fotográfico que marca memorias en un lienzo de nostalgia.",
+      description: "W. Benjamin: - El retrato de mis abuelos susurra historias de amor, sabiduría y respeto. El tiempo detuvo la mirada de sus ojos en un trozo de papel fotográfico que marca memorias en un lienzo de nostalgia.",
     },
   },
 
@@ -166,7 +166,7 @@ export const COLLECTABLES = [
   {
     key: "/assets/spectre.png",
     keyMiniature: "/assets/Icon_spectre.png",
-    setXY: { x: 2700, y: 1690 },
+    setXY: { x: 2700, y: 1590 },
     scene: "spectre-scene",
   },
   {

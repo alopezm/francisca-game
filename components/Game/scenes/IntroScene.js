@@ -1,7 +1,7 @@
 import { BaseScene } from "./BaseScene";
 
 const MESSAGES = [
-  "Presione M para iniciar/pausar la musica.\n\nPresione Enter para continuar",
+  "Presione M para iniciar/pausar la musica\n\nPresione ↑ ↓ ← → para moverse\n\nPresione Enter para continuar",
   "“Solo se llega a conocer un lugar cuando uno lo experimenta en el mayor número de dimensiones posibles.",
   "Para apropiarse de un lugar hay que haber llegado a este desde cada uno de los cuatro puntos cardinales, como también hay que haberlo abandonado en todas estas direcciones.",
   "Si no, uno se lo cruzará en el camino de manera inesperada tres, cuatro veces antes de estar preparado para dar con él.",

@@ -121,7 +121,7 @@ export const COLLECTABLES = [
     keyMiniature: "/assets/Icon_cane.png",
     setXY: { x: 2750, y: 2050 },
     modal: {
-      img: "/assets/cane_org.png",
+      img: "/assets/father-org.png",
       title: "Bastón del padre",
       description: "W. Benjamin: - Aquella vez que su bastón calló, resonó un eco de autoridad y fragilidad. El peso del tiempo se entrelazó con la sombra de un amor protector.",
     },

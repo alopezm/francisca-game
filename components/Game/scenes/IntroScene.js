@@ -2,7 +2,6 @@ import { BaseScene } from "./BaseScene";
 
 const MESSAGES = [
   "Presione M para iniciar/pausar la musica.\n\nPresione Enter para continuar",
-  "Bienvenido, presiona cualquier tecla para comenzar",
   "“Solo se llega a conocer un lugar cuando uno lo experimenta en el mayor número de dimensiones posibles.",
   "Para apropiarse de un lugar hay que haber llegado a este desde cada uno de los cuatro puntos cardinales, como también hay que haberlo abandonado en todas estas direcciones.",
   "Si no, uno se lo cruzará en el camino de manera inesperada tres, cuatro veces antes de estar preparado para dar con él.",
@@ -10,7 +9,7 @@ const MESSAGES = [
   "Sucede lo mismo con las casas. Sólo se alcanza a saber lo que contiene después de haber recorrido muchas otras en busca de una concreta.”",
   "Abre los ojos...",
   "El último lugar en donde se encontraba era Portbou, pero esta destrucción no es propia de aquel villorrio hispano",
-  " Walter Benjamin: ¿Eso en el fondo, es la cuadriga de Brandenburgo?, ¿es esto Berlín, cuán catástrofe ha sucedido aquí? La destrucción de mi ciudad natal es un golpe certero al corazón de mi civilización",
+  "Walter Benjamin: - ¿Eso en el fondo, es la cuadriga de Brandenburgo?, ¿es esto Berlín, cuánta catástrofe ha sucedido aquí? La destrucción de mi ciudad natal es un golpe certero al corazón de mi civilización",
   "Misión: Evita a los soldados a toda costa, recoge los coleccionables a lo largo del mapa en búsqueda del salvoconducto que estabas esperando.",
 ];
 const NEXT_SCENE = "berlin-scene";

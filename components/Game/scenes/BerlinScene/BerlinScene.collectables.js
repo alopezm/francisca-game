@@ -46,6 +46,17 @@ export const COLLECTABLES = [
     },
   },
   {
+    key: "/assets/panzerfaust-mini.png",
+    keyMiniature: "/assets/Icon_panzerfaust.png",
+    setXY: { x: 250, y: 150 },
+    modal: {
+      img: "https://www.historynet.com/wp-content/uploads/2012/05/Panzerfaust-scaled-2048x1430.jpg",
+      title: "Antitanque Panzerfaust 60",
+      description:
+        "W. Benjamin: Hay varios de estos aparatos desperdigados en todo el paisaje de destrucción y caos, camuflados entre los escombros, ruinas, gritos y retazos. Parece que fueron las últimas armas de muerte del III Reich junto con sus ideas.",
+    },
+  },
+  {
     key: "/assets/nazi_eagle-mini.png",
     keyMiniature: "/assets/Icon_nazi_eagle.png",
     requiredToOpenDoor: true,
@@ -55,6 +66,17 @@ export const COLLECTABLES = [
       title: "Reichsadler del III Reich",
       description:
         "W. Benjamin: Los discursos, más que instituciones, son constituciones de los sucesos en estrecha relación con los procesos de generación o regeneración de una sociedad. Dado el caso, también degeneración... Simbolismo, simbolismo por toda parte.",
+    },
+  },
+  {
+    key: "/assets/nazi_bracelet-mini.png",
+    keyMiniature: "/assets/Icon_nazi_bracelet.png",
+    setXY: { x: 1380, y: 1345 },
+    modal: {
+      img: "/assets/nazi_bracelet_org.png",
+      title: "Brazalete militar",
+      description:
+        "“El cielo se oscureció y se contrajo fuertemente. Era como si todo el mundo estuviera siendo tirado con una fuerza espantosa hacia este lugar (...). Detrás nuestro reverberó la aguda risa de Mefisto.” Benjamin, Walter. ´´Schiller y Goethe``. En Historias desde la soledad y otras narraciones, Jorge Monteleone (Buenos Aires: El cuenco de plata, 2007), 154",
     },
   },
   {
@@ -70,39 +92,6 @@ export const COLLECTABLES = [
     },
   },
   {
-    key: "/assets/panzerfaust-mini.png",
-    keyMiniature: "/assets/Icon_panzerfaust.png",
-    setXY: { x: 250, y: 150 },
-    modal: {
-      img: "https://www.historynet.com/wp-content/uploads/2012/05/Panzerfaust-scaled-2048x1430.jpg",
-      title: "Antitanque Panzerfaust 60",
-      description:
-        "W. Benjamin: Hay varios de estos aparatos desperdigados en todo el paisaje de destrucción y caos, camuflados entre los escombros, ruinas, gritos y retazos. Parece que fueron las últimas armas de muerte del III Reich junto con sus ideas.",
-    },
-  },
-  {
-    key: "/assets/nazi_bracelet-mini.png",
-    keyMiniature: "/assets/Icon_nazi_bracelet.png",
-    setXY: { x: 1380, y: 1345 },
-    modal: {
-      img: "/assets/nazi_bracelet_org.png",
-      title: "Brazalete militar",
-      description:
-        "“El cielo se oscureció y se contrajo fuertemente. Era como si todo el mundo estuviera siendo tirado con una fuerza espantosa hacia este lugar (...). Detrás nuestro reverberó la aguda risa de Mefisto.”",
-    },
-  },
-  {
-    key: "/assets/SS_cap_mini.png",
-    keyMiniature: "/assets/Icon_ss_cap.png",
-    setXY: { x: 2500, y: 100 },
-    modal: {
-      img: "https://acorazadobismarck.es/wp-content/uploads/2021/11/IMG_5578-scaled.jpg",
-      title: "Gorra militar de la SS",
-      description:
-        "“Un gran portal gótico se abrió aún más ampliamente. Detrás parecía haber un cuarto en penumbras. Desde los pasillos que desembocaban en esta pieza resonó una risa aguda.”",
-    },
-  },
-  {
     key: "/assets/newspaper_mini.png",
     keyMiniature: "/assets/Icon_newspaper.png",
     setXY: { x: 2200, y: 400 },
@@ -110,9 +99,21 @@ export const COLLECTABLES = [
       img: "/assets/newspaper_org.png",
       title: "Berliner Illustrirte Zeitung",
       description:
-        "W. Benjamin: ¡¿Que la Berolina fue fundida?!. ¡Ja! parece una noticia falsa.",
+        "W. Benjamin: ¿Un rumor sobre la estatua de la Berolina y el robo de los caballos de bronce de Hittler? Es dificil creer a ciegas en una sola fuente de informacion. Pero de ser cierto, Alemania se sigue enfrentando a cambios profundos...",
     },
   },
+  {
+    key: "/assets/SS_cap_mini.png",
+    keyMiniature: "/assets/Icon_ss_cap.png",
+    setXY: { x: 2500, y: 100 },
+    modal: {
+      img: "/assets/ss_cap_org.png",
+      title: "Gorra militar de la SS",
+      description:
+        "“Un gran portal gótico se abrió aún más ampliamente. Detrás parecía haber un cuarto en penumbras. Desde los pasillos que desembocaban en esta pieza resonó una risa aguda.” Benjamin, Walter. ´´Schiller y Goethe``. En Historias desde la soledad y otras narraciones, Jorge Monteleone (Buenos Aires: El cuenco de plata, 2007), 155.",
+    },
+  },
+  
   {
     key: "/assets/Cane_mini.png",
     keyMiniature: "/assets/Icon_cane.png",
@@ -123,16 +124,7 @@ export const COLLECTABLES = [
       description: "W. Benjamin: Aquella vez que su bastón calló, resonó un eco de autoridad y fragilidad. El peso del tiempo se entrelazó con la sombra de un amor protector.",
     },
   },
-  {
-    key: "/assets/grandparents_mini.png",
-    keyMiniature: "/assets/Icon_grandparents_portrait.png",
-    setXY: { x: 1640, y: 2780 },
-    modal: {
-      img: "/assets/Grandpa_org.png",
-      title: "Retrato",
-      description: "W. Benjamin: El retrato de mis abuelos susurra historias de amor, sabiduría y respeto. El tiempo detuvo la mirada de sus ojos en un trozo de papel fotográfico que teje memorias en un lienzo de nostalgia.",
-    },
-  },
+
   {
     key: "/assets/Schiller_book_mini.png",
     keyMiniature: "/assets/Icon_Schiller_book.png",
@@ -140,7 +132,7 @@ export const COLLECTABLES = [
     modal: {
       img: "/assets/Schiller_book_org.jpg",
       title: "La cancion de la Campana",
-      description: "El libro de cabezera de mi madre.",
+      description: "W. Benjamin: El libro de cabezera de mi madre. Guardian de secretos y susurros. Despliegan sus páginas el aroma a lavanda de mi infancia, las palabras parecen un abrazo tejido por la voz de mi madre",
     },
   },
   {
@@ -150,19 +142,21 @@ export const COLLECTABLES = [
     modal: {
       img: "/assets/score_org.png",
       title: "Partitura de la infancia",
-      description: "¿tocaba flauta o piano?",
+      description: "W. Benjamin: La música, en mi infancia, fue un refugio donde mis emociones encontraban un lenguaje universal. ",
+    },
+  },
+  {
+    key: "/assets/grandparents_mini.png",
+    keyMiniature: "/assets/Icon_grandparents_portrait.png",
+    setXY: { x: 1640, y: 2780 },
+    modal: {
+      img: "/assets/Grandpa_org.png",
+      title: "Retrato",
+      description: "W. Benjamin: El retrato de mis abuelos susurra historias de amor, sabiduría y respeto. El tiempo detuvo la mirada de sus ojos en un trozo de papel fotográfico que marca memorias en un lienzo de nostalgia.",
     },
   },
 
   /** -----------  SCENE TRIGGERS  --------------- **/
-  
-  {
-    key: "/assets/spectre.png",
-    keyMiniature: "/assets/Icon_spectre.png",
-    setXY: { x: 2700, Y: 1690 },
-    scene: "spectre-scene",
-  },
-
   {
     key: "/assets/tank_mini.png",
     keyMiniature: "/assets/Icon_tank_mini.png",
@@ -170,8 +164,13 @@ export const COLLECTABLES = [
     scene: "tank-scene",
   },
   {
+    key: "/assets/spectre.png",
+    keyMiniature: "/assets/Icon_spectre.png",
+    setXY: { x: 2700, y: 1690 },
+    scene: "spectre-scene",
+  },
+  {
     key: "/assets/Soldier_whitout_cap.png",
-    requiredToOpenDoor: true,
     keyMiniature: "/assets/youth_knife-mini.png",
     setXY: { x: 2910, y: 780 },
     scene: "soldier-scene",

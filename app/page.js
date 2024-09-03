@@ -11,7 +11,7 @@ export default function HomePage() {
     <div
       className="flex items-center justify-center h-[100vh]"
       style={{
-        backgroundImage: "url(/assets/benjamin.png)",
+        backgroundImage: "url(/assets/menu.png)",
         backgroundSize: "contain",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",

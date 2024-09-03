@@ -123,7 +123,7 @@ export const COLLECTABLES = [
     modal: {
       img: "/assets/father-org.png",
       title: "Bastón del padre",
-      description: "W. Benjamin: - Aquella vez que su bastón calló, resonó un eco de autoridad y fragilidad. El peso del tiempo se entrelazó con la sombra de un amor protector.",
+      description: "W. Benjamin: - Aquella vez que su bastón cayó, resonó un eco de autoridad y fragilidad. El peso del tiempo se entrelazó con la sombra de un amor protector.",
     },
   },
 

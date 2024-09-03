@@ -94,6 +94,7 @@ export const COLLECTABLES = [
   {
     key: "/assets/newspaper_mini.png",
     keyMiniature: "/assets/Icon_newspaper.png",
+    requiredToOpenDoor: true,
     setXY: { x: 2200, y: 400 },
     modal: {
       img: "/assets/newspaper_org.png",
@@ -105,6 +106,7 @@ export const COLLECTABLES = [
   {
     key: "/assets/SS_cap_mini.png",
     keyMiniature: "/assets/Icon_ss_cap.png",
+    requiredToOpenDoor: true,
     setXY: { x: 2500, y: 100 },
     modal: {
       img: "/assets/ss_cap_org.png",

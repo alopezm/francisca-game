@@ -4,12 +4,13 @@ import { GameConfig } from "../../GameConfig";
 import { BUILDINGS } from "./BerlinScene.buildings";
 import { COLLECTABLES } from "./BerlinScene.collectables";
 import { ENEMIES } from "./BerlinScene.enemies";
-import { SCENE_TRIGGERS } from "./BerlinScene.sceneTriggers";
 import {
   PLAYER_X,
   PLAYER_Y,
   SCENE_ZOOM,
   PLAYER_VELOCITY,
+  LATERAL_SPACE_COLLETABLE_MINIATURES,
+  SPACE_BETWEEN_COLLETABLE_MINIATURES,
 } from "./BerlinScene.config";
 
 const ENEMY_MOVEMENT = {
@@ -26,7 +27,6 @@ export class BerlinScene extends BaseScene {
   player;
   cursors;
   statics;
-  usedScenesMap;
   pickedCollectables;
 
   doorSideAClosed;
@@ -58,7 +58,6 @@ export class BerlinScene extends BaseScene {
       ...uniq(BUILDINGS.map(({ key }) => key)),
       ...uniq(COLLECTABLES.map(({ key }) => key)),
       ...uniq(COLLECTABLES.map(({ keyMiniature }) => keyMiniature)),
-      ...uniq(SCENE_TRIGGERS.map(({ key }) => key)),
     ];
     uniqKeys.forEach((key) => this.load.image(key, key));
   }
@@ -67,7 +66,6 @@ export class BerlinScene extends BaseScene {
     this.setupMusic();
 
     this.cursors = this.input.keyboard.createCursorKeys();
-    this.pickedCollectables = 0;
     const floor = this.add.image(0, 0, "berlin_floor").setOrigin(0, 0);
 
     // create buildings
@@ -80,7 +78,7 @@ export class BerlinScene extends BaseScene {
 
     // create doors
     this.isDoorOpen = false;
-    this.usedScenesMap = new Map();
+    this.pickedCollectables = new Map();
     const collectablesToOpenDoorMap = new Map();
     this.collectablesToOpenDoorMap = collectablesToOpenDoorMap;
     this.doorSideAClosed = this.statics.create(2480, 1510, "berlin_door");
@@ -101,11 +99,6 @@ export class BerlinScene extends BaseScene {
     this.doorSideBOpened.angle = 180;
     this.doorSideBOpened.disableBody(true, true);
 
-    this.player = this.physics.add.sprite(PLAYER_X, PLAYER_Y, "character");
-    this.player.setBounce(0.2);
-    this.createPlayerAnimation();
-    this.player.setCollideWorldBounds(true);
-
     // create enemies
     this.enemies = this.physics.add.group();
     ENEMIES.forEach((item) => {
@@ -116,9 +109,6 @@ export class BerlinScene extends BaseScene {
     });
     this.physics.add.collider(this.enemies, this.statics);
     this.createEnemyAnimation();
-    this.physics.add.collider(this.player, this.enemies, () => {
-      this.scene.start("game-over-scene");
-    });
 
     // create collectables
     this.collectables = this.physics.add.group({
@@ -148,6 +138,13 @@ export class BerlinScene extends BaseScene {
         ease: "Sine.easeInOut",
       });
     });
+
+    // create player
+    this.player = this.physics.add.sprite(PLAYER_X, PLAYER_Y, "character");
+    this.player.setBounce(0.2);
+    this.createPlayerAnimation();
+    this.player.setCollideWorldBounds(true);
+
     // remove collectables on collision with player
     this.physics.add.overlap(
       this.player,
@@ -157,13 +154,15 @@ export class BerlinScene extends BaseScene {
       this
     );
 
-    this.createSceneTriggers();
-
     this.physics.add.collider(this.player, this.statics);
+    this.physics.add.collider(this.player, this.enemies, () => {
+      this.scene.start("game-over-scene");
+    });
+    this.physics.world.setBounds(0, 0, floor.width, floor.height);
+
     this.cameras.main.startFollow(this.player);
     this.cameras.main.setBounds(0, 0, floor.width, floor.height);
     this.cameras.main.zoom = SCENE_ZOOM;
-    this.physics.world.setBounds(0, 0, floor.width, floor.height);
 
     // create collectable miniatures
     this.collectablesMiniatures = this.physics.add.group({
@@ -171,11 +170,24 @@ export class BerlinScene extends BaseScene {
         item.setName(this.getLength() - 1);
       },
     });
+
+    const miniaturesWidth = Math.floor(
+      (this.cameras.main.width -
+        LATERAL_SPACE_COLLETABLE_MINIATURES -
+        SPACE_BETWEEN_COLLETABLE_MINIATURES * COLLECTABLES.length) /
+        COLLECTABLES.length
+    );
+
     this.collectablesMiniatures.createMultiple(
       COLLECTABLES.map((item, i) => ({
         key: item.keyMiniature,
-        setOrigin: { x: 0.5, y: 0 },
-        setXY: { x: 70 + 146 * i, y: 20 },
+        setOrigin: { x: 0, y: 0 },
+        setXY: {
+          x:
+            LATERAL_SPACE_COLLETABLE_MINIATURES / 2 +
+            (SPACE_BETWEEN_COLLETABLE_MINIATURES + miniaturesWidth) * i,
+          y: 20,
+        },
         setAlpha: { value: 0.4 },
         setScrollFactor: { x: 0, y: 0 },
       }))
@@ -194,10 +206,7 @@ export class BerlinScene extends BaseScene {
       this.animatePlayer();
       this.animateEnemy();
 
-      if (
-        this.pickedCollectables === COLLECTABLES.length &&
-        this.usedScenesMap.size === SCENE_TRIGGERS.length
-      ) {
+      if (this.pickedCollectables.size === COLLECTABLES.length) {
         this.scene.start("angelous-scene");
       }
     }
@@ -254,16 +263,36 @@ export class BerlinScene extends BaseScene {
   }
 
   removeCollectable(player, item) {
-    item.disableBody(true, true);
-    GameConfig.openModal(item.name);
+    const itemName = item.name;
+
+    if (this.pickedCollectables.has(itemName)) return;
+
+    this.physics.world.removeCollider(item);
+    this.pickedCollectables.set(itemName, itemName);
+
+    const collectable = COLLECTABLES[itemName];
+    const { modal, scene, keepVisibleAfterCollision } = collectable;
+
+    // destroy all effects
+    item.preFX.list.forEach((fx) => fx.destroy());
+
+    if (!keepVisibleAfterCollision) {
+      item.setAlpha(0.6);
+      item.setTint(0x000000);
+    }
+
+    if (scene) {
+      this.scene.switch(scene);
+      this.scene.pause("berlin-scene");
+    }
+
+    if (modal) GameConfig.openModal(itemName);
 
     // show collectable miniature
-    this.collectablesMiniatures.getChildren()[item.name].setAlpha(1);
+    this.collectablesMiniatures.getChildren()[itemName].setAlpha(1);
 
     // remove required collectables to open the door
-    this.collectablesToOpenDoorMap.delete(item.name);
-
-    this.pickedCollectables += 1;
+    this.collectablesToOpenDoorMap.delete(itemName);
   }
 
   createPlayerAnimation() {
@@ -360,48 +389,6 @@ export class BerlinScene extends BaseScene {
       frames: [{ key: "enemy", frame: 4 }],
       frameRate: 20,
     });
-  }
-
-  createSceneTriggers() {
-    this.sceneTriggers = this.physics.add.group({
-      createCallback: function (item) {
-        item.setName(this.getLength() - 1);
-      },
-    });
-    this.sceneTriggers.createMultiple(
-      SCENE_TRIGGERS.map((item) => ({
-        key: item.key,
-        setOrigin: { x: 0, y: 0 },
-        setXY: { x: item.x, y: item.y },
-      }))
-    );
-
-    this.physics.add.overlap(
-      this.player,
-      this.sceneTriggers,
-      this.triggerScene,
-      null,
-      this
-    );
-  }
-
-  triggerScene(player, item) {
-    if (this.usedScenesMap.has(item.name)) return;
-
-    this.usedScenesMap.set(item.name, item.name);
-    this.physics.world.removeCollider(item);
-    const sceneTrigger = SCENE_TRIGGERS[item.name];
-    const { scene, fadeAfterCollision } = sceneTrigger ?? {};
-
-    if (fadeAfterCollision) {
-      item.setAlpha(0.6);
-      item.setTint(0x000000);
-    }
-
-    if (scene) {
-      this.scene.switch(scene);
-      this.scene.pause("berlin-scene");
-    }
   }
 
   openDoor() {

@@ -3,7 +3,7 @@ export const COLLECTABLES = [
     key: "/assets/jewish_bracelet_mini.png",
     keyMiniature: "/assets/Icon_jewish_bracelet.png",
     setXY: { x: 20, y: 2950 },
-    data: {
+    modal: {
       img: "https://www.yadvashem.org/sites/default/files/lesson6_08b.jpg",
       title: "Brazalete con la insignia",
       description:
@@ -15,7 +15,7 @@ export const COLLECTABLES = [
     keyMiniature: "/assets/Icon_helmet.png",
     requiredToOpenDoor: true,
     setXY: { x: 20, y: 2270 },
-    data: {
+    modal: {
       img: "/assets/helmet-org.png",
       title: "Casco de las Wehrmacht",
       description:
@@ -27,7 +27,7 @@ export const COLLECTABLES = [
     keyMiniature: "/assets/Icon_propaganda_poster.png",
     requiredToOpenDoor: true,
     setXY: { x: 1370, y: 1970 },
-    data: {
+    modal: {
       img: "/assets/propaganda_org.jpg",
       title: "Entartete Musik (Música degenerada)",
       description:
@@ -38,33 +38,31 @@ export const COLLECTABLES = [
     key: "/assets/mauser_k98-mini.png",
     keyMiniature: "/assets/Icon_mauser_k98.png",
     setXY: { x: 750, y: 2000 },
-    data: {
+    modal: {
       img: "/assets/mauserk98.jpg",
       title: "Mauser K98",
       description:
         "W. Benjamin: Es el arma reglamentaria para la infantería de la Wehrmacht. A decir verdad, alguna vez utilicé su antecesor, un Mauser 98, para cazar. Leí por ahí que la caza es la única actividad laboral en la que las experiencias se presentan intrínsecamente. Me pregunto si acaso la humanidad ha pensado en algún momento que se puede redimir a través de las armas?.",
     },
   },
-
   {
     key: "/assets/nazi_eagle-mini.png",
     keyMiniature: "/assets/Icon_nazi_eagle.png",
     requiredToOpenDoor: true,
     setXY: { x: 700, y: 350 },
-    data: {
+    modal: {
       img: "/assets/nazi-eagle.jpg",
       title: "Reichsadler del III Reich",
       description:
         "W. Benjamin: Los discursos, más que instituciones, son constituciones de los sucesos en estrecha relación con los procesos de generación o regeneración de una sociedad. Dado el caso, también degeneración... Simbolismo, simbolismo por toda parte.",
     },
   },
-
   {
     key: "/assets/burned_books-mini.png",
     keyMiniature: "/assets/Icon_burned_books.png",
     requiredToOpenDoor: true,
     setXY: { x: 1480, y: 550 },
-    data: {
+    modal: {
       img: "https://encyclopedia.ushmm.org/images/large/313b44c6-eb01-4c86-9bc3-cf70d8bc991b.jpg",
       title: "Quema de libros de 1933 de las ligas estudiantiles",
       description:
@@ -75,7 +73,7 @@ export const COLLECTABLES = [
     key: "/assets/panzerfaust-mini.png",
     keyMiniature: "/assets/Icon_panzerfaust.png",
     setXY: { x: 250, y: 150 },
-    data: {
+    modal: {
       img: "https://www.historynet.com/wp-content/uploads/2012/05/Panzerfaust-scaled-2048x1430.jpg",
       title: "Antitanque Panzerfaust 60",
       description:
@@ -86,7 +84,7 @@ export const COLLECTABLES = [
     key: "/assets/nazi_bracelet-mini.png",
     keyMiniature: "/assets/Icon_nazi_bracelet.png",
     setXY: { x: 1380, y: 1345 },
-    data: {
+    modal: {
       img: "/assets/nazi_bracelet_org.png",
       title: "Brazalete militar",
       description:
@@ -97,7 +95,7 @@ export const COLLECTABLES = [
     key: "/assets/SS_cap_mini.png",
     keyMiniature: "/assets/Icon_SS_cap.png",
     setXY: { x: 2500, y: 100 },
-    data: {
+    modal: {
       img: "https://acorazadobismarck.es/wp-content/uploads/2021/11/IMG_5578-scaled.jpg",
       title: "Gorra militar de la SS",
       description:
@@ -108,7 +106,7 @@ export const COLLECTABLES = [
     key: "/assets/newspaper_mini.png",
     keyMiniature: "/assets/Icon_newspaper.png",
     setXY: { x: 2200, y: 400 },
-    data: {
+    modal: {
       img: "/assets/newspaper_org.png",
       title: "Berliner Illustrirte Zeitung",
       description:
@@ -119,7 +117,7 @@ export const COLLECTABLES = [
     key: "/assets/Cane_mini.png",
     keyMiniature: "/assets/Icon_Cane.png",
     setXY: { x: 2750, y: 2050 },
-    data: {
+    modal: {
       img: "/assets/cane_org.jpg",
       title: "Bastón con pomo en forma de aguila",
       description: "mi padre era un hombre elegante",
@@ -129,7 +127,7 @@ export const COLLECTABLES = [
     key: "/assets/grandparents_mini.png",
     keyMiniature: "/assets/Icon_grandparents.png",
     setXY: { x: 1640, y: 2780 },
-    data: {
+    modal: {
       img: "/assets/Grandpa_org.png",
       title: "La abuela y el abuelo",
       description: "los recuerdo mucho",
@@ -139,7 +137,7 @@ export const COLLECTABLES = [
     key: "/assets/Schiller_book_mini.png",
     keyMiniature: "/assets/Icon_Schiller_book.png",
     setXY: { x: 2856, y: 2389 },
-    data: {
+    modal: {
       img: "/assets/Schiller_book_org.jpg",
       title: "La cancion de la Campana. Schiller",
       description: "El libro de cabezera de mi madre.",
@@ -149,7 +147,7 @@ export const COLLECTABLES = [
     key: "/assets/Score_mini.png",
     keyMiniature: "/assets/Icon_Score.png",
     setXY: { x: 1600, y: 2656 },
-    data: {
+    modal: {
       img: "https://www.elcoleccionistaeclectico.com/resources/productos/kinder-album-para-pianoforte-marco-enrico-bossi-gebruder-hug-co-alemania-1922-25258-126819.JPG",
       title: "Partitura de la infancia",
       description: "¿tocaba flauta o piano?",
@@ -160,10 +158,38 @@ export const COLLECTABLES = [
     keyMiniature: "/assets/youth_knife-mini.png",
     requiredToOpenDoor: true,
     setXY: { x: 2910, y: 860 },
-    data: {
+    modal: {
       img: "http://www.wehrmacht-info.com/images/armas/bayonetas/cuchillo_hitlerjugend/cuchillo_hitlerjugend_sin.jpg",
       title: "Cuchillo de las Hitlerjugend",
-      description: "La construcción de la identidad sólo es posible desde la consciencia de la pertenencia al sistema. Ese sentido de pertenencia, qué aciago destino para tantos jóvenes. ",
+      description:
+        "La construcción de la identidad sólo es posible desde la consciencia de la pertenencia al sistema. Ese sentido de pertenencia, qué aciago destino para tantos jóvenes. ",
     },
+  },
+  /** -----------  SCENE TRIGGERS  --------------- **/
+  {
+    key: "/assets/spectre.png",
+    keyMiniature: "/assets/Icon_spectre.png",
+    setXY: { x: 2700, Y: 1570 },
+    scene: "spectre-scene",
+  },
+
+  {
+    key: "/assets/tank_mini.png",
+    keyMiniature: "/assets/Icon_tank_mini.png",
+    setXY: { x: 550, y: 750 },
+    scene: "tank-scene",
+  },
+  {
+    key: "/assets/Soldier_whitout_cap.png",
+    keyMiniature: "/assets/youth_knife-mini.png",
+    setXY: { x: 2910, y: 780 },
+    scene: "soldier-scene",
+    keepVisibleAfterCollision: true,
+  },
+  {
+    key: "/assets/Berolina_mini.png",
+    keyMiniature: "/assets/Icon_Berolina_mini.png",
+    setXY: { x: 2250, y: 600 },
+    scene: "berolina-scene",
   },
 ];

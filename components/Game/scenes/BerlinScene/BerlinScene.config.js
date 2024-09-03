@@ -14,6 +14,12 @@ const DEV_PLAYER_Y = 1450;
 
 const DEV_START_WITH_INTRO_SCENE = false;
 
+
+// space between collectables
+export const SPACE_BETWEEN_COLLETABLE_MINIATURES = 5;
+// space between collectables and the borders of the screen
+export const LATERAL_SPACE_COLLETABLE_MINIATURES = 20;
+
 // DO NOT CHANGE
 export const PLAYER_VELOCITY = 250;
 export const PLAYER_X = IS_DEVELOPMENT ? DEV_PLAYER_X : 1250;

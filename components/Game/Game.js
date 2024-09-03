@@ -9,11 +9,10 @@ export default function Game() {
   const [modalData, setModalData] = useState();
 
   const openModal = useCallback((index) => {
-    const data = COLLECTABLES[index]?.data;
-    if (!data) return;
-
+    const modal = COLLECTABLES[index]?.modal;
+    if (!modal) return;
     GameConfig.pauseMovement();
-    setModalData(data);
+    setModalData(modal);
   }, []);
 
   const onCloseModal = useCallback(() => {

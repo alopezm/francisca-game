@@ -5,7 +5,7 @@ const MESSAGES = [
   "Espectro: Antes de seguir tu paso más allá, aún debes recorrer algunos otros de tus pasos",
   "Misión: Recoge tus pasos",
 ];
-const IMAGE = "/assets/spectre-scene.png";
+const IMAGE = "/assets/spectre_scene.png";
 const SCENE_NAME = "spectre-scene";
 
 export class SpectreScene extends BaseScene {

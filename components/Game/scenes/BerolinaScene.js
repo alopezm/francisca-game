@@ -6,7 +6,7 @@ const MESSAGES = [
   "El pedestal de la Berolina está en ruinas, sin embargo no se puede distinguir el cobre de la efigie entre los escombros. Parece que no hubiese sido destruida por las bombas allí.",
   "La noticia parecia ser cierta: los rumores dicen que la Berolina fue refundida.",
   "La estatua de la Berolina era realmente una conexión entre el presente y pasado. Sin ella, la ciudad perdía esa conexión, que se hacía más evidente en la destrucción que dejaba el conflicto tras de sí.",
-  "Desorientado, empiezas a temblar, la falta de aire se hace evidente, las palpitaciones son doblemente veloces y se sienten como un repique de tambores. Tardas poco en desvanecer.",
+  "Desorientado, Benjamin empieza a temblar, la falta de aire se hace evidente, las palpitaciones son doblemente veloces y se sienten como un repique de tambores.",
 ];
 const IMAGE = "/assets/berlinberolina_alexanderplatz.png";
 const SCENE_NAME = "berolina-scene";

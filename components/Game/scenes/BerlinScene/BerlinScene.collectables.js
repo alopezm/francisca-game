@@ -42,7 +42,7 @@ export const COLLECTABLES = [
       img: "/assets/mauserk98.jpg",
       title: "Mauser K98",
       description:
-        "W. Benjamin: - Es el arma reglamentaria para la infantería de la Wehrmacht. A decir verdad, alguna vez utilicé su antecesor, un Mauser 98, para cazar. Leí por ahí que la caza es la única actividad laboral en la que las experiencias se presentan intrínsecamente. Me pregunto si acaso la humanidad ha pensado en algún momento que se puede redimir a través de las armas?.",
+        "W. Benjamin: - Es el arma reglamentaria para la infantería de la Wehrmacht. A decir verdad, alguna vez utilicé su antecesor, un Mauser 98, para cazar. Leí por ahí que la caza es la única actividad laboral en la que las experiencias se presentan intrínsecamente. Me pregunto si acaso la humanidad ha pensado en algún momento que se puede redimir a través de las armas.",
     },
   },
   {
@@ -120,7 +120,7 @@ export const COLLECTABLES = [
     setXY: { x: 2750, y: 2050 },
     modal: {
       img: "/assets/cane_org.png",
-      title: "Bastón",
+      title: "Bastón del padre",
       description: "W. Benjamin: - Aquella vez que su bastón calló, resonó un eco de autoridad y fragilidad. El peso del tiempo se entrelazó con la sombra de un amor protector.",
     },
   },
@@ -131,7 +131,7 @@ export const COLLECTABLES = [
     setXY: { x: 2856, y: 2389 },
     modal: {
       img: "/assets/schiller_book_org.png",
-      title: "La cancion de la Campana",
+      title: "La cancion de la Campana, F. Schiller",
       description: "W. Benjamin: - El libro de cabezera de mi madre. Guardian de secretos y susurros. Despliegan sus páginas el aroma a lavanda de mi infancia, las palabras parecen un abrazo tejido por la voz de mi madre",
     },
   },
@@ -142,7 +142,7 @@ export const COLLECTABLES = [
     modal: {
       img: "/assets/score_org.png",
       title: "Partitura de la infancia",
-      description: "W. Benjamin: - La música, en mi infancia, fue un refugio donde mis emociones encontraban un lenguaje universal. ",
+      description: "¡Arriba, compañeros, a caballo, a caballo! ¡Corramos al campo, en pos de la libertad! En el combate, el hombre aún importa y todavía se valora el corazón. W. Benjamin: - Parece que ahora sí entiendo aquellas palabras de la canción de caballería del Wallenstein. El señor Knoche tenía razón. La tumba vacía y el corazón dispuesto, dos enigmas, cuya explicacion la vida seguirá debiéndome.",
     },
   },
   {

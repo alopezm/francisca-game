@@ -76,7 +76,7 @@ export const COLLECTABLES = [
       img: "/assets/nazi_bracelet_org.png",
       title: "Brazalete militar",
       description:
-        "“El cielo se oscureció y se contrajo fuertemente. Era como si todo el mundo estuviera siendo tirado con una fuerza espantosa hacia este lugar (...). Detrás nuestro reverberó la aguda risa de Mefisto.” Benjamin, Walter. ´´Schiller y Goethe``. En Historias desde la soledad y otras narraciones, Jorge Monteleone (Buenos Aires: El cuenco de plata, 2007), 154",
+        "“El cielo se oscureció y se contrajo fuertemente. Era como si todo el mundo estuviera siendo tirado con una fuerza espantosa hacia este lugar (...). Detrás nuestro reverberó la aguda risa de Mefisto.” Benjamin, Walter. “Schiller y Goethe”. En Historias desde la soledad y otras narraciones, Jorge Monteleone (Buenos Aires: El cuenco de plata, 2007), 154.",
     },
   },
   {
@@ -110,7 +110,7 @@ export const COLLECTABLES = [
       img: "/assets/ss_cap_org.png",
       title: "Gorra militar de la SS",
       description:
-        "“Un gran portal gótico se abrió aún más ampliamente. Detrás parecía haber un cuarto en penumbras. Desde los pasillos que desembocaban en esta pieza resonó una risa aguda.” Benjamin, Walter. ´´Schiller y Goethe``. En Historias desde la soledad y otras narraciones, Jorge Monteleone (Buenos Aires: El cuenco de plata, 2007), 155.",
+        "“Un gran portal gótico se abrió aún más ampliamente. Detrás parecía haber un cuarto en penumbras. Desde los pasillos que desembocaban en esta pieza resonó una risa aguda.” Benjamin, Walter. “Schiller y Goethe”. En Historias desde la soledad y otras narraciones, Jorge Monteleone (Buenos Aires: El cuenco de plata, 2007), 155.",
     },
   },
   
@@ -142,7 +142,7 @@ export const COLLECTABLES = [
     modal: {
       img: "/assets/score_org.png",
       title: "Partitura de la infancia",
-      description: "¡Arriba, compañeros, a caballo, a caballo! ¡Corramos al campo, en pos de la libertad! En el combate, el hombre aún importa y todavía se valora el corazón. W. Benjamin: - Parece que ahora sí entiendo aquellas palabras de la canción de caballería del Wallenstein. El señor Knoche tenía razón. La tumba vacía y el corazón dispuesto, dos enigmas, cuya explicacion la vida seguirá debiéndome.",
+      description: "“¡Arriba, compañeros, a caballo, a caballo! ¡Corramos al campo, en pos de la libertad! En el combate, el hombre aún importa y todavía se valora el corazón”. W. Benjamin: - Parece que ahora sí entiendo aquellas palabras de la canción de caballería del Wallenstein. El señor Knoche tenía razón. “La tumba vacía y el corazón dispuesto, dos enigmas, cuya explicacion la vida seguirá debiéndome”.",
     },
   },
   {

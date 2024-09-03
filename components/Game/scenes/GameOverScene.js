@@ -21,7 +21,7 @@ export class GameOverScene extends BaseScene {
       fontSize: 120,
     });
 
-    this.restartButton = this.add.text(650, 600, "Reiniciar Juego", {
+    this.restartButton = this.add.text(600, 600, "Reiniciar Juego", {
       fontFamily: "Times New Roman",
       fontSize: 60,
     });

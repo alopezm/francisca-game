@@ -118,19 +118,19 @@ export const COLLECTABLES = [
     keyMiniature: "/assets/Icon_Cane.png",
     setXY: { x: 2750, y: 2050 },
     modal: {
-      img: "/assets/cane_org.jpg",
-      title: "Bastón con pomo en forma de aguila",
-      description: "mi padre era un hombre elegante",
+      img: "/assets/cane_org.png",
+      title: "Bastón",
+      description: "W. Benjamin: Aquella vez que su bastón calló, resonó un eco de autoridad y fragilidad. El peso del tiempo se entrelazó con la sombra de un amor protector.",
     },
   },
   {
     key: "/assets/grandparents_mini.png",
-    keyMiniature: "/assets/Icon_grandparents.png",
+    keyMiniature: "/assets/Icon_grandparents_portrait.png",
     setXY: { x: 1640, y: 2780 },
     modal: {
       img: "/assets/Grandpa_org.png",
-      title: "La abuela y el abuelo",
-      description: "los recuerdo mucho",
+      title: "Retrato",
+      description: "W. Benjamin: El retrato de mis abuelos susurra historias de amor, sabiduría y respeto. El tiempo detuvo la mirada de sus ojos en un trozo de papel fotográfico que teje memorias en un lienzo de nostalgia.",
     },
   },
   {
@@ -139,7 +139,7 @@ export const COLLECTABLES = [
     setXY: { x: 2856, y: 2389 },
     modal: {
       img: "/assets/Schiller_book_org.jpg",
-      title: "La cancion de la Campana. Schiller",
+      title: "La cancion de la Campana",
       description: "El libro de cabezera de mi madre.",
     },
   },
@@ -148,28 +148,18 @@ export const COLLECTABLES = [
     keyMiniature: "/assets/Icon_Score.png",
     setXY: { x: 1600, y: 2656 },
     modal: {
-      img: "https://www.elcoleccionistaeclectico.com/resources/productos/kinder-album-para-pianoforte-marco-enrico-bossi-gebruder-hug-co-alemania-1922-25258-126819.JPG",
+      img: "/assets/score_org.png",
       title: "Partitura de la infancia",
       description: "¿tocaba flauta o piano?",
     },
   },
-  {
-    key: "/assets/youth_knife-mini.png",
-    keyMiniature: "/assets/youth_knife-mini.png",
-    requiredToOpenDoor: true,
-    setXY: { x: 2910, y: 860 },
-    modal: {
-      img: "http://www.wehrmacht-info.com/images/armas/bayonetas/cuchillo_hitlerjugend/cuchillo_hitlerjugend_sin.jpg",
-      title: "Cuchillo de las Hitlerjugend",
-      description:
-        "La construcción de la identidad sólo es posible desde la consciencia de la pertenencia al sistema. Ese sentido de pertenencia, qué aciago destino para tantos jóvenes. ",
-    },
-  },
+
   /** -----------  SCENE TRIGGERS  --------------- **/
+  
   {
     key: "/assets/spectre.png",
     keyMiniature: "/assets/Icon_spectre.png",
-    setXY: { x: 2700, Y: 1570 },
+    setXY: { x: 2700, Y: 1690 },
     scene: "spectre-scene",
   },
 
@@ -181,6 +171,7 @@ export const COLLECTABLES = [
   },
   {
     key: "/assets/Soldier_whitout_cap.png",
+    requiredToOpenDoor: true,
     keyMiniature: "/assets/youth_knife-mini.png",
     setXY: { x: 2910, y: 780 },
     scene: "soldier-scene",

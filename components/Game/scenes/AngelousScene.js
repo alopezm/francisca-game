@@ -36,7 +36,7 @@ export class AngelousScene extends BaseScene {
       ++line;
 
       if (line === MESSAGES.length) {
-        window.location.href = "/";
+        this.scene.start("credits-scene");
       } else {
         text.setText(MESSAGES[line]);
       }

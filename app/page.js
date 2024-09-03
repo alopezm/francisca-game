@@ -1,7 +1,8 @@
 "use client";
 import { useRouter } from "next/navigation";
 
-const BTN_CLASS_NAME = "block text-5xl hover:animate-pulse bg-black border border-white px-8 py-4 text-white";
+const BTN_CLASS_NAME =
+  "block text-5xl hover:animate-pulse bg-black border border-white px-8 py-4 text-white";
 
 export default function HomePage() {
   const router = useRouter();
@@ -28,6 +29,28 @@ export default function HomePage() {
         >
           Documentación
         </a>
+      </div>
+
+      <div
+        className="absolute bottom-0 left-0 px-4 py-4 w-full"
+        style={{
+          background:
+            "linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%)",
+        }}
+      >
+        <div className="relative flex justify-between w-full">
+          <a
+            href="https://github.com/alopezm/francisca-game"
+            target="_blank noreferrer"
+            className="text-small opacity-40 hover:opacity-100"
+          >
+            Code
+          </a>
+
+          <p className="text-small opacity-40">
+            Made with <span className="text-red-500">❤</span> in Medellín
+          </p>
+        </div>
       </div>
     </div>
   );

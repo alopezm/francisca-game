@@ -12,7 +12,7 @@ export const COLLECTABLES = [
   },
   {
     key: "/assets/helmet-mini.png",
-    keyMiniature: "/assets/Icon_helmet.png",
+    keyMiniature: "/assets/Icon_Helmet.png",
     requiredToOpenDoor: true,
     setXY: { x: 20, y: 2270 },
     modal: {
@@ -93,7 +93,7 @@ export const COLLECTABLES = [
   },
   {
     key: "/assets/SS_cap_mini.png",
-    keyMiniature: "/assets/Icon_SS_cap.png",
+    keyMiniature: "/assets/Icon_ss_cap.png",
     setXY: { x: 2500, y: 100 },
     modal: {
       img: "https://acorazadobismarck.es/wp-content/uploads/2021/11/IMG_5578-scaled.jpg",
@@ -115,7 +115,7 @@ export const COLLECTABLES = [
   },
   {
     key: "/assets/Cane_mini.png",
-    keyMiniature: "/assets/Icon_Cane.png",
+    keyMiniature: "/assets/Icon_cane.png",
     setXY: { x: 2750, y: 2050 },
     modal: {
       img: "/assets/cane_org.png",
@@ -145,7 +145,7 @@ export const COLLECTABLES = [
   },
   {
     key: "/assets/Score_mini.png",
-    keyMiniature: "/assets/Icon_Score.png",
+    keyMiniature: "/assets/Icon_score.png",
     setXY: { x: 1600, y: 2656 },
     modal: {
       img: "/assets/score_org.png",

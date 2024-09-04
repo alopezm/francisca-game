@@ -12,7 +12,7 @@ const DEV_PLAYER_Y = 1450;
 // const DEV_PLAYER_X = 1700;
 // const DEV_PLAYER_Y = 750;
 
-const DEV_START_WITH_INTRO_SCENE = false;
+const DEV_START_WITH_INTRO_SCENE = true;
 
 
 // space between collectables

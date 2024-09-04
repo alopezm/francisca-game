@@ -65,6 +65,9 @@ export class BerlinScene extends BaseScene {
   create() {
     this.setupMusic();
 
+    BaseScene.numColletablesScenes = COLLECTABLES.filter((i) => i.scene).length;
+    BaseScene.numColletablesScenesDone = 0;
+
     this.cursors = this.input.keyboard.createCursorKeys();
     const floor = this.add.image(0, 0, "berlin_floor").setOrigin(0, 0);
 
@@ -206,7 +209,10 @@ export class BerlinScene extends BaseScene {
       this.animatePlayer();
       this.animateEnemy();
 
-      if (this.pickedCollectables.size === COLLECTABLES.length) {
+      if (
+        this.pickedCollectables.size === COLLECTABLES.length &&
+        BaseScene.numColletablesScenes === BaseScene.numColletablesScenesDone
+      ) {
         this.scene.start("angelous-scene");
       }
     }
@@ -283,7 +289,6 @@ export class BerlinScene extends BaseScene {
 
     if (scene) {
       this.scene.switch(scene);
-      this.scene.pause("berlin-scene");
     }
 
     if (modal) GameConfig.openModal(itemName);

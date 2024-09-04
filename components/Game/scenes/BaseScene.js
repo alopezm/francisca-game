@@ -3,6 +3,13 @@ import { GameConfig } from "../GameConfig";
 
 export class BaseScene extends Scene {
   static music;
+  static numColletablesScenes = 0;
+  static numColletablesScenesDone = 0;
+
+  completeCollectableScene() {
+    this.scene.switch("berlin-scene");
+    BaseScene.numColletablesScenesDone++;
+  }
 
   setupKeyEvents(key = "ENTER", cb) {
     if (!key) return;

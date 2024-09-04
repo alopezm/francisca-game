@@ -35,7 +35,7 @@ export class SpectreScene extends BaseScene {
       ++line;
 
       if (line === MESSAGES.length) {
-        this.scene.switch("berlin-scene");
+        this.completeCollectableScene();
       } else {
         text.setText(MESSAGES[line]);
       }

@@ -84,8 +84,12 @@ export class BerlinScene extends BaseScene {
     this.pickedCollectables = new Map();
     const collectablesToOpenDoorMap = new Map();
     this.collectablesToOpenDoorMap = collectablesToOpenDoorMap;
-    this.doorSideAClosed = this.statics.create(2480, 1510, "berlin_door");
-    this.doorSideBClosed = this.statics.create(2549, 1510, "berlin_door");
+    this.doorSideAClosed = this.statics.create(2459, 1510, "berlin_door");
+    this.doorSideBClosed = this.statics.create(
+      this.doorSideAClosed.x + this.doorSideAClosed.width + 6,
+      this.doorSideAClosed.y,
+      "berlin_door"
+    );
     this.doorSideBClosed.angle = 180;
     this.doorSideAOpened = this.statics
       .create(

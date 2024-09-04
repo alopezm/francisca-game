@@ -95,12 +95,12 @@ export const COLLECTABLES = [
     key: "/assets/newspaper_mini.png",
     keyMiniature: "/assets/Icon_newspaper.png",
     requiredToOpenDoor: true,
-    setXY: { x: 2200, y: 400 },
+    setXY: { x: 2100, y: 400 },
     modal: {
       img: "/assets/newspaper_org.png",
       title: "Berliner Illustrirte Zeitung",
       description:
-        "W. Benjamin: - ¿Un rumor sobre la estatua de la Berolina y el robo de los caballos de bronce de Hittler? Es dificil creer a ciegas en una sola fuente de informacion. Pero de ser cierto, Alemania se sigue enfrentando a cambios profundos...",
+        "W. Benjamin: - ¿Un rumor sobre la estatua de la Berolina y el robo de los caballos de bronce de Hittler? Es dificil creer a ciegas en una sola fuente de informacion. Pero de ser cierto, Berlín se sigue enfrentando a cambios profundos... total, ya lo decía Karl Schiffler, la tragedia de Berlín es la de “estar siempre en proceso de transformación sin llegar a ser nunca”",
     },
   },
   {
@@ -115,7 +115,18 @@ export const COLLECTABLES = [
         "“Un gran portal gótico se abrió aún más ampliamente. Detrás parecía haber un cuarto en penumbras. Desde los pasillos que desembocaban en esta pieza resonó una risa aguda.” Benjamin, Walter. “Schiller y Goethe”. En Historias desde la soledad y otras narraciones, Jorge Monteleone (Buenos Aires: El cuenco de plata, 2007), 155.",
     },
   },
-  
+  {
+    key: "/assets/certificate_mini.jpg",
+    keyMiniature: "/assets/Icon_certificate.jpg",
+    requiredToOpenDoor: true,
+    setXY: { x: 2910, y: 890 },
+    modal: {
+      img: "/assets/certificate_org.jpg",
+      title: "Salvoconducto / Acta de defuncion",
+      description:
+        "W. Benjamin: - “¡Un certificado de defunción! ¿Mi salvoconducto? ¡Qué ironía! Siempre he sido un hombre de libros, de ideas, sumergido en un mundo de símbolos y metáforas. Y ahora, la realidad me presenta una metáfora tan cruel y literal. Mi vida, mi obra, todo reducido a un simple documento que certifica mi ausencia. ¿Es mi destino ser consumido por el mismo monstruo histórico que tanto he estudiado? La paradoja es abrumadora. He huido de la barbarie, he buscado refugio en la memoria, y al final, es la propia historia la que me alcanza. "
+    },
+  },
   {
     key: "/assets/Cane_mini.png",
     keyMiniature: "/assets/Icon_cane.png",
@@ -181,7 +192,7 @@ export const COLLECTABLES = [
   {
     key: "/assets/Berolina_mini.png",
     keyMiniature: "/assets/Icon_Berolina_mini.png",
-    setXY: { x: 2250, y: 600 },
+    setXY: { x: 2400, y: 600 },
     scene: "berolina-scene",
   },
 ];

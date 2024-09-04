@@ -156,7 +156,7 @@ export const BUILDINGS = [
     key: "/assets/antiaircraft_mini.png",
     items: [
       {
-        setXY: { x: 2500, y: 900 }
+        setXY: { x: 2500, y: 970 }
       }
     ]
   },

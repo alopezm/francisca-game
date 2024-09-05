@@ -1,7 +1,7 @@
 import { BaseScene } from "./BaseScene";
 
 const MESSAGES = [
-  "El Alexanderplatz emula el mismo paisaje que has visto hasta ahora. Pero notas algo diferente…",
+  "El Alexanderplatz emula el mismo paisaje que ha visto hasta ahora. Pero nota algo diferente…",
   "W. Benjamin: ¿Dónde está la Berolina?...",
   "El pedestal de la Berolina está en ruinas, sin embargo no se puede distinguir el cobre de la efigie entre los escombros. Parece que no hubiese sido destruida por las bombas allí.",
   "La noticia parecia ser cierta: los rumores dicen que la Berolina fue refundida.",

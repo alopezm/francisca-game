@@ -1,7 +1,7 @@
 import { BaseScene } from "./BaseScene";
 
 const MESSAGES = [
-  "Las puertas de la casa se han abierto. Ahora puedes entrar.",
+  "Las puertas de la casa se han abierto. Ahora Benjamin puede entrar.",
 ];
 const IMAGE = "/assets/open-door-home.png";
 const SCENE_NAME = "door-open-scene";

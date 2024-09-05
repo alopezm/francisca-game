@@ -5,7 +5,7 @@ const MESSAGES = [
   "El bosque de Brandenburgo no es la diferencia, está abrasado completamente.",
   "W. Benjamin: - ¿A esto nos ha llevado la locura del nacionalsocialismo? …por un bigotón austriaco…",
   "W. Benjamin: La Berlín que conocía, palpitante de historia y cultura , se ha consumido por las llamas de la guerra y la sombra de la barbarie.",
-  "Misión: Busca el camino hacia el Alexanderplatz.",
+  "Misión: Buscar el camino hacia el Alexanderplatz.",
 ];
 const IMAGE = "/assets/Tank_org.png";
 const SCENE_NAME = "tank-scene";

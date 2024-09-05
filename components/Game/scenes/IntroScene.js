@@ -10,7 +10,7 @@ const MESSAGES = [
   "Abre los ojos...",
   "El último lugar en donde se encontraba era Portbou, pero esta destrucción no es propia de aquel villorrio hispano",
   "Walter Benjamin: - ¿Eso en el fondo, es la cuadriga de Brandenburgo?, ¿es esto Berlín, cuánta catástrofe ha sucedido aquí? La destrucción de mi ciudad natal es un golpe certero al corazón de mi civilización",
-  "Misión: Evitar a los soldados a toda costa, recoger los coleccionables a lo largo del mapa en búsqueda del salvoconducto que Walter Benjamin esperando.",
+  "Misión: Evitar a los soldados a toda costa, recoger los coleccionables a lo largo del mapa en búsqueda del salvoconducto que Walter Benjamin estaba esperando.",
 ];
 const NEXT_SCENE = "berlin-scene";
 const IMAGE = "/assets/benjamin.png";

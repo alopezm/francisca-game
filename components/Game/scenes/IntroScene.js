@@ -1,7 +1,7 @@
 import { BaseScene } from "./BaseScene";
 
 const MESSAGES = [
-  "Presione M para iniciar/pausar la musica\n\nPresione ↑ ↓ ← → para moverse\n\nPresione Enter para continuar",
+  "Presione M para iniciar/pausar la musica\n\nPresione ↑ ↓ ← → para moverse\n\nPresione Enter para continuar al siguiente diálogo o para volver al mapa tras recoger un objeto",
   "“Solo se llega a conocer un lugar cuando uno lo experimenta en el mayor número de dimensiones posibles.",
   "Para apropiarse de un lugar hay que haber llegado a este desde cada uno de los cuatro puntos cardinales, como también hay que haberlo abandonado en todas estas direcciones.",
   "Si no, uno se lo cruzará en el camino de manera inesperada tres, cuatro veces antes de estar preparado para dar con él.",
@@ -10,7 +10,7 @@ const MESSAGES = [
   "Abre los ojos...",
   "El último lugar en donde se encontraba era Portbou, pero esta destrucción no es propia de aquel villorrio hispano",
   "Walter Benjamin: - ¿Eso en el fondo, es la cuadriga de Brandenburgo?, ¿es esto Berlín, cuánta catástrofe ha sucedido aquí? La destrucción de mi ciudad natal es un golpe certero al corazón de mi civilización",
-  "Misión: Evita a los soldados a toda costa, recoge los coleccionables a lo largo del mapa en búsqueda del salvoconducto que estabas esperando.",
+  "Misión: Evitar a los soldados a toda costa, recoger los coleccionables a lo largo del mapa en búsqueda del salvoconducto que Walter Benjamin esperando.",
 ];
 const NEXT_SCENE = "berlin-scene";
 const IMAGE = "/assets/benjamin.png";

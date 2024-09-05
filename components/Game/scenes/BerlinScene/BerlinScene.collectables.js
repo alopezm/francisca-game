@@ -13,7 +13,6 @@ export const COLLECTABLES = [
   {
     key: "/assets/helmet-mini.png",
     keyMiniature: "/assets/Icon_Helmet.png",
-    requiredToOpenDoor: true,
     setXY: { x: 20, y: 2270 },
     modal: {
       img: "/assets/helmet-org.png",
@@ -25,7 +24,6 @@ export const COLLECTABLES = [
   {
     key: "/assets/propaganda_poster-mini.png",
     keyMiniature: "/assets/Icon_propaganda_poster.png",
-    requiredToOpenDoor: true,
     setXY: { x: 1370, y: 1970 },
     modal: {
       img: "/assets/propaganda_org.jpg",
@@ -59,7 +57,6 @@ export const COLLECTABLES = [
   {
     key: "/assets/nazi_eagle-mini.png",
     keyMiniature: "/assets/Icon_nazi_eagle.png",
-    requiredToOpenDoor: true,
     setXY: { x: 700, y: 350 },
     modal: {
       img: "/assets/nazi-eagle.jpg",
@@ -82,7 +79,6 @@ export const COLLECTABLES = [
   {
     key: "/assets/burned_books-mini.png",
     keyMiniature: "/assets/Icon_burned_books.png",
-    requiredToOpenDoor: true,
     setXY: { x: 1480, y: 550 },
     modal: {
       img: "https://encyclopedia.ushmm.org/images/large/313b44c6-eb01-4c86-9bc3-cf70d8bc991b.jpg",
@@ -94,19 +90,17 @@ export const COLLECTABLES = [
   {
     key: "/assets/newspaper_mini.png",
     keyMiniature: "/assets/Icon_newspaper.png",
-    requiredToOpenDoor: true,
     setXY: { x: 2100, y: 400 },
     modal: {
       img: "/assets/newspaper_org.png",
       title: "Berliner Illustrirte Zeitung",
       description:
-        "W. Benjamin: - ¿Un rumor sobre la estatua de la Berolina y el robo de los caballos de bronce de Hittler? Es dificil creer a ciegas en una sola fuente de informacion. Pero de ser cierto, Berlín se sigue enfrentando a cambios profundos... total, ya lo decía Karl Schiffler, la tragedia de Berlín es la de “estar siempre en proceso de transformación sin llegar a ser nunca”",
+        "W. Benjamin: - ¿Un rumor sobre la estatua de la Berolina y el robo de los caballos de bronce de Hitler? Es difícil creer a ciegas en una sola fuente de información. Pero de ser cierto, Berlín se sigue enfrentando a cambios profundos... total, ya lo decía Karl Schiffler, la tragedia de Berlín es la de “estar siempre en proceso de transformación sin llegar a ser nunca”",
     },
   },
   {
     key: "/assets/SS_cap_mini.png",
     keyMiniature: "/assets/Icon_ss_cap.png",
-    requiredToOpenDoor: true,
     setXY: { x: 2500, y: 100 },
     modal: {
       img: "/assets/ss_cap_org.png",
@@ -155,7 +149,7 @@ export const COLLECTABLES = [
     modal: {
       img: "/assets/score_org.png",
       title: "Partitura de la infancia",
-      description: "“¡Arriba, compañeros, a caballo, a caballo! ¡Corramos al campo, en pos de la libertad! En el combate, el hombre aún importa y todavía se valora el corazón”. W. Benjamin: - Parece que ahora sí entiendo aquellas palabras de la canción de caballería del Wallenstein. El señor Knoche tenía razón. “La tumba vacía y el corazón dispuesto, dos enigmas, cuya explicacion la vida seguirá debiéndome”.",
+      description: "“¡Arriba, compañeros, a caballo, a caballo! ¡Corramos al campo, en pos de la libertad! En el combate, el hombre aún importa y todavía se valora el corazón”. W. Benjamin: - Parece que ahora sí entiendo aquellas palabras de la canción de caballería del Wallenstein. El señor Knoche tenía razón. “La tumba vacía y el corazón dispuesto, dos enigmas, cuya explicación la vida seguirá debiéndome”.",
     },
   },
   {

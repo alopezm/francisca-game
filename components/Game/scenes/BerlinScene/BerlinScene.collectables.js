@@ -139,7 +139,7 @@ export const COLLECTABLES = [
     modal: {
       img: "/assets/schiller_book_org.png",
       title: "La cancion de la Campana, F. Schiller",
-      description: "W. Benjamin: - El libro de cabezera de mi madre. Guardian de secretos y susurros. Despliegan sus páginas el aroma a lavanda de mi infancia, las palabras parecen un abrazo tejido por la voz de mi madre",
+      description: "W. Benjamin: - El libro de cabecera de mi madre. Guardian de secretos y susurros. Despliegan sus páginas el aroma a lavanda de mi infancia, las palabras parecen un abrazo tejido por la voz de mi madre",
     },
   },
   {

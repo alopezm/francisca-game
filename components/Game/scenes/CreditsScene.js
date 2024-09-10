@@ -19,10 +19,10 @@ export class CreditsScene extends BaseScene {
     this.add.text(100, 770, "Francisca Jaramillo y Felipe Marín", style);
   
     this.add.text(100, 300, "Diseño:", style);
-    this.add.text(100, 370, "Francisca Jaramillo y Anderson López", style);
+    this.add.text(100, 370, "Ma. Francisca Jaramillo y Anderson López", style);
 
     this.add.text(100, 500, "Desarrollo:", style);
-    this.add.text(100, 570, "Anderson López y Francisca Jaramillo", style);
+    this.add.text(100, 570, "Anderson López y Ma. Francisca Jaramillo", style);
   
   }
 }

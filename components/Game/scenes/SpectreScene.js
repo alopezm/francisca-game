@@ -1,8 +1,8 @@
 import { BaseScene } from "./BaseScene";
 
 const MESSAGES = [
-  "Espectro: ¿Me recuerdas?  Soy aquella intrusa que un día tu pequeña mente confundió con un fantasma",
-  "Espectro: Antes de seguir tu camino más allá, aún debes recorrer algunos otros de tus pasos",
+  "Espectro: ¿Me recuerdas?  Soy aquella intrusa que un día tu pequeña mente confundió con un fantasma.",
+  "Espectro: Antes de seguir tu camino más allá, aún debes recorrer algunos otros de tus pasos.",
   "Misión: Explorar de hogar de la infancia. Recoger sus pasos",
 ];
 const IMAGE = "/assets/spectre_scene.png";

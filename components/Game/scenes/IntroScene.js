@@ -7,10 +7,11 @@ const MESSAGES = [
   "Si no, uno se lo cruzará en el camino de manera inesperada tres, cuatro veces antes de estar preparado para dar con él.",
   "En una fase posterior, uno lo busca, lo usa para orientarse.",
   "Sucede lo mismo con las casas. Sólo se alcanza a saber lo que contiene después de haber recorrido muchas otras en busca de una concreta.”",
+  "Walte Benjamin, Diario de Moscú 1926-1927",
   "Abre los ojos...",
   "El último lugar en donde se encontraba era Portbou, pero esta destrucción no es propia de aquel villorrio hispano",
-  "Walter Benjamin: - ¿Eso en el fondo, es la cuadriga de Brandenburgo?, ¿es esto Berlín, cuánta catástrofe ha sucedido aquí? La destrucción de mi ciudad natal es un golpe certero al corazón de mi civilización",
-  "Misión: Evitar a los soldados a toda costa, recoger los coleccionables a lo largo del mapa en búsqueda del salvoconducto que Walter Benjamin estaba esperando.",
+  "Walter Benjamin: - ¿Eso en el fondo, es la cuadriga de Brandenburgo?, ¿es esto Berlín, cuán catástrofe ha sucedido aquí? La destrucción de mi ciudad natal es un golpe certero al corazón de mi civilización.",
+  "Misión: Evitar a los soldados a toda costa y recoger los coleccionables a lo largo del mapa en búsqueda del salvoconducto que Walter Benjamin estaba esperando en Portbou.",
 ];
 const NEXT_SCENE = "berlin-scene";
 const IMAGE = "/assets/benjamin.png";

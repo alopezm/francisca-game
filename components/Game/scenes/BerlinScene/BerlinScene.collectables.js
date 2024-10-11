@@ -7,7 +7,7 @@ export const COLLECTABLES = [
       img: "https://www.yadvashem.org/sites/default/files/lesson6_08b.jpg",
       title: "Brazalete con la insignia",
       description:
-        "W. Benjamin: - Parece que los más desdichados recorrieron estos caminos. La creación de apologías basadas en prejuicios, terminan por ser fenómenos sociales de gran escala mediante prácticas sistemáticas de diversa índole y con distintos recursos. Así terminamos identificando odio y segregación en un pedazo de tela vieja y podrida",
+        "W. Benjamin: - Parece que los más desdichados recorrieron estos caminos. La creación de apologías basadas en prejuicios, terminan por ser fenómenos sociales de gran escala mediante prácticas sistemáticas de diversa índole y con distintos recursos. Así terminamos identificando odio y segregación en un pedazo de tela vieja y podrida.",
     },
   },
   {
@@ -95,7 +95,7 @@ export const COLLECTABLES = [
       img: "/assets/newspaper_org.png",
       title: "Berliner Illustrirte Zeitung",
       description:
-        "W. Benjamin: - ¿Un rumor sobre la estatua de la Berolina y el robo de los caballos de bronce de Hitler? Es difícil creer a ciegas en una sola fuente de información. Pero de ser cierto, Berlín se sigue enfrentando a cambios profundos... total, ya lo decía Karl Schiffler, la tragedia de Berlín es la de “estar siempre en proceso de transformación sin llegar a ser nunca”",
+        "W. Benjamin: - ¿Un rumor sobre la estatua de la Berolina y el robo de los caballos de bronce de Hitler? Es difícil creer a ciegas en una sola fuente de información. Pero de ser cierto, Berlín se sigue enfrentando a cambios profundos... total, ya lo decía Karl Schiffler, la tragedia de Berlín es la de “estar siempre en proceso de transformación sin llegar a ser nunca”.",
     },
   },
   {

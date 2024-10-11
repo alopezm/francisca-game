@@ -1,8 +1,8 @@
 import { BaseScene } from "./BaseScene";
 
 const MESSAGES = [
-"Al ángel le gustaría quedarse, despertar a los muertos, y reparar todo lo que se ha destruido.",
-"Pero una tempestad asalta desde el Paraíso, el viento se ha enredado en las alas del ángel con tanta violencia que ya no puede cerrarlas", 
+"“Al ángel le gustaría quedarse, despertar a los muertos, y reparar todo lo que se ha destruido.",
+"Pero una tempestad asalta desde el Paraíso, el viento se ha enredado en las alas del ángel con tanta violencia que ya no puede cerrarlas...”", 
 "...", 
 "Benjamin ha encontrado la paz.",
 ];
